@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 13:37:12 by kpires            #+#    #+#             */
-/*   Updated: 2023/11/07 15:22:04 by kpires           ###   ########.fr       */
+/*   Updated: 2023/11/09 13:43:20 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memmove(void	*destination, const void	*source, size_t num )
 		return (destination);
 	s = (const char *)source;
 	d = (char *)destination;
-	if (s < d)
+	if (d < s)
 	{
 		while (num--)
 			d[num] = s[num];
@@ -32,7 +32,7 @@ void	*ft_memmove(void	*destination, const void	*source, size_t num )
 	return (destination);
 }
 
-/*
+
 #include <stdio.h>
 #include <string.h>
 
@@ -51,4 +51,3 @@ int main ()
   puts (str2);
   return 0;
 }
-*/

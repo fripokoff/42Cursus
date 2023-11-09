@@ -6,43 +6,48 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 14:21:25 by kpires            #+#    #+#             */
-/*   Updated: 2023/11/08 20:11:33 by kpires           ###   ########.fr       */
+/*   Updated: 2023/11/09 13:09:43 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+//#include "libft.h"
 #include <stdio.h>
 #include <string.h>
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	unsigned long	i;
+	unsigned int	i;
 	int				j;
 
-	j = 0;
-	i = 0;
 	if (!*needle)
 		return ((char *)haystack);
+	i = 0;
+	j = 0;
 	while (haystack[i])
 	{
-		j = 0;
-		while (haystack[i] == needle[j] && haystack[i] && i < len)
+		if (haystack[i] == needle[j] && haystack[i] && i < len)
 		{
 			i++;
 			j++;
 		}
 		if (!needle[j])
 			return ((char *)&haystack[i - j]);
-		i = (i - j) + 1;
+		i = i - j + 1;
 	}
 	return (NULL);
 }
 
+/*
 int main () {
   const char haystack[20] = "TutorialsPoint";
-   const char needle[10] = "to";
+   const char needle[10] = "";
   char *result;
+  char *result2;
 
-   result = ft_strnstr(haystack, needle, 4);
+   result2 = ft_strnstr(haystack, needle, 4);
+   printf("The substring is: %s\n", result2);
+   result = strnstr(haystack, needle, 4);
    printf("The substring is: %s\n", result);
    return(0);
  }
+ */

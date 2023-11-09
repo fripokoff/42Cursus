@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 17:32:43 by kpires            #+#    #+#             */
-/*   Updated: 2023/11/07 15:21:38 by kpires           ###   ########.fr       */
+/*   Updated: 2023/11/09 11:34:31 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isascii(int c)
+int	ft_isalpha(int c)
 {
-	return (c >= 0 && c <= 127);
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+		return (1);
+	return (0);
 }
+
+/*
+#include "stdio.h"
+int	main()
+{
+	printf( " result : %d" ,ft_isalpha('a'));
+	return (0);
+}*/

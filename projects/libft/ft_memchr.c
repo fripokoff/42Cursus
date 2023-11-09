@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 09:59:14 by kpires            #+#    #+#             */
-/*   Updated: 2023/11/07 15:21:51 by kpires           ###   ########.fr       */
+/*   Updated: 2023/11/09 13:26:32 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	while (i < n)
 	{
 		if (str[i] == c)
-			return ((char *)s + i);
+			return ((char *)&str[i]);
 		i++;
 	}
 	return (NULL);
 }
 
-/*
+
 #include <stdio.h>
 #include <string.h>
 int main(void)
@@ -45,4 +45,3 @@ int main(void)
     }
     return 0;
 }
-*/

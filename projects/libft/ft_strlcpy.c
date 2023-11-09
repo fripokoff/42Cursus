@@ -6,9 +6,11 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 12:19:18 by kpires            #+#    #+#             */
-/*   Updated: 2023/11/08 12:49:22 by kpires           ###   ########.fr       */
+/*   Updated: 2023/11/09 13:21:11 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 size_t	ft_strlcpy(char	*dst, const char	*src, size_t	size)
 {
@@ -17,9 +19,9 @@ size_t	ft_strlcpy(char	*dst, const char	*src, size_t	size)
 	i = 0;
 	if (!dst || !src)
 		return (0);
-	if (size > 0)
+	if (i < size)
 	{
-		while (--size && src[i])
+		while (src[i])
 		{
 			dst[i] = src[i];
 			i++;
@@ -30,7 +32,7 @@ size_t	ft_strlcpy(char	*dst, const char	*src, size_t	size)
 		i++;
 	return (i);
 }
-/*
+
 #include <stdio.h>
 #include <string.h>
 
@@ -42,4 +44,4 @@ int main()
 	printf("hello %s", var1);
 	return (0);
 }
-*/
+

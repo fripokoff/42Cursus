@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 17:32:43 by kpires            #+#    #+#             */
-/*   Updated: 2023/11/07 15:21:35 by kpires           ###   ########.fr       */
+/*   Updated: 2023/11/09 11:34:23 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int c)
+int	ft_isalnum(int c)
 {
-	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
+	if ((c >= '0' && c <= '9') || (c >= 'a' && c <= 'Z')
+		|| (c >= 'A' && c <= 'Z'))
+		return (1);
+	return (0);
 }
+
+/*
+#include "stdio.h"
+int	main()
+{
+	printf( " result : %d" ,ft_isalnum('a'));
+	return (0);
+}*/

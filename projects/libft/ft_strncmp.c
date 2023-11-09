@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 21:37:57 by kpires            #+#    #+#             */
-/*   Updated: 2023/11/07 15:22:38 by kpires           ###   ########.fr       */
+/*   Updated: 2023/11/09 12:21:12 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	i = 0;
 	if (n == 0)
 		return (0);
-	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0' && i < n - 1)
+	while (s1[i] == s2[i] && s1[i] && s2[i] && i < n - 1)
 		i++;
 	return (s1[i] - s2[i]);
 }
@@ -28,8 +28,8 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 #include <stdio.h>
 #include <string.h>
 int main() {
-  const char *s1 = "Hello, a";
-  const char *s2 = "Hello, b";
+  const char *s1 = "Hello, c";
+  const char *s2 = "Hello, c";
 
   int r = strncmp(s1, s2, 20);
 

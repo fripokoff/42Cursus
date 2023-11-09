@@ -1,41 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 21:06:11 by kpires            #+#    #+#             */
-/*   Updated: 2023/11/07 15:22:45 by kpires           ###   ########.fr       */
+/*   Created: 2023/11/06 17:32:43 by kpires            #+#    #+#             */
+/*   Updated: 2023/11/09 13:05:25 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+int	ft_isdigit(int c)
 {
-	int	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	while (s[--i])
-		if (s[i] == c)
-			return ((char *)s + i);
+	if (c >= '0' && c <= '9')
+		return (1);
 	return (0);
 }
 
 /*
-#include <unistd.h>
+#include "stdio.h"
 int	main()
 {
-	char	*str;
-	char	*i;
-
-	str = "abcdefafdp";
-	i = ft_strrchr(str , 'a');
-	write(1, i, 1);
-	write(1, "\n", 1);
+	printf( " result : %d" ,ft_isdigit('0'));
 	return (0);
-}
-*/
+}*/
