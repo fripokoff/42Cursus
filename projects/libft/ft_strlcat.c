@@ -10,31 +10,37 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
+{
+	char	*s;
+	size_t	i;
+	size_t	temp;
+	size_t	srclen;
+	size_t	dstlen;
+
+	i = 0;
+	temp = 0;
+	srclen = ft_strlen(src);
+	dstlen = ft_strlen(dst);
+	s = (char *)src;
+	if (size > dstlen)
+		temp = srclen + dstlen;
+	else
+		temp = size + srclen;
+	while (s[i] && (dstlen + 1) < size)
+	{
+		dst[dstlen] = s[i];
+		dstlen++;
+		i++;
+	}
+	dst[dstlen] = '\0';
+	return (temp);
+}
+/*
 #include <stdio.h>
 #include <string.h>
-
-size_t	ft_strlcat(char	*dst, const char	*src, size_t	size)
-{
-	char			*dest;
-	const char		*source;
-	size_t			i;
-	size_t			dlen;
-
-	dest = dst;
-	source = src;
-	source++;
-	i = size;
-	while (--i && *dest)
-		dest++;
-	dlen = dest - dst;
-	i = size - i;
-	if (i == 0)
-		return (dlen - source);
-	printf("dlen %ld \n", dlen);
-	printf("size %ld \n", i);
-	return (dlen);
-}
-
 int	main(void)
 {
 	char	dst[10];
@@ -48,3 +54,4 @@ int	main(void)
 	printf("La longueur de la chaîne concaténée est : %d\n", len);
 	return (0);
 }
+*/

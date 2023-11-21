@@ -21,27 +21,21 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	str = (unsigned char *)s;
 	while (i < n)
 	{
-		if (str[i] == c)
-			return ((char *)&str[i]);
+		if (str[i] == (unsigned char)c)
+			return (&str[i]);
 		i++;
 	}
 	return (NULL);
 }
 
-
+/*
 #include <stdio.h>
 #include <string.h>
 int main(void)
 {
 	
-    const char str[] = "ABCDEFG";
-    const int chars[] = {'D', 'd'};
-    for (size_t i = 0; i < sizeof chars / (sizeof chars[0]); ++i)
-    {
-        const int c = chars[i];   
-        const char *ps = ft_memchr(str, c, strlen(str));
-        ps ? printf ("character '%c'(%i) found: %s\n", c, c, ps)
-           : printf ("character '%c'(%i) not found\n", c, c);
-    }
-    return 0;
+    int tab[7] = {-49, 49, 1, -1, 0, -2, 2};
+    printf("%s", (char *)ft_memchr(tab, 0, 7));
+   return 0;
 }
+*/

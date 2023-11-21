@@ -14,25 +14,28 @@
 
 void	*ft_memmove(void	*destination, const void	*source, size_t num )
 {
-	const char	*s;
-	char		*d;
+	char	*s;
+	char	*d;
+	size_t	i;
 
-	if (destination == source)
-		return (destination);
-	s = (const char *)source;
+	s = (char *)source;
 	d = (char *)destination;
-	if (d < s)
-	{
-		while (num--)
+	i = 0;
+	if (d > s)
+		while (num-- > 0)
 			d[num] = s[num];
-		return (destination);
+	else
+	{
+		while (i < num)
+		{
+			d[i] = s[i];
+			i++;
+		}
 	}
-	while (num--)
-		*d++ = *s++;
 	return (destination);
 }
 
-
+/*
 #include <stdio.h>
 #include <string.h>
 
@@ -51,3 +54,4 @@ int main ()
   puts (str2);
   return 0;
 }
+*/

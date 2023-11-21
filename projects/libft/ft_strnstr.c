@@ -10,43 +10,43 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "libft.h"
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 {
 	unsigned int	i;
 	int				j;
 
-	if (!*needle)
-		return ((char *)haystack);
+	if (!*s2)
+		return ((char *)s1);
 	i = 0;
 	j = 0;
-	while (haystack[i])
+	while (s1[i])
 	{
-		if (haystack[i] == needle[j] && haystack[i] && i < len)
+		if (s1[i] == s2[j] && s1[i] && i < len)
 		{
 			i++;
 			j++;
 		}
-		if (!needle[j])
-			return ((char *)&haystack[i - j]);
+		if (!s2[j])
+			return ((char *)&s1[i - j]);
 		i = i - j + 1;
 	}
 	return (NULL);
 }
 
 /*
+#include <stdio.h>
+#include <string.h>
 int main () {
-  const char haystack[20] = "TutorialsPoint";
-   const char needle[10] = "";
+  const char s1[20] = "TutorialsPoint";
+   const char s2[10] = "";
   char *result;
   char *result2;
 
-   result2 = ft_strnstr(haystack, needle, 4);
+   result2 = ft_strnstr(s1, s2, 4);
    printf("The substring is: %s\n", result2);
-   result = strnstr(haystack, needle, 4);
+   result = strnstr(s1, s2, 4);
    printf("The substring is: %s\n", result);
    return(0);
  }
