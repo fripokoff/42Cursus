@@ -12,31 +12,41 @@
 
 #include "libft.h"
 
+static int	ft_check(int signe, long long int check, long long int val)
+{
+	if (val > check && signe < 0)
+		return (0);
+	if (val < check && signe > 0)
+		return (-1);
+	return (val);
+}
+
 int	ft_atoi(const char	*nptr )
 {
-	int	i;
-	int	val;
-	int	minus;
+	int				i;
+	long long int	val;
+	int				signe;
+	long long int	check;
 
 	i = 0;
 	val = 0;
-	minus = 1;
-	while (nptr[i] == ' ' || (nptr[i] >= '\r' && nptr[i] <= '\t'))
+	signe = 1;
+	while (nptr[i] == ' ' || (nptr[i] >= '\t' && nptr[i] <= '\r'))
 		i++;
-	while (nptr[i] == '-' || nptr[i] == '+' )
+	if (nptr[i] == '-' || nptr[i] == '+' )
 	{
-		if (minus > 1 || minus < 0)
-			return (0);
 		if (nptr[i] == '-')
-			minus = -1;
+			signe = -1;
 		i++;
 	}
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
-		val = val * 10 + (nptr[i] - '0');
+		check = val;
+		val = val * 10 + signe * (nptr[i] - '0');
+		ft_check(signe, check, val);
 		i++;
 	}
-	return (val * minus);
+	return (val);
 }
 
 /*
