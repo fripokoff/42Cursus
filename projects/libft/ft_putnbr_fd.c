@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fripok <fripok@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 17:32:43 by kpires            #+#    #+#             */
-/*   Updated: 2023/11/09 11:34:31 by kpires           ###   ########.fr       */
+/*   Created: 2023/11/28 17:03:57 by fripok            #+#    #+#             */
+/*   Updated: 2023/11/28 17:11:32 by fripok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int c)
+void	ft_putnbr_fd(int n, int fd)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-		return (1);
-	return (0);
-}
+	int	div;
+	int	mod;
 
-/*
-#include "stdio.h"
-int	main()
-{
-	printf( " result : %d" ,ft_isalpha('a'));
-	return (0);
-}*/
+	div = n / 10;
+	mod = n % 10;
+	if (div)
+		ft_putnbr_fd(div, fd);
+	if (n < 0)
+	{
+		mod = -mod;
+		if (!div)
+			write(fd, "-", 1);
+	}
+	mod = mod + '0';
+	write(fd, &mod, 1);
+}

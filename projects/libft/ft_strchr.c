@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 21:06:11 by kpires            #+#    #+#             */
-/*   Updated: 2023/11/07 15:22:32 by kpires           ###   ########.fr       */
+/*   Updated: 2023/11/23 12:01:46 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,10 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	int	i;
-
-	i = 0;
-	while (s[i] != (char)c)
-		if (!s[i++])
+	while (*s != (char)c)
+		if (!*s++)
 			return (0);
-	return ((char *)&s[i]);
+	return ((char *)s);
 }
 
 /*

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fripok <fripok@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 13:37:12 by kpires            #+#    #+#             */
-/*   Updated: 2023/11/09 13:43:20 by kpires           ###   ########.fr       */
+/*   Updated: 2023/11/28 17:27:31 by fripok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_memmove(void	*destination, const void	*source, size_t num )
 	char	*d;
 	size_t	i;
 
+	if (!destination && !source)
+		return (NULL);
 	s = (char *)source;
 	d = (char *)destination;
 	i = 0;

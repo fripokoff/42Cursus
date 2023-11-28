@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fripok <fripok@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 14:30:40 by kpires            #+#    #+#             */
-/*   Updated: 2023/11/09 13:06:10 by kpires           ###   ########.fr       */
+/*   Updated: 2023/11/28 17:06:50 by fripok           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <unistd.h>
 # include <stdlib.h>
+# include <unistd.h>
 
 typedef struct s_list
 {
@@ -40,11 +40,21 @@ int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					ft_atoi(const char *nptr);
 size_t				ft_strlen(const char *s);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
-size_t				ft_strlcpy(char	*dst, const char *src, size_t size);
-
+size_t				ft_strlcpy(char *dst, const char *src, size_t size);
+char				*ft_strjoin(char const *s1, char const *s2);
+char				*ft_strtrim(char const *s1, char const *set);
 char				*ft_strnstr(const char *s1, const char *s2, size_t n);
-
+char				*ft_strdup(const char *s);
 char				*ft_strchr(const char *s, int c);
 char				*ft_strrchr(const char *s, int c);
-
+char				*ft_substr(char const *s, unsigned int start, size_t len);
+void				*ft_calloc(size_t nmemb, size_t size);
+char				**ft_split(char const *s, char c);
+char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+void				*ft_calloc(size_t elementCount, size_t elementSize);
+void				ft_putchar_fd(char c, int fd);
+void				ft_putstr_fd(char *s, int fd);
+void				ft_putendl_fd(char *s, int fd);
+void				ft_putnbr_fd(int n, int fd);
+void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 #endif
