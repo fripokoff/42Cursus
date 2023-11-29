@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fripok <fripok@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 17:44:49 by kpires            #+#    #+#             */
-/*   Updated: 2023/11/28 12:24:07 by fripok           ###   ########.fr       */
+/*   Updated: 2023/11/29 17:47:35 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,3 +87,49 @@ char	**ft_split(char const *s, char c)
 	split[j] = 0;
 	return (split);
 }
+/*
+** #include <stdio.h>
+** #include <stdlib.h>
+** #include <string.h>
+** 
+** size_t	ft_strlen(const char *c)
+** {
+** 	size_t	i;
+** 
+** 	i = 0;
+** 	while (c[i])
+** 		i++;
+** 	return (i);
+** }
+** 
+** int	main(void)
+** {
+** 	char	*str;
+** 	char	**split_str;
+** 
+** 	str = "";
+** 	split_str = ft_split(str, ' ');
+** 	printf("La chaîne de caractères est vide : %s\n",
+** 		split_str == NULL ? "oui" : "non");
+** 	str = "Bonjour, monde !";
+** 	split_str = ft_split(str, ' ');
+** 	printf("La chaîne de caractères ne contient qu'un seul mot : %s\n",
+** 		split_str != NULL ? "oui" : "non");
+** 	printf("Le mot est : %s\n", split_str[0]);
+** 	str = "Bonjour, monde ! C'estf un beau jour.";
+** 	split_str = ft_split(str, ' ');
+** 	printf("La chaîne de caractères contient plusieurs mots : %s\n",
+** 		split_str != NULL ? "oui" : "non");
+** 	printf("Le premier mot est : %s\n", split_str[0]);
+** 	printf("Le deuxième mot est : %s\n", split_str[1]);
+** 	str = "Bonjour, monde !";
+** 	split_str = ft_split(str, '\0');
+** 	printf("Le délimiteur est nul : %s\n", split_str == NULL ? "oui" : "non");
+** 	str = "Bonjour, monde !";
+** 	split_str = ft_split(str, '!');
+** 	printf("Le délimiteur n'est pas présent dans la chaîne de caractères :
+** 		%s\n", split_str != NULL ? "oui" : "non");
+** 	printf("Le mot est : %s\n", split_str[0]);
+** 	return (0);
+** }
+*/

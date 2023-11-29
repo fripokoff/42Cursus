@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fripok <fripok@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/28 17:00:30 by fripok            #+#    #+#             */
-/*   Updated: 2023/11/28 17:03:38 by fripok           ###   ########.fr       */
+/*   Created: 2023/11/28 17:00:30 by kpires            #+#    #+#             */
+/*   Updated: 2023/11/29 17:39:17 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,3 +24,11 @@ void	ft_putendl_fd(char *s, int fd)
 	}
 	write(fd, "\n", 1);
 }
+/*
+** #include <unistd.h>
+** 
+** int main() {
+**   ft_putendl_fd("s",2);
+**   return 0;
+** }
+*/

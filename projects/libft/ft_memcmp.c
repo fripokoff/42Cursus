@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 10:41:11 by kpires            #+#    #+#             */
-/*   Updated: 2023/11/07 15:21:55 by kpires           ###   ########.fr       */
+/*   Updated: 2023/11/29 17:31:10 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,21 +31,21 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 }
 
 /*
-#include <stdio.h>
-#include <string.h>
-int main ()
-{
-  char buffer1[] = "DWGAOTP12DF0";
-  char buffer2[] = "DWGaOTP12DF0";
-
-  int n;
-
-  n=ft_memcmp ( buffer1, buffer2, sizeof(buffer1) );
-
-  if (n>0) printf ("'%s' is greater than '%s'.\n",buffer1,buffer2);
-  else if (n<0) printf ("'%s' is less than '%s'.\n",buffer1,buffer2);
-  else printf ("'%s' is the same as '%s'.\n",buffer1,buffer2);
-
-  return 0;
-}
+** #include <stdio.h>
+** #include <string.h>
+** int main ()
+** {
+**   char buffer1[] = "DWGAOTP12DF0";
+**   char buffer2[] = "DWGaOTP12DF0";
+** 
+**   int n;
+** 
+**   n=ft_memcmp ( buffer1, buffer2, sizeof(buffer1) );
+** 
+**   if (n>0) printf ("'%s' is greater than '%s'.\n",buffer1,buffer2);
+**   else if (n<0) printf ("'%s' is less than '%s'.\n",buffer1,buffer2);
+**   else printf ("'%s' is the same as '%s'.\n",buffer1,buffer2);
+** 
+**   return 0;
+** }
 */

@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 15:24:41 by kpires            #+#    #+#             */
-/*   Updated: 2023/11/27 17:28:56 by kpires           ###   ########.fr       */
+/*   Updated: 2023/11/29 17:10:00 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,36 @@ void	*ft_calloc( size_t nmemb, size_t size )
 }
 
 /*
-#include "stdio.h"
-int	main(){
-	ft_calloc(0,1);
-	return 0;
-}*/
+** #include <stdlib.h>
+** #include <unistd.h>
+** 
+** void	*ft_memset(void *s, int c, size_t n)
+** 
+** {
+** 	unsigned char	*str;
+** 	size_t			i;
+** 
+** 	i = 0;
+** 	str = (unsigned char *)s;
+** 	while (i < n)
+** 		str[i++] = (unsigned char)c;
+** 	return (s);
+** }
+** 
+** void	ft_bzero(void *s, size_t n)
+** {
+** 	ft_memset(s, '\0', n);
+** }
+** 
+** int		main(void)
+** {
+** 	char	*str;
+** 
+** 	str = (char *)ft_calloc(30, 1);
+** 	if (!str)
+** 		write(1, "NULL", 4);
+** 	else
+** 		write(1, "OK", 2);
+** return (0);
+** }
+*/

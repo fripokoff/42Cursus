@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fripok <fripok@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/28 16:54:03 by fripok            #+#    #+#             */
-/*   Updated: 2023/11/28 17:01:28 by fripok           ###   ########.fr       */
+/*   Created: 2023/11/28 16:54:03 by kpires            #+#    #+#             */
+/*   Updated: 2023/11/29 17:41:13 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,3 +23,11 @@ void	ft_putstr_fd(char *s, int fd)
 		i++;
 	}
 }
+/*
+** #include <unistd.h>
+** 
+** int main() {
+**   ft_putstr_fd("salut",2);
+**   return 0;
+** }
+*/

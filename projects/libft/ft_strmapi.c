@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fripok <fripok@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/28 15:09:06 by fripok            #+#    #+#             */
-/*   Updated: 2023/11/28 15:52:24 by fripok           ###   ########.fr       */
+/*   Created: 2023/11/28 15:09:06 by kpires            #+#    #+#             */
+/*   Updated: 2023/11/29 18:14:40 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,3 +31,37 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	str[i] = 0;
 	return (str);
 }
+/*
+** #include <stdio.h>
+** #include <string.h>
+** 
+** size_t	ft_strlen(const char *c)
+** {
+** 	size_t	i;
+** 
+** 	i = 0;
+** 	while (c[i])
+** 		i++;
+** 	return (i);
+** }
+** 
+** char to_uppercase(unsigned int i, char c) {
+**   if (c >= 'a' && c <= 'z') {
+**     c -= 32 + i;
+**   }
+**   return c;
+** }
+** 
+** int main() {
+**   char *str = "Bonjour, monde !";
+**   char *mapped_str = ft_strmapi(str, to_uppercase);
+** 
+**   if (mapped_str != NULL) {
+**     printf("The mapped string is: %s\n", mapped_str);
+**   } else {
+**     printf("Error: The mapped string is NULL.\n");
+**   }
+** 
+**   return 0;
+** }
+*/

@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 17:32:43 by kpires            #+#    #+#             */
-/*   Updated: 2023/11/09 13:05:25 by kpires           ###   ########.fr       */
+/*   Updated: 2023/11/29 17:10:07 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,13 @@ int	ft_isdigit(int c)
 }
 
 /*
-#include "stdio.h"
-int	main()
-{
-	printf( " result : %d" ,ft_isdigit('0'));
-	return (0);
-}*/
+** #include <stdio.h>
+** #include <stdlib.h>
+** int		main(int argc, const char *argv[])
+** {
+** 	if (argc == 1)
+** 		return (0);
+** 	printf( " result : %d" ,ft_isdigit(atoi(argv[1])));
+** 	return (0);
+** }
+*/

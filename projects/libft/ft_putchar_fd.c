@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fripok <fripok@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/28 16:30:12 by fripok            #+#    #+#             */
-/*   Updated: 2023/11/28 16:53:30 by fripok           ###   ########.fr       */
+/*   Created: 2023/11/28 16:30:12 by kpires            #+#    #+#             */
+/*   Updated: 2023/11/29 17:38:19 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,3 +16,11 @@ void	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
 }
+/*
+** #include <unistd.h>
+** 
+** int main() {
+**   ft_putchar_fd('s',2);
+**   return 0;
+** }
+*/

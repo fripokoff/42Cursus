@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fripok <fripok@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/28 12:16:42 by fripok            #+#    #+#             */
-/*   Updated: 2023/11/28 15:09:52 by fripok           ###   ########.fr       */
+/*   Created: 2023/11/28 12:16:42 by kpires            #+#    #+#             */
+/*   Updated: 2023/11/29 17:34:51 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,3 +67,22 @@ char	*ft_itoa(int n)
 	s[count] = 0;
 	return (s);
 }
+
+/*
+** #include <stdio.h>
+** #include <stdlib.h>
+** 
+** int	main(void)
+** {
+** 	printf("%s\n", ft_itoa(0));
+** 	printf("%s\n", ft_itoa(-5));
+** 	printf("%s\n", ft_itoa(10));
+** 	printf("%s\n", ft_itoa(-15));
+** 	printf("%s\n", ft_itoa(8747));
+** 	printf("%s\n", ft_itoa(-8574));
+** 	printf("%s\n", ft_itoa(500000));
+** 	printf("%s\n", ft_itoa(-2147483648LL));
+** 	printf("%s\n", ft_itoa(2147483647));
+** 	return (0);
+** }
+*/

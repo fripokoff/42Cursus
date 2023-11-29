@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fripok <fripok@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/28 15:53:03 by fripok            #+#    #+#             */
-/*   Updated: 2023/11/28 16:28:28 by fripok           ###   ########.fr       */
+/*   Created: 2023/11/28 15:53:03 by kpires            #+#    #+#             */
+/*   Updated: 2023/11/29 17:59:30 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,3 +26,18 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 		}
 	}
 }
+/*
+** #include <stdio.h>
+** #include <string.h>
+** 
+**  void afficher_caractere(unsigned int i, char *c) {
+**     printf("[%d] = %c\n", i, *c);
+**   }
+** 
+** int main() {
+**   char str[] = "Bonjour, monde !";
+**   ft_striteri(str, afficher_caractere);
+**   printf("\n");
+**   return 0;
+** }
+*/

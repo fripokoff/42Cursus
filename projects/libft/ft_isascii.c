@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 17:32:43 by kpires            #+#    #+#             */
-/*   Updated: 2023/11/09 11:29:04 by kpires           ###   ########.fr       */
+/*   Updated: 2023/11/29 17:10:05 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,13 @@ int	ft_isascii(int c)
 }
 
 /*
-#include "stdio.h"
-int	main()
-{
-	printf( " result : %d" ,ft_isascii(127));
-	return (0);
-}*/
+** #include <stdio.h>
+** #include <stdlib.h>
+** int		main(int argc, const char *argv[])
+** {
+** 	if (argc == 1)
+** 		return (0);
+** 	printf( " result : %d" ,ft_isascii(atoi(argv[1])));
+** 	return (0);
+** }
+*/

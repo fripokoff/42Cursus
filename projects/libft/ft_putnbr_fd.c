@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fripok <fripok@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/28 17:03:57 by fripok            #+#    #+#             */
-/*   Updated: 2023/11/28 17:11:32 by fripok           ###   ########.fr       */
+/*   Created: 2023/11/28 17:03:57 by kpires            #+#    #+#             */
+/*   Updated: 2023/11/29 17:40:41 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,3 +30,11 @@ void	ft_putnbr_fd(int n, int fd)
 	mod = mod + '0';
 	write(fd, &mod, 1);
 }
+/*
+** #include <unistd.h>
+** 
+** int main() {
+**   ft_putnbr_fd(451485485,2);
+**   return 0;
+** }
+*/

@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 11:36:00 by kpires            #+#    #+#             */
-/*   Updated: 2023/11/23 16:58:00 by kpires           ###   ########.fr       */
+/*   Updated: 2023/11/29 17:09:56 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,12 @@ int	ft_atoi(const char	*nptr )
 }
 
 /*
-#include <stdlib.h>
-#include <stdio.h>
-int	main(int ac, char **av)
-{
-	(void)ac;
-	printf("atoi = %d \n",atoi(av[1]));
-	printf("ft_atoi = %d \n",ft_atoi(av[1]));
-}
+** #include <stdlib.h>
+** #include <stdio.h>
+** int	main(int ac, char **av)
+** {
+** 	(void)ac;
+** 	printf("atoi = %d \n",atoi(av[1]));
+** 	printf("ft_atoi = %d \n",ft_atoi(av[1]));
+** }
 */

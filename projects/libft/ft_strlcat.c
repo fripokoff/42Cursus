@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 12:41:12 by kpires            #+#    #+#             */
-/*   Updated: 2023/11/23 12:02:18 by kpires           ###   ########.fr       */
+/*   Updated: 2023/11/29 18:13:40 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,19 +37,19 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	return (temp);
 }
 /*
-#include <stdio.h>
-#include <string.h>
-int	main(void)
-{
-	char	dst[10];
-	char	src[];
-	int		len;
-
-	src = "world!";
-	dst = "Hello, ";
-	len = ft_strlcat(dst, src, sizeof(dst));
-	printf("La chaîne concaténée est : %s\n", dst);
-	printf("La longueur de la chaîne concaténée est : %d\n", len);
-	return (0);
-}
+** #include <stdio.h>
+** #include <string.h>
+** int	main(void)
+** {
+** 	char	dst[10];
+** 	char	src[];
+** 	int		len;
+** 
+** 	src = "world!";
+** 	dst = "Hello, ";
+** 	len = ft_strlcat(dst, src, sizeof(dst));
+** 	printf("La chaîne concaténée est : %s\n", dst);
+** 	printf("La longueur de la chaîne concaténée est : %d\n", len);
+** 	return (0);
+** }
 */

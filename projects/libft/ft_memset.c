@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 17:32:43 by kpires            #+#    #+#             */
-/*   Updated: 2023/11/23 14:40:45 by kpires           ###   ########.fr       */
+/*   Updated: 2023/11/29 17:36:08 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,27 +26,15 @@ void	*ft_memset(void *s, int c, size_t n)
 }
 
 /*
-int main()
-{
-  char str[10];
-
-  // Remplit la chaîne avec le caractère 'a'.
-  ft_memset(str, 127, sizeof(str));
-
-  // Imprime la chaîne.
-  printf("%s\n", str);
-
-  return 0;
-}int main()
-{
-  char str[10];
-
-  // Remplit la chaîne avec le caractère 'a'.
-  ft_memset(str, 127, sizeof(str));
-
-  // Imprime la chaîne.
-  printf("%s\n", str);
-
-  return 0;
-}
+** #include <stdio.h>
+** int main()
+** {
+**   char str[10];
+** 
+**   ft_memset(str, 'a', sizeof(str));
+** 
+**   printf("%s\n", str);
+** 
+**   return 0;
+** }
 */

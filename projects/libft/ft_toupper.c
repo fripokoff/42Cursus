@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 20:44:33 by kpires            #+#    #+#             */
-/*   Updated: 2023/11/07 15:22:51 by kpires           ###   ########.fr       */
+/*   Updated: 2023/11/29 17:59:59 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,17 @@ int	ft_toupper( int c )
 		c -= 32;
 	return (c);
 }
-
 /*
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <ctype.h>
-int	main()
-{
-	char	upthis;
-
-	upthis = '$';
-	upthis = ft_toupper(upthis);
-	printf("Upped : %s\n" , &upthis);
-        return (0);
-}
+** #include <stdio.h>
+** #include <stdlib.h>
+** #include <ctype.h>
+** int	main()
+** {
+** 	char	upthis;
+** 
+** 	upthis = '$';
+** 	upthis = ft_toupper(upthis);
+** 	printf("Upped : %s\n" , &upthis);
+**         return (0);
+** }
 */

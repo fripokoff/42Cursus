@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fripok <fripok@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 13:37:12 by kpires            #+#    #+#             */
-/*   Updated: 2023/11/28 17:27:31 by fripok           ###   ########.fr       */
+/*   Updated: 2023/11/29 17:29:58 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,22 +38,23 @@ void	*ft_memmove(void	*destination, const void	*source, size_t num )
 }
 
 /*
-#include <stdio.h>
-#include <string.h>
-
-int main ()
-{
-	int	s1 = 10;
-	int s2 = 15;
-	int	oct = 1;
-  char str[] = "memmove can be very useful......";
-   char str2[] = "memmove can be very useful......";
-  memmove (str+s1,str+s2,oct);
-  ft_memmove (str2+s1,str2+s2,oct);
-  puts ("memoove :");
-  puts (str);
-  puts ("ft_memoove :");
-  puts (str2);
-  return 0;
-}
+** #include <stdio.h>
+** #include <string.h>
+** 
+** int main ()
+** {
+** 	int	s1 = 10;
+** 	int s2 = 15;
+** 	int	oct = 1;
+**   char str[] = "memmove can be very useful......";
+**    char str2[] = "memmove can be very useful......";
+**   memmove (str+s1,str+s2,oct);
+**   ft_memmove (str2+s1,str2+s2,oct);
+**   puts ("memoove :");
+**   puts (str);
+**   puts ("ft_memoove :");
+**   puts (str2);
+**   return 0;
+** }
+** 
 */

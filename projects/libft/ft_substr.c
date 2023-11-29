@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 17:25:44 by kpires            #+#    #+#             */
-/*   Updated: 2023/11/27 12:29:57 by kpires           ###   ########.fr       */
+/*   Updated: 2023/11/29 18:08:07 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,13 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	new_str[j] = '\0';
 	return (new_str);
 }
-
 /*
-int	main(int ac, char** av)
-{
-	(void)ac;
-	printf("%s\n" , ft_substr(av[1],atoi(av[2]),atoi(av[3])));
-	return (0);
-}*/
+** #include <stdio.h>
+** #include <stlib.h>
+** int	main(int ac, char** av)
+** {
+** 	(void)ac;
+** 	printf("%s\n" , ft_substr(av[1],atoi(av[2]),atoi(av[3])));
+** 	return (0);
+** }
+*/
