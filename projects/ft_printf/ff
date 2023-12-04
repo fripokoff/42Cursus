@@ -1,0 +1,15 @@
+gcw -o ft_printf ft_printf.c -L -lft
+	
+	else if (format == 's')
+
+	else if (format == 'p')
+	
+	else if (format == 'd' || format == 'i')
+	
+	else if (format == 'u')
+	
+	else if (format == 'x' || format == 'X')
+	
+	else if (format == '%')
+	
+	return (printf_length);
