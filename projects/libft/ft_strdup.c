@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 15:01:49 by kpires            #+#    #+#             */
-/*   Updated: 2023/11/29 17:50:39 by kpires           ###   ########.fr       */
+/*   Updated: 2023/11/30 09:21:07 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strdup(const char *s)
 
 	i = 0;
 	len = ft_strlen(s);
-	c = (char *)malloc(sizeof(char) * len + 1);
+	c = (char *)malloc(sizeof(char) * (len + 1));
 	if (!c)
 		return (NULL);
 	while (i < len)

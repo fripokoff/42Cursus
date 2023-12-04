@@ -6,7 +6,7 @@
 #    By: kpires <kpires@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/29 18:17:05 by kpires            #+#    #+#              #
-#    Updated: 2023/11/29 18:17:07 by kpires           ###   ########.fr        #
+#    Updated: 2023/12/04 11:59:27 by kpires           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,9 +50,13 @@ $(NAME): $(OBJ)
 clean:
 	$(RM) $(OBJ) $(BONUS_O)
 
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC) $(B_SRC)
+	gcc -nostartfiles -shared -o libft.so $(OBJ) $(BONUS_O)
+
 fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re so

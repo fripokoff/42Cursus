@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 11:36:00 by kpires            #+#    #+#             */
-/*   Updated: 2023/11/29 17:09:56 by kpires           ###   ########.fr       */
+/*   Updated: 2023/11/30 12:23:24 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ int	ft_atoi(const char	*nptr )
 	}
 	return (val);
 }
-
 /*
 ** #include <stdlib.h>
 ** #include <stdio.h>
