@@ -3,17 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kpires <kpires@student.42.fr>              +#+  +:+       +#+         #
+#    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/04 12:13:50 by kpires            #+#    #+#              #
-#    Updated: 2023/12/04 15:43:19 by kpires           ###   ########.fr        #
+#    Updated: 2023/12/11 14:08:38 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME		= libftprintf.a
 INCLUDE		= include
-LIBFT		= libft
 SRC_DIR		= src/
 OBJ_DIR		= obj/
 CC			= gcc
@@ -49,9 +48,6 @@ OBJF		=	.cache_exists
 all:		$(NAME)
 
 $(NAME):	$(OBJ)
-			@make -C $(LIBFT)
-			@cp libft/libft.a .
-			@mv libft.a $(NAME)
 			@$(AR) $(NAME) $(OBJ)
 			@echo "$(GREEN)ft_printf compiled!$(DEF_COLOR)"
 
@@ -64,24 +60,22 @@ $(OBJF):
 
 clean:
 			@$(RM) -rf $(OBJ_DIR)
-			@make clean -C $(LIBFT)
 			@echo "$(BLUE)ft_printf object files cleaned!$(DEF_COLOR)"
 
 fclean:		clean
 			@$(RM) -f $(NAME)
-			@$(RM) -f $(LIBFT)/libft.a
 			@echo "$(CYAN)ft_printf executable files cleaned!$(DEF_COLOR)"
-			@echo "$(CYAN)libft executable files cleaned!$(DEF_COLOR)"
+
+test:		fclean all
+			@echo "$(GREEN)Cleaned and rebuilt everything for ft_printf!$(DEF_COLOR)"
+			@$(CC) -Wall -Werror -Wextra -o test include/test.c $(NAME)
+			./test
 
 re:			fclean all
 			@echo "$(GREEN)Cleaned and rebuilt everything for ft_printf!$(DEF_COLOR)"
 
 norm:
-			@norminette $(SRC) $(INCLUDE) $(LIBFT) | grep -v Norme -B1 || true
+			@norminette $(SRC) $(INCLUDE) | grep -v Norme -B1 || true
 
-test:
-	@$(CC) -Wall -Werror -Wextra -o test include/test.c $(NAME)
-run:
-	./test
 
 .PHONY:		all clean fclean re norm
