@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/11 15:02:42 by kpires            #+#    #+#             */
-/*   Updated: 2023/12/11 15:03:57 by kpires           ###   ########.fr       */
+/*   Created: 2023/12/04 13:43:52 by kpires            #+#    #+#             */
+/*   Updated: 2023/12/21 15:43:33 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,22 @@ int	ft_put_hex(unsigned int nbr, const char format, int *b)
 	return (*b);
 }
 
-int	ft_putptr(uintptr_t ptr, int *b)
+int	ft_putptr(size_t ptr, int *b)
 {
-	uintptr_t	div;
-	uintptr_t	mod;
+	size_t	div;
+	size_t	mod;
 
 	if (!ptr)
-		return (ft_printchar('0', b));
+	{
+		*b = *b + ft_print_str("(nil)");
+		return (*b);
+	}
 	div = ptr / 16;
 	mod = ptr % 16;
 	if (div)
 		ft_putptr(div, b);
+	else
+		*b = *b + ft_print_str("0x");
 	if (mod <= 9)
 		mod = mod + '0';
 	else

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/11 15:02:47 by kpires            #+#    #+#             */
-/*   Updated: 2023/12/11 15:03:55 by kpires           ###   ########.fr       */
+/*   Created: 2023/12/04 12:13:54 by kpires            #+#    #+#             */
+/*   Updated: 2023/12/21 12:34:23 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ int	ft_format(va_list args, const char format)
 	else if (format == 'x' || format == 'X')
 		printf_length += ft_put_hex(va_arg(args, unsigned int), format, &b);
 	else if (format == 'p')
-		printf_length += write(1, "0x", 2) + ft_putptr(va_arg(args, uintptr_t),
-				&b);
+		printf_length += ft_putptr(va_arg(args,
+					size_t), &b);
 	else if (format == '%')
 		printf_length += ft_printchar('%', 0);
 	return (printf_length);
@@ -54,6 +54,8 @@ int	ft_printf(const char *format, ...)
 
 	i = 0;
 	printf_length = 0;
+	if (!format)
+		return (-1);
 	va_start(args, format);
 	while (format[i])
 	{
