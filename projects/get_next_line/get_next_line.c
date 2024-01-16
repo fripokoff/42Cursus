@@ -5,55 +5,60 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/16 10:12:14 by ajordan-          #+#    #+#             */
-/*   Updated: 2023/12/11 16:19:47 by kpires           ###   ########.fr       */
+/*   Created: 2024/01/16 12:25:56 by kpires            #+#    #+#             */
+/*   Updated: 2024/01/16 15:42:06 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <unistd.h>
+
+int	ft_read_bytes(int fd, char *buffer)
+{
+	if (buffer[0] != '\0')
+		return (1);
+	if (read(fd, buffer, BUFFER_SIZE) > 0)
+		return (1);
+	return (0);
+}
+
+int	ft_is_new_line(char *line)
+{
+	int	i;
+
+	i = -1;
+	if (!line)
+		return (0);
+	while (line[++i])
+		if (line[i] == '\n')
+			return (i + 1);
+	return (0);
+}
 
 char	*get_next_line(int fd)
 {
 	char		*line;
-	static char	*left_str;
+	static char	buffer[BUFFER_SIZE];
+	int			new_line_i;
+	int			i;
 
+	line = NULL;
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (0);
-	left_str = ft_read_to_left_str(fd, left_str);
-	if (!left_str)
 		return (NULL);
-	line = ft_get_line(left_str);
-	left_str = ft_new_left_str(left_str);
+	while ((!ft_is_new_line(line)) && ft_read_bytes(fd, (char *)buffer) > 0) 
+	{
+		new_line_i = ft_is_new_line(buffer);
+		line = ft_strjoin(line, buffer, new_line_i);
+		if (!line)
+			return (NULL);
+		i = -1;
+		while (++i < BUFFER_SIZE)
+		{
+			if (new_line_i && new_line_i + i < BUFFER_SIZE)
+				buffer[i] = buffer[i + new_line_i];
+			else
+				buffer[i] = '\0';
+		}
+	}
 	return (line);
 }
 
-int	main(void)
-{
-	char	*line;
-	int		i;
-	int		fd1;
-	int		fd2;
-	int		fd3;
-	fd1 = open("tests/test.txt", O_RDONLY);
-	fd2 = open("tests/test2.txt", O_RDONLY);
-	fd3 = open("tests/test3.txt", O_RDONLY);
-	i = 1;
-	while (i < 7)
-	{
-		line = get_next_line(fd1);
-		printf("line [%02d]: %s", i, line);
-		free(line);
-		line = get_next_line(fd2);
-		printf("line [%02d]: %s", i, line);
-		free(line);
-		line = get_next_line(fd3);
-		printf("line [%02d]: %s", i, line);
-		free(line);
-		i++;
-	}
-	close(fd1);
-	close(fd2);
-	close(fd3);
-	return (0);
-}
