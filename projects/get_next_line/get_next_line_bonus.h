@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kdaumont <kdaumont@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 13:46:54 by kdaumont          #+#    #+#             */
-/*   Updated: 2023/11/27 09:25:03 by kdaumont         ###   ########.fr       */
+/*   Created: 2024/01/18 18:04:39 by kpires            #+#    #+#             */
+/*   Updated: 2024/01/18 18:04:41 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
+# endif
+
+# ifndef FD_MAX
+#  define FD_MAX 1024
 # endif
 
 # include <fcntl.h>
@@ -22,9 +26,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-char	*ft_strjoin(char *s1, char *s2, size_t new_line);
-int		ft_strrchr(const char *s, int c);
-int		ft_strlen(const char *s);
+char	*ft_strjoin(char *s1, char *s2, size_t new_line_i);
 char	*get_next_line(int fd);
 
 #endif

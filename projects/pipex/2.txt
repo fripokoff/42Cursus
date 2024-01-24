@@ -1,0 +1,6 @@
+1.txt
+2.txt
+a.out
+file2
+main.c
+out
