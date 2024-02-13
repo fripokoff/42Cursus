@@ -31,8 +31,6 @@ int	ft_read_buffer(int fd, char *save_line)
 		return (1);
 	if (read(fd, save_line, BUFFER_SIZE) > 0)
 		return (1);
-	if (BUFFER_SIZE <= 0)
-		return (1);
 	return (0);
 }
 

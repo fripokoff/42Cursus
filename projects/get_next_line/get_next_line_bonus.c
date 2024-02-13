@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 18:04:34 by kpires            #+#    #+#             */
-/*   Updated: 2024/01/24 10:44:28 by kpires           ###   ########.fr       */
+/*   Updated: 2024/01/19 14:02:58 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ int	ft_read_buffer(int fd, char *save_line)
 		return (1);
 	if (read(fd, save_line, BUFFER_SIZE) > 0)
 		return (1);
-	if ((fd < 0 && fd > FD_MAX) || BUFFER_SIZE <= 0)
-		return (1);
 	return (0);
 }
 
@@ -44,6 +42,8 @@ char	*get_next_line(int fd)
 	static char	save_line[FD_MAX][BUFFER_SIZE];
 
 	line = NULL;
+	if (fd < 0 && fd > FD_MAX)
+		return (NULL);
 	while ((!is_new_line(line)) && ft_read_buffer
 		(fd, (char *)save_line[fd]) > 0)
 	{
