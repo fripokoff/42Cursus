@@ -17,17 +17,7 @@ void	error(void)
 	write(2, "Error\n", 6);
 }
 
-void	*ft_free(char **strs)
-{
-	char **temp = strs;
-
-	while (*temp != NULL)
-		free(*temp++);
-	free(strs);
-	return (NULL);
-}
-
-static void	free_list(t_stack_node **stack)
+void	free_list(t_stack_node **stack)
 {
 	t_stack_node	*tmp;
 	t_stack_node	*current;
@@ -45,10 +35,24 @@ static void	free_list(t_stack_node **stack)
 	*stack = NULL;
 }
 
-void	error_concat(t_stack_node **a, char *comb_arg)
+void	free_errors_init(t_stack_node **a, char **argv)
 {
-	free(comb_arg);
+	ft_free(argv);
 	free_list(a);
 	error();
 	exit(1);
+}
+
+int	error_duplicate(t_stack_node *a, int nb)
+{
+	if (!a)
+		return (0);
+	while (a)
+	{
+		printf("a->nbr : %d\n", a->nbr);
+		if (a->nbr == nb)
+			return (1);
+		a = a->next;
+	}
+	return (0);
 }

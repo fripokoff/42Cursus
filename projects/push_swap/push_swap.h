@@ -35,11 +35,19 @@ typedef struct s_stack_node
 
 }	t_stack_node;
 
+//INIT
+void	init_stack_a(t_stack_node **a, char **av);
+
 //ERRORS
-void	error_concat(t_stack_node **a, char *comb_arg);
 void	error(void);
-void	*ft_free(char **strs);
-//PARSING
-char	*concat_arg(char **av, int ac, t_stack_node **a);
+int		error_duplicate(t_stack_node *a, int nb);
+
+//MEMORY
+void	free_list(t_stack_node **stack);
+void	free_errors_init(t_stack_node **a, char **argv);
+
+//UTILS
+int		ft_isspace(char c, const char *d);
+long	check_syntax_and_atoi(char *str);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apintus <apintus@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 13:12:57 by apintus           #+#    #+#             */
-/*   Updated: 2024/02/09 15:39:20 by apintus          ###   ########.fr       */
+/*   Updated: 2024/02/19 14:33:36 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <stdbool.h>
 # include <unistd.h>
 # include <stddef.h>
+# include <stdio.h>
 
 typedef struct s_stack_node
 {
@@ -50,11 +51,10 @@ void			*ft_free(char **strs);
 void			init_stack_a(t_stack_node **a, char **argv);
 void			append_node(t_stack_node **stack, int nb);
 long			ft_atol(char *str);
-
+void			free_stack(t_stack_node **stack);
 //error
 void			free_errors_conc(t_stack_node **a, char *combined_arg);
 void			free_errors_init(t_stack_node **a, char **argv);
-void			free_stack(t_stack_node **stack);
 int				error_duplicate(t_stack_node *a, int nb);
 int				error_syntax(char	*str);
 

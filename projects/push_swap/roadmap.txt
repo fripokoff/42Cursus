@@ -1,0 +1,16 @@
+main
+	concat_arg
+		ft_strlen
+		ft_isspace //Vérifie si le caractère est un espace ou un caractère non autorisé
+		free_errors_init //Free la mémoire allouée pour la chaîne concaténée et la pile 'a' et affiche un message d'erreur.
+			free_list
+			free
+			exit()
+		ft_strcpy // strcpy comportement modifier si je souhaite ajouter un espace en plus a la fin.
+	free(concat_arg)
+	ft_split
+	init_stack_a // Initialiser la pile 'a' avec les arguments divisés.
+	ft_free(argv)
+
+init_stack_a
+

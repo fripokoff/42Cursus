@@ -17,7 +17,7 @@ RM = rm -f
 CFLAGS = -Wall -Wextra -Werror -g3
 MLIB = ar -rcs
 
-SRCS = main.c errors.c clean_argv.c
+SRCS = main.c errors.c utils.c init_stack.c
 
 OBJS = $(SRCS:.c=.o)
 
