@@ -15,6 +15,7 @@
 int	main(int ac, char **av)
 {
 	t_stack_node	*a;
+	t_stack_node	*tmp;
 	char			*cleaned_str;
 
 	a = NULL;
@@ -26,6 +27,13 @@ int	main(int ac, char **av)
 		return (0);
 	free(cleaned_str);
 	init_stack_a(&a, av);
+	tmp = a;
+	while(tmp)
+	{
+		printf("[%d]", tmp->nbr);
+		tmp = tmp->next;
+	}
+	free_list(&a);
 	ft_free(av);
 	return (0);
 }

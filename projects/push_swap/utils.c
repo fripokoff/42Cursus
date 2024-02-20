@@ -61,27 +61,23 @@ t_stack_node	*find_last(t_stack_node *stack)
 	return (stack);
 }
 
-void	append_node(t_stack_node **stack, int nb)
+void	append_node(t_stack_node **stack, int value)
 {
-	t_stack_node	*node;
-	t_stack_node	*last_node;
+	t_stack_node	*new_node;
+	t_stack_node	*current;
 
-	if (!stack)
+	new_node = malloc(sizeof(t_stack_node));
+	if (!new_node)
 		return ;
-	node = malloc(sizeof(t_stack_node));
-	if (!node)
-		return ;
-	node->next = NULL;
-	node->nbr = nb;
-	if (!(*stack))
-	{
-		*stack = node;
-		node->previous = NULL;
-	}
+	new_node->nbr = value;
+	new_node->next = NULL;
+	if (*stack == NULL)
+		*stack = new_node;
 	else
 	{
-		last_node = find_last(*stack);
-		last_node->next = node;
-		node->previous = last_node;
+		current = *stack;
+		while (current->next != NULL)
+			current = current->next;
+		current->next = new_node;
 	}
 }

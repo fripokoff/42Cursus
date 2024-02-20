@@ -31,6 +31,5 @@ void	init_stack_a(t_stack_node **a, char **av)
 			free_errors_init(a, av);
 		append_node(a, (int)nb);
 		i++;
-		
 	}
 }
