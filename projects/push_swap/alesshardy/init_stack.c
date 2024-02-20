@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 15:56:08 by apintus           #+#    #+#             */
-/*   Updated: 2024/02/19 12:37:35 by kpires           ###   ########.fr       */
+/*   Updated: 2024/02/20 13:06:35 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,12 +86,12 @@ void	init_stack_a(t_stack_node **a, char **argv)
 		if (ft_check_looong(argv[i]))
 			free_errors_init(a, argv);
 		nb = ft_atol(argv[i]);
-		printf("test %ld\n", nb);
 		if (nb > INT_MAX || nb < INT_MIN)
 			free_errors_init(a, argv);
 		if (error_duplicate(*a, (int)nb))
 			free_errors_init(a, argv);
 		append_node(a, (int)nb);
+		printf("{%ld}\n", nb);
 		i++;
 	}
 }

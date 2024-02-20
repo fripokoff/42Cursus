@@ -13,4 +13,7 @@ main
 	ft_free(argv)
 
 init_stack_a
+	check_syntax_and_atoi
+		ft_isspace
+	free_errors_init
 

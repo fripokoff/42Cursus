@@ -16,17 +16,21 @@ void	init_stack_a(t_stack_node **a, char **av)
 {
 	int		i;
 	long	nb;
+	int		check_limits;
 
 	i = 0;
+	check_limits = 0;
 	while (av[i])
 	{
-		nb = check_syntax_and_atoi(av[i]);
-		if (!nb)
+		if (error_syntax(av[i]))
 			free_errors_init(a, av);
-		if (nb > INT_MAX || nb < INT_MIN)
+		nb = ft_atoi(av[i], &check_limits);
+		if (check_limits)
 			free_errors_init(a, av);
 		if (error_duplicate(*a, (int)nb))
 			free_errors_init(a, av);
+		append_node(a, (int)nb);
 		i++;
+		
 	}
 }

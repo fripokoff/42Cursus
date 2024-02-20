@@ -12,9 +12,12 @@
 
 #include "push_swap.h"
 
-void	error(void)
+void	error(char *debug)
 {
 	write(2, "Error\n", 6);
+	if (debug)
+		write(2, debug, ft_strlen(debug));
+	exit(1);
 }
 
 void	free_list(t_stack_node **stack)
@@ -39,8 +42,7 @@ void	free_errors_init(t_stack_node **a, char **argv)
 {
 	ft_free(argv);
 	free_list(a);
-	error();
-	exit(1);
+	error(0);
 }
 
 int	error_duplicate(t_stack_node *a, int nb)
@@ -49,10 +51,25 @@ int	error_duplicate(t_stack_node *a, int nb)
 		return (0);
 	while (a)
 	{
-		printf("a->nbr : %d\n", a->nbr);
 		if (a->nbr == nb)
 			return (1);
 		a = a->next;
+	}
+	return (0);
+}
+
+int	error_syntax(char	*str)
+{
+	if (!((*str == '+') || (*str == '-') || (*str >= '0' && *str <= '9')))
+		return (1);
+	if ((*str == '+' || *str == '-') && (!(str[1] >= '0' && str[1] <= '9')))
+		return (1);
+	str++;
+	while (*str)
+	{
+		if (!(*str >= '0' && *str <= '9'))
+			return (1);
+		str++;
 	}
 	return (0);
 }

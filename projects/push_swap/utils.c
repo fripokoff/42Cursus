@@ -12,47 +12,76 @@
 
 #include "push_swap.h"
 
-int	ft_isspace(char c, const char *d)
+static int	ft_isspace(const char *d)
 {
-	if (d)
+	while (*d)
 	{
-		while (*d)
-		{
-			if (*d != ' ' || *d != '\t' || *d != '\n'
-				|| *d != '\v' || *d != '\f' || *d != '\r')
-				return (0);
-			d++;
-		}
-		return (1);
+		if (*d != ' ' || *d != '\t' || *d != '\n'
+			|| *d != '\v' || *d != '\f' || *d != '\r')
+			return (0);
+		d++;
 	}
-	else
-		return (c == ' ' || c == '\t' || c == '\n'
-			|| c == '\v' || c == '\f' || c == '\r');
+	return (1);
 }
 
-long	check_syntax_and_atoi(char *str)
+char	*clean_split(char **av, int ac, t_stack_node **a)
 {
-	long	result;
-	int		sign;
+	size_t			len;
+	size_t			current_index;
+	int				i;
+	char			*arg_to_one_string;
 
-	result = 0;
-	sign = 1;
-	while (ft_isspace(*str, NULL))
-		str++;
-	if (*str == '-')
-		sign = -1;
-	if (*str == '-' || *str == '+')
-		str++;
-	while (*str == '0')
-		str++;
-	if (ft_strlen(str) > 11)
-		return (0);
-	while (*str)
+	i = 0;
+	len = 0;
+	while (++i < ac)
+		len += ft_strlen(av[i]) + 1;
+	arg_to_one_string = (char *)malloc(sizeof(char) * (len + 1));
+	if (!arg_to_one_string)
+		return (NULL);
+	current_index = 0;
+	i = 0;
+	while (++i < ac)
 	{
-		if (!((*str >= '0' && *str <= '9')))
-			return (0);
-		result = result * 10 + *str - '0';
-		str++;
+		if (ft_isspace(av[i]))
+			return (free_errors_init(a, &arg_to_one_string), NULL);
+		ft_strcpy(&arg_to_one_string[current_index], av[i], ' ');
+		current_index += (ft_strlen(av[i]) + 1);
 	}
-	return (result * sign);
+	arg_to_one_string[current_index] = '\0';
+	return (arg_to_one_string);
+}
+
+
+t_stack_node	*find_last(t_stack_node *stack)
+{
+	if (!stack)
+		return (NULL);
+	while (stack->next)
+		stack = stack->next;
+	return (stack);
+}
+
+void	append_node(t_stack_node **stack, int nb)
+{
+	t_stack_node	*node;
+	t_stack_node	*last_node;
+
+	if (!stack)
+		return ;
+	node = malloc(sizeof(t_stack_node));
+	if (!node)
+		return ;
+	node->next = NULL;
+	node->nbr = nb;
+	if (!(*stack))
+	{
+		*stack = node;
+		node->previous = NULL;
+	}
+	else
+	{
+		last_node = find_last(*stack);
+		last_node->next = node;
+		node->previous = last_node;
+	}
 }

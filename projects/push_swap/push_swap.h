@@ -39,15 +39,18 @@ typedef struct s_stack_node
 void	init_stack_a(t_stack_node **a, char **av);
 
 //ERRORS
-void	error(void);
+void	error(char *debug);
 int		error_duplicate(t_stack_node *a, int nb);
-
+int		error_syntax(char	*str);
 //MEMORY
 void	free_list(t_stack_node **stack);
 void	free_errors_init(t_stack_node **a, char **argv);
 
 //UTILS
-int		ft_isspace(char c, const char *d);
-long	check_syntax_and_atoi(char *str);
+char	*clean_split(char **av, int ac, t_stack_node **a);
 
+
+//LIST
+t_stack_node	*find_last(t_stack_node *stack);
+void			append_node(t_stack_node **stack, int nb);
 #endif
