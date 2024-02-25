@@ -6,11 +6,12 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 17:44:49 by kpires            #+#    #+#             */
-/*   Updated: 2024/02/19 13:40:40 by kpires           ###   ########.fr       */
+/*   Updated: 2024/02/25 16:00:59 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 void	*ft_free(char **strs)
 {

@@ -22,6 +22,12 @@
 # include <stddef.h>
 # include <stdio.h>
 
+typedef struct s_my_list
+{
+  struct s_stack_node *head;
+  struct s_stack_node *tail;
+} t_my_list;
+
 typedef struct s_stack_node
 {
 	int					nbr;
@@ -48,9 +54,9 @@ void	free_errors_init(t_stack_node **a, char **argv);
 
 //UTILS
 char	*clean_split(char **av, int ac, t_stack_node **a);
-
+bool	is_sorted(t_stack_node **stack);
 
 //LIST
 t_stack_node	*find_last(t_stack_node *stack);
-void			append_node(t_stack_node **stack, int nb);
+void    		lets_sort(t_stack_node **a, t_stack_node **b);
 #endif

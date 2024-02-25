@@ -60,24 +60,3 @@ t_stack_node	*find_last(t_stack_node *stack)
 		stack = stack->next;
 	return (stack);
 }
-
-void	append_node(t_stack_node **stack, int value)
-{
-	t_stack_node	*new_node;
-	t_stack_node	*current;
-
-	new_node = malloc(sizeof(t_stack_node));
-	if (!new_node)
-		return ;
-	new_node->nbr = value;
-	new_node->next = NULL;
-	if (*stack == NULL)
-		*stack = new_node;
-	else
-	{
-		current = *stack;
-		while (current->next != NULL)
-			current = current->next;
-		current->next = new_node;
-	}
-}

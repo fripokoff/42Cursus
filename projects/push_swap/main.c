@@ -16,6 +16,7 @@ int	main(int ac, char **av)
 {
 	t_stack_node	*a;
 	t_stack_node	*tmp;
+	
 	char			*cleaned_str;
 
 	a = NULL;
@@ -28,12 +29,18 @@ int	main(int ac, char **av)
 	free(cleaned_str);
 	init_stack_a(&a, av);
 	tmp = a;
+	printf("STACK A\n");
 	while(tmp)
 	{
 		printf("[%d]", tmp->nbr);
 		tmp = tmp->next;
 	}
+	if (!(is_sorted(&a)))
+	{
+		printf("[NOT SORTED]\n");
+	}
 	free_list(&a);
 	ft_free(av);
 	return (0);
 }
+	
