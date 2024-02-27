@@ -12,16 +12,31 @@
 
 #include "push_swap.h"
 
+static x_list *init_list(x_list *list)
+{
+	list = malloc(sizeof(x_list));
+	list->heap = NULL;
+	list->tail = NULL;
+	return (list);
+}
+
 int	main(int ac, char **av)
 {
 	char		*arg_processed;
 	t_node		*a;
+	x_list		*list;
 
 	if (ac == 1)
 		return (1);
 	a = NULL;
+	list = NULL;
 	arg_processed = process_arg(ac, av);
-	init_node(a, arg_processed);
+	list = init_list(list);
+	init_node(arg_processed, list);
+	a = list->tail;
+	print_node(a);
 	free(arg_processed);
+	free_list(list);
+	printf("ac[%d]", ac);
 	return (0);
 }

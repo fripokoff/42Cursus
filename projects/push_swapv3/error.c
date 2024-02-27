@@ -40,3 +40,19 @@ void	free_double_char(char **str)
 	}
 	free(str);
 }
+
+void free_list(x_list *list)
+{
+    t_node *current = list->heap;
+    t_node *next;
+
+    while (current != NULL)
+    {
+        next = current->next;
+        free(current);
+        current = next;
+    }
+    list->heap = NULL;
+    list->tail = NULL;
+	free(list);
+}

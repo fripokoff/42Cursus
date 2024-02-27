@@ -25,7 +25,50 @@ static void	free_double_char(char **str)
 	free(str);
 }
 
-void	init_node(t_node *a, char *arg_processed)
+// static	void print_list(x_list *list)
+// {
+// 	while (list->heap)
+// 	{
+// 		printf("list:[%d]\n", list->heap->nbr);
+// 		list->heap = list->heap->next;
+// 	}
+// }
+
+void print_node(t_node *node)
+{
+	while (node)
+	{
+		printf("node:[%d]\n", node->nbr);
+		node = node->next;
+	}
+}
+
+
+
+static t_node *append_node(int value, x_list *list)
+{
+	t_node		*new;
+
+	new = malloc(sizeof(t_node));
+	if (!new)
+		return (NULL);
+	new->nbr = value;
+	new->next = NULL;
+	new->prev = list->tail;
+	if (list->heap == NULL)
+	{
+		list->heap = new;
+		list->tail = new;
+	}
+	else
+	{
+		list->tail->next = new;
+		list->tail = new;
+	}
+	return (new);
+}
+
+void	init_node(char *arg_processed, x_list *list)
 {
 	char	**splitted;
 	int		i;
@@ -36,12 +79,11 @@ void	init_node(t_node *a, char *arg_processed)
 	check_limits = 0;
 	while (splitted[i])
 	{
-		printf("[%d]\n", ft_atoi(splitted[i], &check_limits));
+		append_node(ft_atoi(splitted[i], &check_limits), list);
 		if (check_limits)
 			error("[init_node.c:29]Error: Numeric value"
 				" is out of range or contains invalid characters.");
 		i++;
 	}
 	free_double_char(splitted);
-	(void)a;
 }

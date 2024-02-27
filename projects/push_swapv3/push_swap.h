@@ -14,6 +14,13 @@
 #include <stdbool.h>
 #include "./libft/libft.h"
 
+typedef struct y_list
+{
+	int				length;
+	struct s_node	*heap;
+	struct s_node	*tail;
+}	x_list;
+
 typedef struct s_node
 {
 	int				nbr;
@@ -23,4 +30,6 @@ typedef struct s_node
 
 void		error(char *debug);
 char		*process_arg(int ac, char **arg);
-void		init_node(t_node *a, char *arg_processed);
+void		init_node(char *arg_processed, x_list *list);
+void		print_node(t_node *node);
+void		free_list(x_list *list);

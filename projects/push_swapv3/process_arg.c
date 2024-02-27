@@ -59,7 +59,7 @@ char	*process_arg(int ac, char **arg)
 	int		j;
 
 	len = len_and_check_arg(ac, arg);
-	clean = malloc(sizeof(char) * (len * 2));
+	clean = malloc(sizeof(char) * (len + ac));
 	if (!clean)
 		return (NULL);
 	i = 1;
