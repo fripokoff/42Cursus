@@ -5,25 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/27 14:32:36 by kpires            #+#    #+#             */
-/*   Updated: 2024/02/27 14:32:36 by kpires           ###   ########.fr       */
+/*   Created: 2024/02/28 13:15:18 by kpires            #+#    #+#             */
+/*   Updated: 2024/02/28 13:15:18 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static void	free_double_char(char **str)
-{
-	int	j;
-
-	j = 0;
-	while (str[j])
-	{
-		free(str[j]);
-		j++;
-	}
-	free(str);
-}
 
 // static	void print_list(x_list *list)
 // {
@@ -34,7 +21,7 @@ static void	free_double_char(char **str)
 // 	}
 // }
 
-void print_node(t_node *node)
+void	print_node(t_node *node)
 {
 	while (node)
 	{
@@ -43,11 +30,9 @@ void print_node(t_node *node)
 	}
 }
 
-
-
-static t_node *append_node(int value, x_list *list)
+static t_node	*append_node(int value, x_list *list)
 {
-	t_node		*new;
+	t_node	*new;
 
 	new = malloc(sizeof(t_node));
 	if (!new)
@@ -70,20 +55,33 @@ static t_node *append_node(int value, x_list *list)
 
 void	init_node(char *arg_processed, x_list *list)
 {
-	char	**splitted;
+	char	**arg_split;
 	int		i;
 	int		check_limits;
+	int		nbr;
 
-	splitted = ft_split(arg_processed, ' ');
+	arg_split = ft_split(arg_processed, ' ');
+	free(arg_processed);
 	i = 0;
 	check_limits = 0;
-	while (splitted[i])
+	while (arg_split[i])
 	{
-		append_node(ft_atoi(splitted[i], &check_limits), list);
+		nbr = ft_atoi(arg_split[i], &check_limits);
+		if (list->tail)
+			if (nbr == list->tail->nbr)
+			{
+				free_double_char(arg_split);
+				error("[init_node.c:86]Error: Duplicate value"
+					" found during phase 1 of 2.", list);
+			}
+		append_node(nbr, list);
 		if (check_limits)
-			error("[init_node.c:29]Error: Numeric value"
-				" is out of range or contains invalid characters.");
+		{
+			free_double_char(arg_split);
+			error("[init_node.c:90]Error: Numeric value"
+				" is out of range or contains invalid characters.", list);
+		}
 		i++;
 	}
-	free_double_char(splitted);
+	free_double_char(arg_split);
 }

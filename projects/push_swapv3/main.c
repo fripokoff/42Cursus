@@ -33,9 +33,8 @@ int	main(int ac, char **av)
 	arg_processed = process_arg(ac, av);
 	list = init_list(list);
 	init_node(arg_processed, list);
-	a = list->tail;
+	a = list->heap;
 	print_node(a);
-	free(arg_processed);
 	free_list(list);
 	printf("ac[%d]", ac);
 	return (0);

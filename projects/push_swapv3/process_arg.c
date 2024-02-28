@@ -25,14 +25,14 @@ static int	len_check_allowed_char(char	*str)
 			&& str[i] != ' ' && str[i] != '+'
 			&& str[i] != '-')
 			error("[process_arg.c:27]Error: Invalid character detected."
-				"Only digits, '+', '-', ' ' and '0' are allowed.");
+				"Only digits, '+', '-', ' ' and '0' are allowed.", false);
 		if (str[i] == ' ')
 			only_space++;
 		i++;
 	}
 	if (i == only_space)
 		error("[process_arg.c:33]Error: Only spaces detected."
-			"At least one digit is required.");
+			"At least one digit is required.", false);
 	return (i);
 }
 
