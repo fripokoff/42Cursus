@@ -18,7 +18,7 @@ RM = rm -f
 CFLAGS = -Wall -Wextra -Werror -g3
 MLIB = ar -rcs
 
-SRCS = main.c error.c process_arg.c init_node.c
+SRCS = main.c error.c process_arg.c init_node.c help_nodes.c checks.c sort.c swap.c rotate.c reverse_rotate.c
 
 OBJS = $(SRCS:.c=.o)
 

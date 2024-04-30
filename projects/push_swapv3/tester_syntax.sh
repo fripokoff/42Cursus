@@ -48,9 +48,9 @@ do
    echo -ne "\r[${count}/${#valid_values[@]}]"
    # Exécuter le programme push_swap avec la valeur de test actuelle et vérifier le code de sortie
    if eval ./push_swap $i > /dev/null 2>&1; then
-    results="${results}\033[0;32m[OK]\033[0m"
+    results="${results}\n\033[0;32m$count:[OK]\033[0m"
     else
-        results="${results}\033[0;31m[Erreur]\033[0m"
+        results="${results}\n\033[0;31m$count:[Erreur]\033[0m"
     fi
 done
 echo -e "${results}"

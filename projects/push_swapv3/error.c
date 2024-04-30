@@ -28,24 +28,25 @@ void	free_double_char(char **str)
 	free(str);
 }
 
-void	free_list(x_list *list)
+void	free_list(t_HTlist *list)
 {
 	t_node	*current;
 	t_node	*next;
 
-	current = list->heap;
+	current = list->head_a;
 	while (current != NULL)
 	{
 		next = current->next;
 		free(current);
 		current = next;
 	}
-	list->heap = NULL;
-	list->tail = NULL;
+	list->head_a = NULL;
+	list->tail_a = NULL;
+	list->length_a = 0;
 	free(list);
 }
 
-void	error(char *debug, x_list *list)
+void	error(char *debug, t_HTlist *list)
 {
 	bool	enable_debug;
 

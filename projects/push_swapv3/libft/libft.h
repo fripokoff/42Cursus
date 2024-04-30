@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 14:30:40 by kpires            #+#    #+#             */
-/*   Updated: 2024/02/20 13:44:46 by kpires           ###   ########.fr       */
+/*   Updated: 2024/04/29 09:54:35 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void				*ft_memset(void *b, int c, size_t len);
 
 void				*ft_calloc(size_t nmemb, size_t size);
 
-int					ft_atoi(const char	*nptr, int *check_limits);
+int					ft_atoi(const char	*nptr, int *error_limits);
 char				*ft_itoa(int n);
 
 void				ft_putchar_fd(char c, int fd);

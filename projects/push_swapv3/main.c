@@ -12,11 +12,17 @@
 
 #include "push_swap.h"
 
-static x_list *init_list(x_list *list)
+static t_HTlist	*init_list(t_HTlist *list)
 {
-	list = malloc(sizeof(x_list));
-	list->heap = NULL;
-	list->tail = NULL;
+	list = malloc(sizeof(t_HTlist));
+	list->higher_a = NULL;
+	list->head_a = NULL;
+	list->tail_a = NULL;
+	list->length_a = 0;
+	list->higher_b = NULL;
+	list->head_b = NULL;
+	list->tail_b = NULL;
+	list->length_b = 0;
 	return (list);
 }
 
@@ -24,7 +30,7 @@ int	main(int ac, char **av)
 {
 	char		*arg_processed;
 	t_node		*a;
-	x_list		*list;
+	t_HTlist	*list;
 
 	if (ac == 1)
 		return (1);
@@ -33,9 +39,17 @@ int	main(int ac, char **av)
 	arg_processed = process_arg(ac, av);
 	list = init_list(list);
 	init_node(arg_processed, list);
-	a = list->heap;
-	print_node(a);
-	free_list(list);
+	a = list->head_a;
+	print_list(list, 'a');
+	if (!check_is_sort(a))
+	{
+		printf("\n[stack not sorted]\n");
+		sort(list);
+	}
+	print_list(list, 'a');
+	printf("\n[LENGTH A]: %d\n", list->length_a);
+	printf("[HIGHER]: %d\n", list->higher_a->nbr);
 	printf("ac[%d]", ac);
+	free_list(list);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 15:56:08 by apintus           #+#    #+#             */
-/*   Updated: 2024/02/27 17:19:35 by kpires           ###   ########.fr       */
+/*   Updated: 2024/04/29 08:31:03 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,14 +73,14 @@ void	append_node(t_stack_node **stack, int nb)
 	}
 }
 
-static	void print_node(t_stack_node *node)
-{
-	while (node)
-	{
-		printf("node:[%d]\n", node->nbr);
-		node = node->next;
-	}
-}
+// static	void print_node(t_stack_node *node)
+// {
+// 	while (node)
+// 	{
+// 		printf("node:[%d]\n", node->nbr);
+// 		node = node->next;
+// 	}
+// }
 
 void	init_stack_a(t_stack_node **a, char **argv)
 {
@@ -102,5 +102,4 @@ void	init_stack_a(t_stack_node **a, char **argv)
 		append_node(a, (int)nb);
 		i++;
 	}
-	print_node(a);
 }
