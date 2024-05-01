@@ -46,6 +46,10 @@ int	main(int ac, char **av)
 		printf("\n[stack not sorted]\n");
 		sort(list);
 	}
+	else
+	{
+		rra(list,true);
+	}
 	print_list(list, 'a');
 	printf("\n[LENGTH A]: %d\n", list->length_a);
 	printf("[HIGHER]: %d\n", list->higher_a->nbr);

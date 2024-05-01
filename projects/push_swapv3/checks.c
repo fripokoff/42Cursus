@@ -50,3 +50,12 @@ t_node	**get_tail(t_HTlist *list, char list_name)
 		return (NULL);
 	return (tail);
 }
+
+int get_length(t_HTlist *list, char list_name)
+{
+	if (list_name == 'a')
+		return (list->length_a);
+	else if (list_name == 'b')
+		return (list->length_b);
+	return (0);
+}

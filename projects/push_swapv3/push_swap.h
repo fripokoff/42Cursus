@@ -65,3 +65,4 @@ void	rrr(t_HTlist *list, bool print);
 
 t_node	**get_head(t_HTlist *list, char list_name);
 t_node	**get_tail(t_HTlist *list, char list_name);
+int		get_length(t_HTlist *list, char list_name);

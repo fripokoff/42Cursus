@@ -16,16 +16,19 @@ void	rotate(t_HTlist *list, char list_name)
 {
 	t_node	**head;
 	t_node	**tail;
+	t_node	*temp;
 
 	head = get_head(list, list_name);
 	tail = get_tail(list, list_name);
-	if (!*head || !(*head)->next || !*tail)
+	if (!*head || !*tail || !(*head)->next)
 		return ;
-	(*tail)->next = *head;
-	*head = (*head)->next;
+	temp = *head;
+	(*head) = (*head)->next;
 	(*head)->prev = NULL;
-	(*tail)->next->prev = *tail;
-	(*tail)->next->next = NULL;
+	temp->next = NULL;
+	temp->prev = *tail;
+	(*tail)->next = temp;
+	*tail = temp;
 }
 
 void	ra(t_HTlist *list, bool print)

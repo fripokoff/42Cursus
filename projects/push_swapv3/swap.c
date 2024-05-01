@@ -15,17 +15,14 @@
 void	swap(t_HTlist *list, char list_name)
 {
 	t_node	**head;
-	t_node	*first;
-	t_node	*second;
+	int		temp_nbr;
 
-	head = get_head(list, list_name);
-	if (!*head || !(*head)->next)
+	head = get_head(list,list_name);
+	if( !(*head) || !(*head)->next)
 		return ;
-	first = *head;
-	second = first->next;
-	first->next = second->next;
-	second->next = first;
-	*head = second;
+	temp_nbr = (*head)->nbr;
+	(*head)->nbr = (*head)->next->nbr;
+	(*head)->next->nbr = temp_nbr;
 }
 
 void	sa(t_HTlist	*list, bool	print)
