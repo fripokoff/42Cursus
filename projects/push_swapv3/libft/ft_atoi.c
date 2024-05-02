@@ -6,11 +6,12 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 11:36:00 by kpires            #+#    #+#             */
-/*   Updated: 2024/04/29 11:51:16 by kpires           ###   ########.fr       */
+/*   Updated: 2024/05/02 15:26:01 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 int	ft_atoi(const char	*nptr, int *error_limits)
 {

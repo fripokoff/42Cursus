@@ -80,6 +80,28 @@ static char	*_check_limits(char *str, int err, t_HTlist *list, char	**arg_split)
 	return (NULL);
 }
 
+static int check_long_long(char *str)
+{
+	int	i;
+	int	count;
+
+	count = 0;
+	i=0;
+	printf("str %s\n ", str);
+	while(str[i])
+	{
+		if(str[i] == '+' || str[i] == '-')
+			i++;
+		else if(str[0] == '0' && str[i] == '0')
+			printf("0 if ");
+		else
+			count++;
+		i++;
+	}
+	return (count > 11);
+}
+
+
 void	init_node(char *arg_processed, t_HTlist *list)
 {
 	char	**arg_split;
@@ -93,6 +115,9 @@ void	init_node(char *arg_processed, t_HTlist *list)
 	err = 0;
 	while (arg_split[i])
 	{
+			if(check_long_long(arg_split[i]))
+			error("[process_arg.c:27]Error: Len check check long.",
+				false);
 		nbr = ft_atoi(arg_split[i], &err);
 		_check_limits(arg_split[i], err, list, arg_split);
 		_check_duplicates(nbr, list, arg_split);

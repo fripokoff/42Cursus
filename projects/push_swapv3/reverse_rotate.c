@@ -12,8 +12,6 @@
 
 #include "push_swap.h"
 
-// List a: 1 2 3 4 5
-// List a: 5 1 2 3 4
 
 void	reverse_rotate(t_HTlist *list, char list_name)
 {
@@ -23,16 +21,22 @@ void	reverse_rotate(t_HTlist *list, char list_name)
 
 	head = get_head(list, list_name);
 	tail = get_tail(list, list_name);
-	if (!*head || !(*head)->next || !*tail)
+
+	if( !(*head) || !(*head)->next || !(*tail))
 		return ;
-	temp = *tail;
-	(*tail) = (*tail)->prev;
-	(*tail)->next = NULL;
-	temp->next = (*head);
-	temp->prev = NULL;
-	*head = temp;
-	(*head)->prev = *tail;
+	temp = *head;
+
+	*head = *tail;
+	(*head)->next = temp->next;
+	(*head)->next->prev = (*head);
+	(*head)->prev = NULL;
+	temp->next = NULL;
+	temp->prev = (*tail)->prev;
+	*tail = temp;
 }
+
+// 1 2 3 4 5
+// 5 2 3 4 1
 
 void	rra(t_HTlist *list, bool print)
 {

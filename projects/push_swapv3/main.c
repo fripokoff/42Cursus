@@ -36,6 +36,7 @@ int	main(int ac, char **av)
 		return (1);
 	a = NULL;
 	list = NULL;
+	printf("atoi %d \n",atoi("-18446744073709551614"));
 	arg_processed = process_arg(ac, av);
 	list = init_list(list);
 	init_node(arg_processed, list);
@@ -48,12 +49,13 @@ int	main(int ac, char **av)
 	}
 	else
 	{
-		rra(list,true);
+		// rra(list,true);
 	}
 	print_list(list, 'a');
 	printf("\n[LENGTH A]: %d\n", list->length_a);
 	printf("[HIGHER]: %d\n", list->higher_a->nbr);
 	printf("ac[%d]", ac);
 	free_list(list);
+	
 	return (0);
 }
