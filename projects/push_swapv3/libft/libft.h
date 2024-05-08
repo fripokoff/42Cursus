@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 14:30:40 by kpires            #+#    #+#             */
-/*   Updated: 2024/04/29 09:54:35 by kpires           ###   ########.fr       */
+/*   Updated: 2024/05/07 06:55:08 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include <limits.h>
+
+#define INT_MIN -2147483648
+#define INT_MAX 2147483647
 
 typedef struct s_list
 {

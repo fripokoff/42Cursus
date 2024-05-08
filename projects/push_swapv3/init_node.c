@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static t_node	*append_node(int value, t_HTlist *list)
+static t_node	*append_node(int value, t_ht_list *ht_list)
 {
 	t_node	*new;
 
@@ -21,29 +21,30 @@ static t_node	*append_node(int value, t_HTlist *list)
 		return (NULL);
 	new->nbr = value;
 	new->next = NULL;
-	new->prev = list->tail_a;
-	if (list->head_a == NULL)
+	new->prev = ht_list->tail_a;
+	if (ht_list->head_a == NULL)
 	{
-		list->head_a = new;
-		list->tail_a = new;
-		list->higher_a = new;
-		list->length_a++;
+		ht_list->head_a = new;
+		ht_list->tail_a = new;
+		ht_list->higher_a = new;
+		ht_list->lower_a = new;
+		ht_list->length_a++;
 	}
 	else
 	{
-		list->tail_a->next = new;
-		list->tail_a = new;
-		list->length_a++;
+		ht_list->tail_a->next = new;
+		ht_list->tail_a = new;
+		ht_list->length_a++;
 	}
 	return (new);
 }
 
-static char	*_check_duplicates(int nbr, t_HTlist *list, char	**arg_split)
+static char	*_check_duplicates(int nbr, t_ht_list *ht_list, char	**arg_split)
 {
 	t_node	*current;
 	t_node	*next;
 
-	current = list->head_a;
+	current = ht_list->head_a;
 	while (current != NULL)
 	{
 		next = current->next;
@@ -51,58 +52,36 @@ static char	*_check_duplicates(int nbr, t_HTlist *list, char	**arg_split)
 		{
 			free_double_char(arg_split);
 			error("[init_node.c:86]Error: Duplicate value"
-				" found during phase 1 of 2.", list);
+				" found during phase 1 of 2.", ht_list);
 		}
 		current = next;
 	}
 	return (NULL);
 }
 
-static char	*_check_limits(char *str, int err, t_HTlist *list, char	**arg_split)
+static void	_check_limits(int err, t_ht_list *ht_list, char	**arg_split)
 {
 	int	i;
+	int	j;
 
 	i = 0;
-	while (str[i])
+	while (arg_split[i])
 	{
-		if (str[0] == '0' && str[1] && str[1] == '0')
-			if (str[i] == '0')
-				i++;
+		j = 0;
+		while (arg_split[i][j] == '0' || arg_split[i][j] == '+'
+				|| arg_split[i][j] == '-')
+			j++;
+		if (err || ft_strlen(&arg_split[i][j]) > 11)
+		{
+			free_double_char(arg_split);
+			error("[init_node.c:90]Error: Numeric value"
+				" is out of range or contains invalid characters.", ht_list);
+		}
 		i++;
 	}
-	str += i;
-	if (err || ft_strlen(str) > 11)
-	{
-		free_double_char(arg_split);
-		error("[init_node.c:90]Error: Numeric value"
-			" is out of range or contains invalid characters.", list);
-	}
-	return (NULL);
 }
 
-// static int check_long_long(char *str)
-// {
-// 	int	i;
-// 	int	count;
-
-// 	count = 0;
-// 	i=0;
-// 	printf("str %s\n ", str);
-// 	while(str[i])
-// 	{
-// 		if(str[i] == '+' || str[i] == '-')
-// 			i++;
-// 		else if(str[0] == '0' && str[i] == '0')
-// 			printf("0 if ");
-// 		else
-// 			count++;
-// 		i++;
-// 	}
-// 	return (count > 11);
-// }
-
-
-void	init_node(char *arg_processed, t_HTlist *list)
+void	init_node(char *arg_processed, t_ht_list *ht_list)
 {
 	char	**arg_split;
 	int		i;
@@ -113,20 +92,14 @@ void	init_node(char *arg_processed, t_HTlist *list)
 	free(arg_processed);
 	i = 0;
 	err = 0;
+	_check_limits(err, ht_list, arg_split);
 	while (arg_split[i])
 	{
-			// if(check_long_long(arg_split[i]))
-			// error("[process_arg.c:27]Error: Len check check long.",
-			// 	false);
-		nbr = ft_atoi(arg_split[i], &err);
-		_check_limits(arg_split[i], err, list, arg_split);
-		_check_duplicates(nbr, list, arg_split);
-		append_node(nbr, list);
-		if (list->higher_a && nbr > list->higher_a->nbr)
-		{
-			list->higher_a = list->tail_a;
-		}
-		i++;
+		nbr = ft_atoi(arg_split[i++], &err);
+		_check_duplicates(nbr, ht_list, arg_split);
+		append_node(nbr, ht_list);
+		find_highest(ht_list, 'a');
+		find_lowest(ht_list, 'a');
 	}
 	free_double_char(arg_split);
 }

@@ -12,43 +12,44 @@
 
 #include "push_swap.h"
 
-void	rotate(t_HTlist *list, char list_name)
+void	rotate(t_ht_list *ht_list, char list)
 {
 	t_node	**head;
 	t_node	**tail;
 	t_node	*temp;
 
-	head = get_head(list, list_name);
-	tail = get_tail(list, list_name);
+	head = get_head(ht_list, list);
+	tail = get_tail(ht_list, list);
 	if (!*head || !*tail || !(*head)->next)
 		return ;
 	temp = *head;
-	(*head) = (*head)->next;
+	(*head) = temp->next;
 	(*head)->prev = NULL;
+	temp->prev = (*tail);
 	temp->next = NULL;
-	temp->prev = *tail;
 	(*tail)->next = temp;
 	*tail = temp;
+	update_headtail(ht_list, head, tail, list);
 }
 
-void	ra(t_HTlist *list, bool print)
+void	ra(t_ht_list *ht_list, bool print)
 {
-	rotate(list, 'a');
+	rotate(ht_list, 'a');
 	if (print)
 		printf("ra\n");
 }
 
-void	rb(t_HTlist *list, bool print)
+void	rb(t_ht_list *ht_list, bool print)
 {
-	rotate(list, 'b');
+	rotate(ht_list, 'b');
 	if (print)
 		printf("rb\n");
 }
 
-void	rr(t_HTlist *list, bool print)
+void	rr(t_ht_list *ht_list, bool print)
 {
-	rotate(list, 'a');
-	rotate(list, 'b');
+	rotate(ht_list, 'a');
+	rotate(ht_list, 'b');
 	if (print)
 		printf("rr\n");
 }

@@ -14,55 +14,77 @@
 #include <stdbool.h>
 #include <stdio.h>
 
-typedef struct y_list
+typedef struct ht_list
 {
 	struct s_node	*higher_a;
 	struct s_node	*higher_b;
+	struct s_node	*lower_a;
+	struct s_node	*lower_b;
 	int				length_a;
 	int				length_b;
 	struct s_node	*head_a;
 	struct s_node	*head_b;
 	struct s_node	*tail_a;
 	struct s_node	*tail_b;
-}	t_HTlist;
+}	t_ht_list;
 
 typedef struct s_node
 {
 	int				nbr;
 	int				index;
 	int				cost;
-	bool			above_median;
-	bool			cheadest;
+	bool			top_median;
+	bool			cheapest;
 	struct s_node	*target;
 	struct s_node	*next;
 	struct s_node	*prev;
 }	t_node;
 
-void	error(char *debug, t_HTlist *list);
-char	*process_arg(int ac, char **arg);
-void	init_node(char *arg_processed, t_HTlist *list);
-void	print_node(t_node *node);
-void	free_list(t_HTlist *list);
+/* error.c */
+void	error(char *debug, t_ht_list *ht_list);
+void	free_list(t_ht_list *ht_list);
 void	free_double_char(char **str);
 
-void	print_node(t_node *node);
-void	print_list(t_HTlist *list, char list_name);
+/* process_arg.c */
+char	*process_arg(int ac, char **arg);
 
+/* help_nodes.c */
+void	print_node(t_node *node);
+void	print_list(t_ht_list *ht_list, char list);
+void	print_head_list(t_ht_list *ht_list);
+
+/* init_node.c */
+void	init_node(char *arg_processed, t_ht_list *ht_list);
+
+/* head_tail.c */
+t_node	**get_head(t_ht_list *ht_list, char list);
+t_node	**get_tail(t_ht_list *ht_list, char list);
+void	update_headtail(t_ht_list *ht_list, t_node **head,
+			t_node **tail, char list);
+void	find_highest(t_ht_list *ht_list, char list);
+void	find_lowest(t_ht_list *ht_list, char list);
+
+/* sort.c */
+void	sort(t_ht_list *ht_list);
 bool	check_is_sort(t_node *a);
 
-void	sort(t_HTlist *list);
+/* swap.c */
+void	sa(t_ht_list *ht_list, bool print);
+void	sb(t_ht_list *ht_list, bool print);
 
-void	sa(t_HTlist *list, bool print);
-void	sb(t_HTlist *list, bool print);
+/* rotate.c */
+void	ra(t_ht_list *ht_list, bool print);
+void	rb(t_ht_list *ht_list, bool print);
+void	rr(t_ht_list *ht_list, bool print);
 
-void	ra(t_HTlist *list, bool print);
-void	rb(t_HTlist *list, bool print);
-void	rr(t_HTlist *list, bool print);
+/* reverse_rotate.c */
+void	rra(t_ht_list *ht_list, bool print);
+void	rrb(t_ht_list *ht_list, bool print);
+void	rrr(t_ht_list *ht_list, bool print);
 
-void	rra(t_HTlist *list, bool print);
-void	rrb(t_HTlist *list, bool print);
-void	rrr(t_HTlist *list, bool print);
+/* push.c */
+void	pa(t_ht_list *ht_list, bool	print);
+void	pb(t_ht_list *ht_list, bool	print);
 
-t_node	**get_head(t_HTlist *list, char list_name);
-t_node	**get_tail(t_HTlist *list, char list_name);
-int		get_length(t_HTlist *list, char list_name);
+/* mooves.c */
+void	push_a_to_b(t_ht_list *ht_list, int median);

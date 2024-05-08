@@ -12,50 +12,44 @@
 
 #include "push_swap.h"
 
-
-void	reverse_rotate(t_HTlist *list, char list_name)
+void	reverse_rotate(t_ht_list *ht_list, char list)
 {
 	t_node	**head;
 	t_node	**tail;
 	t_node	*temp;
 
-	head = get_head(list, list_name);
-	tail = get_tail(list, list_name);
-
-	if( !(*head) || !(*head)->next || !(*tail))
+	head = get_head(ht_list, list);
+	tail = get_tail(ht_list, list);
+	if (!(*head) || !(*head)->next || !(*tail))
 		return ;
-	temp = *head;
-
-	*head = *tail;
-	(*head)->next = temp->next;
-	(*head)->next->prev = (*head);
-	(*head)->prev = NULL;
-	temp->next = NULL;
-	temp->prev = (*tail)->prev;
-	*tail = temp;
+	temp = *tail;
+	(*tail) = (*tail)->prev;
+	(*tail)->next = NULL;
+	temp->prev = NULL;
+	temp->next = (*head);
+	(*head)->next->prev = temp;
+	*head = temp;
+	update_headtail(ht_list, head, tail, list);
 }
 
-// 1 2 3 4 5
-// 5 2 3 4 1
-
-void	rra(t_HTlist *list, bool print)
+void	rra(t_ht_list *ht_list, bool print)
 {
-	reverse_rotate(list, 'a');
+	reverse_rotate(ht_list, 'a');
 	if (print)
 		printf("rra\n");
 }
 
-void	rrb(t_HTlist *list, bool print)
+void	rrb(t_ht_list *ht_list, bool print)
 {
-	reverse_rotate(list, 'b');
+	reverse_rotate(ht_list, 'b');
 	if (print)
 		printf("rrb\n");
 }
 
-void	rrr(t_HTlist *list, bool print)
+void	rrr(t_ht_list *ht_list, bool print)
 {
-	reverse_rotate(list, 'a');
-	reverse_rotate(list, 'b');
+	reverse_rotate(ht_list, 'a');
+	reverse_rotate(ht_list, 'b');
 	if (print)
 		printf("rrr\n");
 }

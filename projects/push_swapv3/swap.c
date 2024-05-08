@@ -12,37 +12,37 @@
 
 #include "push_swap.h"
 
-void	swap(t_HTlist *list, char list_name)
+void	swap(t_ht_list *ht_list, char list)
 {
 	t_node	**head;
 	int		temp_nbr;
 
-	head = get_head(list,list_name);
-	if( !(*head) || !(*head)->next)
+	head = get_head(ht_list, list);
+	if (!(*head) || !(*head)->next)
 		return ;
 	temp_nbr = (*head)->nbr;
 	(*head)->nbr = (*head)->next->nbr;
 	(*head)->next->nbr = temp_nbr;
 }
 
-void	sa(t_HTlist	*list, bool	print)
+void	sa(t_ht_list	*ht_list, bool	print)
 {
-	swap(list, 'a');
+	swap(ht_list, 'a');
 	if (print)
 		printf("sa\n");
 }
 
-void	sb(t_HTlist	*list, bool	print)
+void	sb(t_ht_list	*ht_list, bool	print)
 {
-	swap(list, 'b');
+	swap(ht_list, 'b');
 	if (print)
 		printf("sb\n");
 }
 
-void	ss(t_HTlist *list, bool print)
+void	ss(t_ht_list *ht_list, bool print)
 {
-	sa(list, false);
-	sb(list, false);
+	sa(ht_list, false);
+	sb(ht_list, false);
 	if (print)
 		printf("ss\n");
 }

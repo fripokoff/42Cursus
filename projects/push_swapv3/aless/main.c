@@ -6,18 +6,17 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 14:42:49 by apintus           #+#    #+#             */
-/*   Updated: 2024/05/01 15:11:01 by kpires           ###   ########.fr       */
+/*   Updated: 2024/05/07 10:12:49 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-static	void print_node(t_stack_node *node)
+static	void	print_node(t_stack_node *node)
 {
 	while (node)
 	{
-		printf("node:[%d]", node->nbr);
+		printf("node b:[%d]\n", node->nbr);
 		node = node->next;
 	}
 }
@@ -48,10 +47,6 @@ int	main(int argc, char **argv)
 	ft_free(argv);
 	if (!stack_sorted(a))
 		sort(&a, &b);
-	sa(&a,true);
-	// printf("\n");
-	// print_node(b);
-	printf("\n");
-	print_node(a);
+	print_node(b);
 	free_stack(&a);
 }

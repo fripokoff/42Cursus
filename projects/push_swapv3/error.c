@@ -28,25 +28,25 @@ void	free_double_char(char **str)
 	free(str);
 }
 
-void	free_list(t_HTlist *list)
+void	free_list(t_ht_list *ht_list)
 {
 	t_node	*current;
 	t_node	*next;
 
-	current = list->head_a;
+	current = ht_list->head_a;
 	while (current != NULL)
 	{
 		next = current->next;
 		free(current);
 		current = next;
 	}
-	list->head_a = NULL;
-	list->tail_a = NULL;
-	list->length_a = 0;
-	free(list);
+	ht_list->head_a = NULL;
+	ht_list->tail_a = NULL;
+	ht_list->length_a = 0;
+	free(ht_list);
 }
 
-void	error(char *debug, t_HTlist *list)
+void	error(char *debug, t_ht_list *ht_list)
 {
 	bool	enable_debug;
 
@@ -59,7 +59,7 @@ void	error(char *debug, t_HTlist *list)
 	}
 	else
 		printf("Error\n");
-	if (list)
-		free_list(list);
+	if (ht_list)
+		free_list(ht_list);
 	exit(1);
 }
