@@ -42,16 +42,19 @@ static void	sort_big(t_ht_list *ht_list)
 
 	len_a = ht_list->length_a;
 	median = ((ht_list->lower_a->nbr + ht_list->higher_a->nbr) / 2);
-	printf("median %d \n",median);
-	printf("len %d \n",len_a);
+	printf("median %d \n", median);
+	printf("len %d \n", len_a);
 	while (len_a-- > 3 && !check_is_sort(ht_list->head_a))
-	 	push_a_to_b(ht_list, median);
+		push_a_to_b(ht_list, median);
 	sort_three(ht_list);
-	// while (ht_list->head_b)
-	// {
-	// 	refresh(*a, *b);
-	// 	push_b_to_a(a, b);
-	// }
+	int max = ht_list->length_b + ht_list->length_a;
+	int i = 0;
+	while (ht_list->head_b && i < max)
+	{
+		refresh(ht_list);
+		// push_b_to_a(ht_list);
+		i++;
+	}
 	// refresh_index(*a);
 	// to_the_top(a);
 }

@@ -16,8 +16,9 @@ void	push_a_to_b(t_ht_list *ht_list, int median)
 {
 	if (ht_list->head_a && ht_list->head_a->nbr < median)
 	{
-		printf("head:%d\n",ht_list->head_a->nbr);
+		printf("head:%d\n", ht_list->head_a->nbr);
 		pb(ht_list, true);
+		printf("head:%d\n", ht_list->head_a->nbr);
 	}
 	else
 	{

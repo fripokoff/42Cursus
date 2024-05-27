@@ -28,10 +28,14 @@ void	print_list(t_ht_list *ht_list, char list)
 
 	head = get_head(ht_list, list);
 	current = *head;
-	printf("\nList %c: ", list);
+	printf("\nList %c:\n", list);
 	while (current != NULL)
 	{
 		printf("%d ", current->nbr);
+		if(current->target)
+			printf("target[%d] ", current->target->nbr);
+		if(current->cost)
+			printf("cost[%d]\n", current->cost);
 		current = current->next;
 	}
 	printf("\n");

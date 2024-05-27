@@ -60,13 +60,13 @@ int	main(int ac, char **av)
 	ht_list = init_list(ht_list);
 	init_node(arg_processed, ht_list);
 	a = ht_list->head_a;
-	print_list(ht_list, 'a');
-	print_list(ht_list, 'b');
 	if (!check_is_sort(a))
 	{
 		printf("\n[stack not sorted]\n");
 		sort(ht_list);
 	}
+	// print_list(ht_list, 'a');
+	// print_list(ht_list, 'b');
 	print_for_test(ht_list);
 	printf("ac[%d]", ac);
 	free_list(ht_list);

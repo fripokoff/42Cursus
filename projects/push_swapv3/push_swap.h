@@ -35,6 +35,7 @@ typedef struct s_node
 	int				cost;
 	bool			top_median;
 	bool			cheapest;
+	bool			above_median;
 	struct s_node	*target;
 	struct s_node	*next;
 	struct s_node	*prev;
@@ -88,3 +89,8 @@ void	pb(t_ht_list *ht_list, bool	print);
 
 /* mooves.c */
 void	push_a_to_b(t_ht_list *ht_list, int median);
+
+/* refresh.c */
+void	refresh(t_ht_list *ht_list);
+void	refresh_index(t_node *list, int len_list);
+void	refresh_target(t_ht_list *list);
