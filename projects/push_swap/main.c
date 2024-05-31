@@ -5,42 +5,66 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/12 09:25:14 by kpires            #+#    #+#             */
-/*   Updated: 2024/02/12 09:25:14 by kpires           ###   ########.fr       */
+/*   Created: 2024/02/26 07:34:35 by kpires            #+#    #+#             */
+/*   Updated: 2024/02/26 07:34:35 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+static t_ht_list	*init_list(t_ht_list *ht_list)
+{
+	ht_list = malloc(sizeof(t_ht_list));
+	ht_list->higher_a = NULL;
+	ht_list->head_a = NULL;
+	ht_list->tail_a = NULL;
+	ht_list->length_a = 0;
+	ht_list->higher_b = NULL;
+	ht_list->head_b = NULL;
+	ht_list->tail_b = NULL;
+	ht_list->length_b = 0;
+	return (ht_list);
+}
+
+static void	print_for_test(t_ht_list *ht_list)
+{
+	if (ht_list->head_a)
+		print_list(ht_list, 'a');
+	if (ht_list->length_a)
+		printf("[LENGTH A]: %d\n", ht_list->length_a);
+	if (ht_list->higher_a)
+		printf("[HIGHER A]: %d\n", ht_list->higher_a->nbr);
+	if (ht_list->lower_a)
+		printf("[LOWER A]: %d\n", ht_list->lower_a->nbr);
+	if (ht_list->head_b)
+		print_list(ht_list, 'b');
+	if (ht_list->length_b)
+		printf("[LENGTH B]: %d\n", ht_list->length_b);
+	if (ht_list->higher_b)
+		printf("[HIGHER B]: %d\n", ht_list->higher_b->nbr);
+	if (ht_list->lower_b)
+		printf("[LOWER B]: %d\n", ht_list->lower_b->nbr);
+}
+
 int	main(int ac, char **av)
 {
-	t_stack_node	*a;
-	t_stack_node	*tmp;
-	
-	char			*cleaned_str;
+	char		*arg_processed;
+	t_node		*a;
+	t_ht_list	*ht_list;
 
-	a = NULL;
 	if (ac == 1)
 		return (1);
-	cleaned_str = clean_split(av, ac, &a);
-	av = ft_split(cleaned_str, ' ');
-	if (!av)
-		return (0);
-	free(cleaned_str);
-	init_stack_a(&a, av);
-	tmp = a;
-	printf("STACK A\n");
-	while(tmp)
+	a = NULL;
+	ht_list = NULL;
+	arg_processed = process_arg(ac, av);
+	ht_list = init_list(ht_list);
+	init_node(arg_processed, ht_list);
+	a = ht_list->head_a;
+	if (!check_is_sort(a))
 	{
-		printf("[%d]", tmp->nbr);
-		tmp = tmp->next;
+		sort(ht_list);
 	}
-	if (!(is_sorted(&a)))
-	{
-		printf("[NOT SORTED]\n");
-	}
-	free_list(&a);
-	ft_free(av);
+	print_for_test(ht_list);
+	free_list(ht_list);
 	return (0);
 }
-	

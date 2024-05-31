@@ -14,10 +14,11 @@ NAME = push_swap
 AR = $(NAME).a
 CC = gcc
 RM = rm -f
+
 CFLAGS = -Wall -Wextra -Werror -g3
 MLIB = ar -rcs
 
-SRCS = main.c errors.c utils.c init_stack.c utils_stack.c
+SRCS = main.c error.c process_arg.c init_node.c help_nodes.c head_tail.c sort.c swap.c rotate.c reverse_rotate.c push.c
 
 OBJS = $(SRCS:.c=.o)
 
