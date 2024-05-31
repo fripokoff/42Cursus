@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 11:36:00 by kpires            #+#    #+#             */
-/*   Updated: 2024/05/02 15:28:44 by kpires           ###   ########.fr       */
+/*   Updated: 2024/05/31 12:33:32 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_atoi(const char	*nptr, int *error_limits)
 	{
 		val = val * 10 + signe * (*nptr - '0');
 		if (val > INT_MAX || val < INT_MIN
-		|| (!val && (*nptr == '-' || *nptr == '+')))
+			|| (!val && (*nptr == '-' || *nptr == '+')))
 			*error_limits = 1;
 		nptr++;
 	}

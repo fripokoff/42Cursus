@@ -81,6 +81,20 @@ static void	_check_limits(int err, t_ht_list *ht_list, char	**arg_split)
 	}
 }
 
+static void	set_higher_lower(t_ht_list *ht_list, int nbr)
+{
+	if (nbr > ht_list->higher_a->nbr)
+	{
+		ht_list->higher_a = ht_list->tail_a;
+		ht_list->higher_a->nbr = nbr;
+	}
+	if (nbr < ht_list->lower_a->nbr)
+	{
+		ht_list->lower_a = ht_list->tail_a;
+		ht_list->lower_a->nbr = nbr;
+	}
+}
+
 void	init_node(char *arg_processed, t_ht_list *ht_list)
 {
 	char	**arg_split;
@@ -98,19 +112,9 @@ void	init_node(char *arg_processed, t_ht_list *ht_list)
 		nbr = ft_atoi(arg_split[i++], &err);
 		_check_duplicates(nbr, ht_list, arg_split);
 		append_node(nbr, ht_list);
-		if(err)
-			error("[init_node.c:97]Error: Numeric value"
-				" is out of range or contains invalid characters.", ht_list);
-		if (nbr > ht_list->higher_a->nbr)
-		{
-			ht_list->higher_a = ht_list->tail_a;
-			ht_list->higher_a->nbr = nbr;
-		}
-		else if (nbr < ht_list->lower_a->nbr)
-		{
-			ht_list->lower_a = ht_list->tail_a;
-			ht_list->lower_a->nbr = nbr;
-		}
+		if (err)
+			error("[init_node.c:97]Error: Numeric value", ht_list);
+		set_higher_lower(ht_list, nbr);
 	}
 	free_double_char(arg_split);
 }

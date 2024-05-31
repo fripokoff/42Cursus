@@ -13,9 +13,9 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include "./libft/libft.h"
-#include <stdbool.h>
-#include <stdio.h>
+# include <stdbool.h>
+# include <stdio.h>
+# include "./libft/libft.h"
 
 typedef struct ht_list
 {
@@ -55,35 +55,27 @@ void	print_head_list(t_ht_list *ht_list);
 void	init_node(char *arg_processed, t_ht_list *ht_list);
 
 /* head_tail.c */
-t_node	**get_head(t_ht_list *ht_list, char list);
-t_node	**get_tail(t_ht_list *ht_list, char list);
-void	update_headtail(t_ht_list *ht_list, t_node **head,
-			t_node **tail, char list);
-void	find_highest(t_ht_list *ht_list, char list);
-void	find_lowest(t_ht_list *ht_list, char list);
-void update_highest_lowest(t_ht_list *ht_list, char list);
+t_node	*get_head(t_ht_list *ht_list, char list);
+t_node	*get_tail(t_ht_list *ht_list, char list);
+void	update_headtail(t_ht_list *ht_list, t_node *head,
+			t_node *tail, char list);
+int		get_highest(t_ht_list *ht_list, char list);
+int		get_lowest(t_ht_list *ht_list, char list);
+
+/* utils.c*/
+void	update_highest_lowest(t_ht_list *ht_list);
 
 /* sort.c */
 void	sort(t_ht_list *ht_list);
 bool	check_is_sort(t_node *a);
 
-/* swap.c */
-void	sa(t_ht_list *ht_list, bool print);
-void	sb(t_ht_list *ht_list, bool print);
-
-/* rotate.c */
-void	ra(t_ht_list *ht_list, bool print);
-void	rb(t_ht_list *ht_list, bool print);
-void	rr(t_ht_list *ht_list, bool print);
-
-/* reverse_rotate.c */
+/* rules.c */
+void	swap(t_ht_list *ht_list, char list);
+void	rotate(t_ht_list *ht_list, char list);
 void	reverse_rotate(t_ht_list *ht_list, char list);
-// void	rra(t_ht_list *ht_list, bool print);
-// void	rrb(t_ht_list *ht_list, bool print);
-// void	rrr(t_ht_list *ht_list, bool print);
+void	pa(t_ht_list *ht_list);
+void	pb(t_ht_list *ht_list);
 
-/* push.c */
-void	pa(t_ht_list *ht_list, bool	print);
-void	pb(t_ht_list *ht_list, bool	print);
+void	print_for_test(t_ht_list *ht_list);
 
 #endif

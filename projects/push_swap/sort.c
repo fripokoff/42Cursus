@@ -15,11 +15,11 @@
 static void	sort_three(t_ht_list *ht_list)
 {
 	if (ht_list->higher_a == ht_list->head_a)
-		ra(ht_list, true);
+		rotate(ht_list, 'a');
 	else if (ht_list->head_a->next == ht_list->higher_a)
 		reverse_rotate(ht_list, 'a');
 	if (ht_list->head_a->nbr > ht_list->head_a->next->nbr)
-		sa(ht_list, true);
+		swap(ht_list, 'a');
 }
 
 bool	check_is_sort(t_node *a)
@@ -42,12 +42,14 @@ static void	max_util(t_ht_list *ht_list, int temp, int nb)
 		if (temp <= (ht_list->length_b / 2))
 		{
 			while (ht_list->head_b->nbr != nb)
-				rb(ht_list, true);
+				rotate(ht_list, 'b');
 		}
 		else
 		{
 			while (ht_list->head_b->nbr != nb)
+			{
 				reverse_rotate(ht_list, 'b');
+			}
 		}
 	}
 }
@@ -73,21 +75,24 @@ static void	push_max(t_ht_list *ht_list)
 		i++;
 		tmp = tmp->next;
 	}
+	// printf("BEFORE:\n\n");
+	// print_for_test(ht_list);
 	max_util(ht_list, temp, nb);
-	pa(ht_list, true);
+	pa(ht_list);
+	// printf("AFTER PUSH A:\n\n");
+	// print_for_test(ht_list);
 }
-
 
 static int	get_range(t_ht_list *ht_list)
 {
-	int	range;
+	int	length_a;
 
-	range = ht_list->length_a;
-	if (6 <= range && range <= 16)
+	length_a = ht_list->length_a;
+	if (length_a >= 6 && length_a <= 16)
 		return (3);
-	else if (range <= 100)
+	else if (length_a <= 100)
 		return (13);
-	else if (range <= 500)
+	else if (length_a <= 500)
 		return (30);
 	else
 		return (45);
@@ -120,35 +125,47 @@ static void	is_reversed(t_ht_list *ht_list)
 	if (check_reverse(ht_list) == 1)
 		reverse_rotate(ht_list, 'a');
 	else
-		ra(ht_list, true);
+		rotate(ht_list, 'a');
 }
 
-static void	while_for_norm(t_ht_list *ht_list, int *arr, int num)
+static void	while_for_norm(t_ht_list *ht_list, int *arr, int length_a)
 {
 	int	i;
 	int	range;
 
 	i = 0;
 	range = get_range(ht_list);
+	printf("range=%d\n", range);
 	while (ht_list->head_a)
 	{
-		if (range + i >= num)
-			range = num - 1 - i;
+		printf("head_a=%d\n",ht_list->head_a->nbr);
+		printf("arr[%d]=%d\n",i, arr[i]);
+		printf("range arr[%d]=%d\n",range + i, arr[i+ range]);
+		int i =0;
+		while(arr[i])
+		{
+			printf("%d ", arr[i]);
+			i++;
+		}
+		printf("\n");
+		if (range + i >= length_a)
+			range = length_a - 1 - i;
 		else if (ht_list->head_a->nbr > arr[i] && ht_list->head_a->nbr <= arr[range + i])
 		{
-			pb(ht_list, true);
+			pb(ht_list);
 			if (ht_list->length_b >= 2 && ht_list->head_b->nbr < ht_list->head_b->next->nbr)
-				sb(ht_list, true);
+				swap(ht_list, 'b');
 			i++;
 		}
 		else if (ht_list->head_a->nbr <= arr[i])
 		{
-			pb(ht_list, true);
-			rb(ht_list, true);
+			pb(ht_list);
+			rotate(ht_list, 'b');
 			i++;
 		}
 		else
 			is_reversed(ht_list);
+		print_for_test(ht_list);
 	}
 }
 
@@ -199,24 +216,28 @@ static int	*copy_arr(t_ht_list *ht_list)
 	return (arr);
 }
 
-
 static void	sort_big(t_ht_list *ht_list)
 {
 	int	*arr;
 
 	arr = sort_int_tab(copy_arr(ht_list), ht_list->length_a);
-	arr = arr;
+	// int i = 0;
+	// while(arr[i])
+	// {
+	// 	printf("%d\n", arr[i]);
+	// 	i++;
+	// }
 	while_for_norm(ht_list, arr, ht_list->length_a);
+	printf("ended\n\n\n");
 	free(arr);
 	while (ht_list->head_b)
 		push_max(ht_list);
 }
 
-
 void	sort(t_ht_list *ht_list)
 {
 	if (ht_list->length_a == 2)
-		sa(ht_list, true);
+		swap(ht_list, 'a');
 	else if (ht_list->length_a == 3)
 		sort_three(ht_list);
 	else
