@@ -46,19 +46,9 @@ void	free_list(t_ht_list *ht_list)
 	free(ht_list);
 }
 
-void	error(char *debug, t_ht_list *ht_list)
+void	error(t_ht_list *ht_list)
 {
-	bool	enable_debug;
-
-	enable_debug = true;
-	if (enable_debug)
-	{
-		printf("\033[1;31m");
-		printf("%s\n", debug);
-		printf("\033[0m");
-	}
-	else
-		printf("Error\n");
+	ft_putstr_fd("Error\n", 2);
 	if (ht_list)
 		free_list(ht_list);
 	exit(1);

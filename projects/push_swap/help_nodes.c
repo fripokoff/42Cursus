@@ -50,18 +50,18 @@ void	print_for_test(t_ht_list *ht_list)
 {
 	if (ht_list->head_a)
 		print_list(ht_list, 'a');
-	// if (ht_list->length_a)
-	// 	printf("[LENGTH A]: %d\n", ht_list->length_a);
-	// if (ht_list->higher_a)
-	// 	printf("[HIGHER A]: %d\n", ht_list->higher_a->nbr);
-	// if (ht_list->lower_a)
-	// 	printf("[LOWER A]: %d\n", ht_list->lower_a->nbr);
+	if (ht_list->length_a)
+		printf("[LENGTH A]: %d\n", ht_list->length_a);
+	if (ht_list->higher_a)
+		printf("[HIGHER A]: %d\n", ht_list->higher_a->nbr);
+	if (ht_list->lower_a)
+		printf("[LOWER A]: %d\n", ht_list->lower_a->nbr);
 	if (ht_list->head_b)
 		print_list(ht_list, 'b');
-	// if (ht_list->length_b)
-	// 	printf("[LENGTH B]: %d\n", ht_list->length_b);
-	// if (ht_list->higher_b)
-	// 	printf("[HIGHER B]: %d\n", ht_list->higher_b->nbr);
-	// if (ht_list->lower_b)
-	// 	printf("[LOWER B]: %d\n", ht_list->lower_b->nbr);
+	if (ht_list->length_b)
+		printf("[LENGTH B]: %d\n", ht_list->length_b);
+	if (ht_list->higher_b)
+		printf("[HIGHER B]: %d\n", ht_list->higher_b->nbr);
+	if (ht_list->lower_b)
+		printf("[LOWER B]: %d\n", ht_list->lower_b->nbr);
 }

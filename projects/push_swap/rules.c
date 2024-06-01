@@ -34,27 +34,26 @@ void	reverse_rotate(t_ht_list *ht_list, char list)
 		printf("rra\n");
 	else if (list == 'b')
 		printf("rrb\n");
-	else
-		printf("rrr\n");
 }
 
 void	swap(t_ht_list *ht_list, char list)
 {
 	t_node	*head;
+	t_node	*tail;
 	int		temp_nbr;
 
 	head = get_head(ht_list, list);
+	tail = get_tail(ht_list, list);
 	if (!head || !head->next)
 		return ;
 	temp_nbr = head->nbr;
 	head->nbr = head->next->nbr;
 	head->next->nbr = temp_nbr;
+	update_headtail(ht_list, head, tail, list);
 	if (list == 'a')
 		printf("sa\n");
 	else if (list == 'b')
 		printf("sb\n");
-	else
-		printf("ss\n");
 }
 
 void	rotate(t_ht_list *ht_list, char list)
@@ -79,8 +78,6 @@ void	rotate(t_ht_list *ht_list, char list)
 		printf("ra\n");
 	else if (list == 'b')
 		printf("rb\n");
-	else
-		printf("rr\n");
 }
 
 void	pa(t_ht_list *ht_list)

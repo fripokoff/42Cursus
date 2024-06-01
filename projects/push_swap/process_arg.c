@@ -24,19 +24,16 @@ static int	len_check_allowed_char(char	*str)
 		if ((str[i] < '0' || str[i] > '9')
 			&& str[i] != ' ' && str[i] != '+'
 			&& str[i] != '-')
-			error("[process_arg.c:27]Error: Invalid character detected."
-				"Only digits, '+', '-', ' ' and '0' are allowed.", false);
+			error(false);
 		if ((str[i] == '-' || str[i] == '+')
 			&& (!(str[i + 1] >= '0' && str[i + 1] <= '9')))
-			error("[process_arg.c:27]Error: Multiple or Character alone.",
-				false);
+			error(false);
 		if (str[i] == ' ')
 			only_space++;
 		i++;
 	}
 	if (i == only_space)
-		error("[process_arg.c:33]Error: Only spaces detected."
-			"At least one digit is required.", false);
+		error(false);
 	return (i);
 }
 

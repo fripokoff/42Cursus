@@ -51,8 +51,7 @@ static char	*_check_duplicates(int nbr, t_ht_list *ht_list, char	**arg_split)
 		if (nbr == current->nbr)
 		{
 			free_double_char(arg_split);
-			error("[init_node.c:54]Error: Duplicate value"
-				" found during phase 1 of 2.", ht_list);
+			error(ht_list);
 		}
 		current = next;
 	}
@@ -74,8 +73,7 @@ static void	_check_limits(int err, t_ht_list *ht_list, char	**arg_split)
 		if (err || ft_strlen(&arg_split[i][j]) > 11)
 		{
 			free_double_char(arg_split);
-			error("[init_node.c:77]Error: Numeric value"
-				" is out of range or contains invalid characters.", ht_list);
+			error(ht_list);
 		}
 		i++;
 	}
@@ -113,7 +111,7 @@ void	init_node(char *arg_processed, t_ht_list *ht_list)
 		_check_duplicates(nbr, ht_list, arg_split);
 		append_node(nbr, ht_list);
 		if (err)
-			error("[init_node.c:97]Error: Numeric value", ht_list);
+			error(ht_list);
 		set_higher_lower(ht_list, nbr);
 	}
 	free_double_char(arg_split);

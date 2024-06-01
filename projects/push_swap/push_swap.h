@@ -39,7 +39,7 @@ typedef struct s_node
 }	t_node;
 
 /* error.c */
-void	error(char *debug, t_ht_list *ht_list);
+void	error(t_ht_list *ht_list);
 void	free_list(t_ht_list *ht_list);
 void	free_double_char(char **str);
 
@@ -59,15 +59,12 @@ t_node	*get_head(t_ht_list *ht_list, char list);
 t_node	*get_tail(t_ht_list *ht_list, char list);
 void	update_headtail(t_ht_list *ht_list, t_node *head,
 			t_node *tail, char list);
-int		get_highest(t_ht_list *ht_list, char list);
-int		get_lowest(t_ht_list *ht_list, char list);
 
 /* utils.c*/
 void	update_highest_lowest(t_ht_list *ht_list);
 
 /* sort.c */
 void	sort(t_ht_list *ht_list);
-bool	check_is_sort(t_node *a);
 
 /* rules.c */
 void	swap(t_ht_list *ht_list, char list);
@@ -75,6 +72,17 @@ void	rotate(t_ht_list *ht_list, char list);
 void	reverse_rotate(t_ht_list *ht_list, char list);
 void	pa(t_ht_list *ht_list);
 void	pb(t_ht_list *ht_list);
+
+/* algo.c*/
+int		*sort_int_tab(int *tab, int size);
+void	push_max(t_ht_list *ht_list);
+void	while_for_norm(t_ht_list *ht_list, int *arr, int length_a, int range);
+
+/* algo_utils.c*/
+void	is_reversed(t_ht_list *ht_list);
+bool	check_is_sort(t_node *a);
+int		get_range(t_ht_list *ht_list);
+int		*copy_arr(t_ht_list *ht_list);
 
 void	print_for_test(t_ht_list *ht_list);
 

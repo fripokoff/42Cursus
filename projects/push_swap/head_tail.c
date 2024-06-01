@@ -55,40 +55,5 @@ void	update_headtail(t_ht_list *ht_list, t_node *head
 		if (tail)
 			ht_list->tail_b = tail;
 	}
-}
-
-int	get_highest(t_ht_list *ht_list, char list)
-{
-	int	highest;
-
-	highest = INT_MIN;
-	if (list == 'a')
-	{
-		if ((ht_list->higher_a))
-			highest = ht_list->higher_a->nbr;
-	}
-	else if (list == 'b')
-	{
-		if ((ht_list->higher_b))
-			highest = ht_list->higher_b->nbr;
-	}
-	return (highest);
-}
-
-int get_lowest(t_ht_list *ht_list, char list)
-{
-	int	lowest;
-
-	lowest = INT_MAX;
-	if (list == 'a')
-	{
-		if ((ht_list->lower_a))
-			lowest = ht_list->lower_a->nbr;
-	}
-	else if (list == 'b')
-	{
-		if ((ht_list->lower_b))
-			lowest = ht_list->lower_b->nbr;
-	}
-	return (lowest);
+	update_highest_lowest(ht_list);
 }

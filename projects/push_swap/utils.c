@@ -12,52 +12,63 @@
 
 #include "push_swap.h"
 
-static void	find_set_highest(t_ht_list *ht_list, char list)
+static t_node	*get_highest(t_ht_list *ht_list, char list)
 {
 	t_node	*current;
-	int		highest;
+	t_node	*highest;
+	int		higher;
 
 	current = get_head(ht_list, list);
-	highest = get_highest(ht_list, list);
+	if (current == NULL)
+		return (NULL);
+	higher = current->nbr;
+	highest = current;
 	while (current)
 	{
-		if (current->nbr > highest)
+		if (current->nbr > higher)
 		{
-			highest = current->nbr;
-			if (list == 'a')
-				ht_list->higher_a = current;
-			else if (list == 'b')
-				ht_list->higher_b = current;
+			higher = current->nbr;
+			highest = current;
 		}
 		current = current->next;
 	}
+	return (highest);
 }
 
-static void	find_set_lowest(t_ht_list *ht_list, char list)
+static t_node	*get_lowest(t_ht_list *ht_list, char list)
 {
 	t_node	*current;
-	int		lowest;
+	t_node	*lowest;
+	int		lower;
 
 	current = get_head(ht_list, list);
-	lowest = get_lowest(ht_list, list);
+	if (current == NULL)
+		return (NULL);
+	lowest = current;
+	lower = current->nbr;
 	while (current)
 	{
-		if (current->nbr < lowest)
+		if (current->nbr < lower)
 		{
-			lowest = current->nbr;
-			if (list == 'a')
-				ht_list->lower_a = current;
-			else if (list == 'b')
-				ht_list->lower_b = current;
+			lower = current->nbr;
+			lowest = current;
 		}
 		current = current->next;
 	}
+	return (lowest);
 }
 
 void	update_highest_lowest(t_ht_list *ht_list)
 {
-	find_set_highest(ht_list, 'a');
-	find_set_lowest(ht_list, 'a');
-	find_set_highest(ht_list, 'b');
-	find_set_lowest(ht_list, 'b');
+	t_node	*highest;
+	t_node	*lowest;
+
+	highest = get_highest(ht_list, 'a');
+	ht_list->higher_a = highest;
+	highest = get_highest(ht_list, 'b');
+	ht_list->higher_b = highest;
+	lowest = get_lowest(ht_list, 'a');
+	ht_list->lower_a = lowest;
+	lowest = get_lowest(ht_list, 'b');
+	ht_list->lower_b = lowest;
 }

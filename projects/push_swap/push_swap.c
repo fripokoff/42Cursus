@@ -29,23 +29,16 @@ static t_ht_list	*init_list(t_ht_list *ht_list)
 int	main(int ac, char **av)
 {
 	char		*arg_processed;
-	t_node		*a;
 	t_ht_list	*ht_list;
 
 	if (ac == 1)
 		return (1);
-	a = NULL;
 	ht_list = NULL;
 	arg_processed = process_arg(ac, av);
 	ht_list = init_list(ht_list);
 	init_node(arg_processed, ht_list);
-	a = ht_list->head_a;
-	print_for_test(ht_list);
-	if (!check_is_sort(a))
-	{
+	if (!check_is_sort(ht_list->head_a))
 		sort(ht_list);
-	}
-	print_for_test(ht_list);
 	free_list(ht_list);
 	return (0);
 }
