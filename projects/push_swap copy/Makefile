@@ -15,22 +15,13 @@ AR = $(NAME).a
 CC = gcc
 RM = rm -f
 
-CFLAGS = -Wall -Wextra -Werror -I./inc
+CFLAGS = -Wall -Wextra -Werror -g3
 MLIB = ar -rcs
 
-SRCS = src/push_swap/push_swap.c\
-		src/push_swap/errors.c\
-		src/push_swap/process_arg.c\
-		src/push_swap/init_node.c\
-		src/push_swap/head_tail.c\
-		src/push_swap/sort.c\
-		src/push_swap/rules.c\
-		src/push_swap/algo.c\
-		src/push_swap/algo_utils.c
-
+SRCS = push_swap.c errors.c process_arg.c init_node.c head_tail.c sort.c rules.c algo.c algo_utils.c
 OBJS = $(SRCS:.c=.o)
 
-LIBFT = src/libft
+LIBFT = libft
 LIBFT_MAKE = make -s -C $(LIBFT)
 LIBFT_PATH = $(LIBFT)/libft.a
 

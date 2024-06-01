@@ -1,7 +1,9 @@
 {
 	"files.associations": {
-		"cstdlib": "c",
-		"type_traits": "c",
-		"stdbool.h": "c"
-	}
+		"*.embeddedhtml": "html",
+		"stdio.h": "c"
+	},
+	"[c]": {
+		"editor.defaultFormatter": "keyhr.42-c-format"
+	  }
 }
