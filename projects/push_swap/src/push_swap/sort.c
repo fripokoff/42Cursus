@@ -12,45 +12,6 @@
 
 #include "push_swap.h"
 
-static void	sort_three(t_ht_list *ht_list)
-{
-	if (ht_list->higher_a == ht_list->head_a)
-		rotate(ht_list, 'a');
-	else if (ht_list->head_a->next == ht_list->higher_a)
-		reverse_rotate(ht_list, 'a');
-	if (ht_list->head_a->nbr > ht_list->head_a->next->nbr)
-		swap(ht_list, 'a');
-}
-
-static void	sort_big(t_ht_list *ht_list)
-{
-	int		*arr;
-	int		range;
-	int		higher_index;
-	int		higher_nbr;
-
-	arr = sort_int_tab(copy_arr(ht_list), ht_list->length_a);
-	range = get_range(ht_list);
-	while_for_norm(ht_list, arr, ht_list->length_a, range);
-	free(arr);
-	while (ht_list->head_b)
-	{
-		higher_index = ht_list->higher_b->index;
-		higher_nbr = ht_list->higher_b->nbr;
-		if (higher_index != 0)
-		{
-			while (ht_list->head_b->nbr != higher_nbr)
-			{
-				if (higher_index <= (ht_list->length_b / 2))
-					rotate(ht_list, 'b');
-				else
-					reverse_rotate(ht_list, 'b');
-			}
-		}
-		pa(ht_list);
-	}
-}
-
 static void	push_target(t_ht_list *ht_list, int target)
 {
 	int		index;
@@ -72,6 +33,16 @@ static void	push_target(t_ht_list *ht_list, int target)
 	pb(ht_list);
 }
 
+static void	sort_three(t_ht_list *ht_list)
+{
+	if (ht_list->higher_a == ht_list->head_a)
+		rotate(ht_list, 'a');
+	else if (ht_list->head_a->next == ht_list->higher_a)
+		reverse_rotate(ht_list, 'a');
+	if (ht_list->head_a->nbr > ht_list->head_a->next->nbr)
+		swap(ht_list, 'a');
+}
+
 static void	sort_four_five(t_ht_list *ht_list)
 {
 	push_target(ht_list, ht_list->lower_a->nbr);
@@ -84,6 +55,35 @@ static void	sort_four_five(t_ht_list *ht_list)
 	sort_three(ht_list);
 	while (ht_list->head_b)
 		pa(ht_list);
+}
+
+static void	sort_big(t_ht_list *ht_list)
+{
+	int		*arr;
+	int		higher_index;
+	int		higher_nbr;
+
+	arr = sort_int_tab(copy_arr(ht_list), ht_list->length_a);
+	if (!arr)
+		error(ht_list);
+	while_for_norm(ht_list, arr, ht_list->length_a);
+	free(arr);
+	while (ht_list->head_b)
+	{
+		higher_index = ht_list->higher_b->index;
+		higher_nbr = ht_list->higher_b->nbr;
+		if (higher_index != 0)
+		{
+			while (ht_list->head_b->nbr != higher_nbr)
+			{
+				if (higher_index <= (ht_list->length_b / 2))
+					rotate(ht_list, 'b');
+				else
+					reverse_rotate(ht_list, 'b');
+			}
+		}
+		pa(ht_list);
+	}
 }
 
 void	sort(t_ht_list *ht_list)

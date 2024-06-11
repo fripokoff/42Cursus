@@ -44,7 +44,7 @@ void	swap(t_ht_list *ht_list, char list)
 
 	head = get_head(ht_list, list);
 	tail = get_tail(ht_list, list);
-	if (!head || !head->next)
+	if (!head || !head->next || !tail)
 		return ;
 	head_nbr = head->nbr;
 	head->nbr = head->next->nbr;

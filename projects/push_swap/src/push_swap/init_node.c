@@ -12,6 +12,20 @@
 
 #include "push_swap.h"
 
+static void	set_higher_lower(t_ht_list *ht_list, int nbr)
+{
+	if (nbr > ht_list->higher_a->nbr)
+	{
+		ht_list->higher_a = ht_list->tail_a;
+		ht_list->higher_a->nbr = nbr;
+	}
+	if (nbr < ht_list->lower_a->nbr)
+	{
+		ht_list->lower_a = ht_list->tail_a;
+		ht_list->lower_a->nbr = nbr;
+	}
+}
+
 static t_node	*append_node(int value, t_ht_list *ht_list)
 {
 	t_node	*new;
@@ -29,14 +43,14 @@ static t_node	*append_node(int value, t_ht_list *ht_list)
 		ht_list->tail_a = new;
 		ht_list->higher_a = new;
 		ht_list->lower_a = new;
-		ht_list->length_a++;
 	}
 	else
 	{
 		ht_list->tail_a->next = new;
 		ht_list->tail_a = new;
-		ht_list->length_a++;
 	}
+	ht_list->length_a++;
+	set_higher_lower(ht_list, value);
 	return (new);
 }
 
@@ -59,7 +73,7 @@ static char	*_check_duplicates(int nbr, t_ht_list *ht_list, char	**arg_split)
 	return (NULL);
 }
 
-static void	_check_limits(int err, t_ht_list *ht_list, char	**arg_split)
+static void	_check_limits(t_ht_list *ht_list, char	**arg_split)
 {
 	int	i;
 	int	j;
@@ -71,26 +85,12 @@ static void	_check_limits(int err, t_ht_list *ht_list, char	**arg_split)
 		while (arg_split[i][j] == '0' || arg_split[i][j] == '+'
 				|| arg_split[i][j] == '-')
 			j++;
-		if (err || ft_strlen(&arg_split[i][j]) > 11)
+		if (ft_strlen(&arg_split[i][j]) > 11)
 		{
 			free_double_char(arg_split);
 			error(ht_list);
 		}
 		i++;
-	}
-}
-
-static void	set_higher_lower(t_ht_list *ht_list, int nbr)
-{
-	if (nbr > ht_list->higher_a->nbr)
-	{
-		ht_list->higher_a = ht_list->tail_a;
-		ht_list->higher_a->nbr = nbr;
-	}
-	if (nbr < ht_list->lower_a->nbr)
-	{
-		ht_list->lower_a = ht_list->tail_a;
-		ht_list->lower_a->nbr = nbr;
 	}
 }
 
@@ -105,7 +105,7 @@ void	init_node(char *arg_processed, t_ht_list *ht_list)
 	free(arg_processed);
 	i = 0;
 	err = 0;
-	_check_limits(err, ht_list, arg_split);
+	_check_limits(ht_list, arg_split);
 	while (arg_split[i])
 	{
 		nbr = ft_atoi(arg_split[i++], &err);
@@ -113,7 +113,6 @@ void	init_node(char *arg_processed, t_ht_list *ht_list)
 		append_node(nbr, ht_list);
 		if (err)
 			error(ht_list);
-		set_higher_lower(ht_list, nbr);
 	}
 	free_double_char(arg_split);
 }

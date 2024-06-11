@@ -75,7 +75,7 @@ void	pb(t_ht_list *ht_list);
 
 /* algo.c*/
 int		*sort_int_tab(int *tab, int size);
-void	while_for_norm(t_ht_list *ht_list, int *arr, int length_a, int range);
+void	while_for_norm(t_ht_list *ht_list, int *arr, int length_a);
 
 /* algo_utils.c*/
 void	is_reversed(t_ht_list *ht_list);

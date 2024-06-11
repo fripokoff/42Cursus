@@ -78,6 +78,8 @@ int	*copy_arr(t_ht_list *ht_list)
 
 	i = 0;
 	arr = malloc(sizeof(int) * ht_list->length_a);
+	if (!arr)
+		return (NULL);
 	head_a = ht_list->head_a;
 	while (head_a)
 	{

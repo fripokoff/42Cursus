@@ -12,12 +12,14 @@
 
 #include "push_swap.h"
 
-void	while_for_norm(t_ht_list *ht_list, int *arr, int length_a, int range)
+void	while_for_norm(t_ht_list *ht_list, int *arr, int length_a)
 {
 	int		i;
 	int		nbr;
+	int		range;
 
 	i = 0;
+	range = get_range(ht_list);
 	while (ht_list->head_a)
 	{
 		nbr = ht_list->head_a->nbr;
@@ -47,8 +49,8 @@ int	*sort_int_tab(int *tab, int size)
 
 	i = 0;
 	j = 0;
-	if (size <= 1)
-		return (0);
+	if (size <= 1 || tab == NULL)
+		return (NULL);
 	while (i < size)
 	{
 		j = 0;
