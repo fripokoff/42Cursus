@@ -18,7 +18,7 @@ RM = rm -f
 CFLAGS	= -Wall -Werror -Wextra -I./inc
 MLIB = ar -rcs
 
-SRCS = src/pipex/pipex.c
+SRCS = src/pipex/pipex.c src/pipex/process.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -33,8 +33,10 @@ PRINTF_PATH = $(PRINTF)/ft_printf.a
 
 all : $(NAME) $(LIBFT_PATH)
 
+# $(CC) -fsanitize=address $(AR) $(LIBFT_PATH) $(PRINTF_PATH) -o $(NAME)
+
 $(NAME) : $(AR) $(LIBFT_PATH) $(PRINTF_PATH)
-	$(CC) -fsanitize=address $(AR) $(LIBFT_PATH) $(PRINTF_PATH) -o $(NAME)
+	$(CC) $(AR) $(LIBFT_PATH) $(PRINTF_PATH) -o $(NAME)
 
 $(AR) : $(OBJS)
 	$(MLIB) $(AR) $(OBJS)

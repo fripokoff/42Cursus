@@ -1,7 +1,0 @@
-pipex
-src/*.o
-libft/src/*.o
-libft/libft.a
-libft.a
-*.fl
-libft/.git
