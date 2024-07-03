@@ -1,0 +1,1 @@
+A program which made me discover the process notion, and how works a program (behind the scene). Utilisation of pipes, forks, dup2, perror.. for the first time. Also is introduced the execution of bash commands, how can I move the std input and output to my own ways.
