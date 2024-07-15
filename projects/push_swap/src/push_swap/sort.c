@@ -63,7 +63,7 @@ static void	sort_big(t_ht_list *ht_list)
 	int		higher_index;
 	int		higher_nbr;
 
-	arr = sort_int_tab(copy_arr(ht_list), ht_list->length_a);
+	arr = bubble_sort(copy_arr(ht_list), ht_list->length_a);
 	if (!arr)
 		error(ht_list);
 	while_for_norm(ht_list, arr, ht_list->length_a);
