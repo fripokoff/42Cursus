@@ -45,7 +45,7 @@ void	free_list(t_ht_list *ht_list)
 
 void	error(t_ht_list *ht_list)
 {
-	ft_putstr_fd("Error\n", 2);
+	write(1, "Error\n", 6);
 	if (ht_list)
 		free_list(ht_list);
 	exit(1);

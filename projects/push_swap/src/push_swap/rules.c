@@ -31,9 +31,9 @@ void	reverse_rotate(t_ht_list *ht_list, char list)
 	head = temp_tail;
 	update_headtail(ht_list, head, tail, list);
 	if (list == 'a')
-		ft_putstr_fd("rra\n", 2);
+		write(1, "rra\n", 4);
 	else if (list == 'b')
-		ft_putstr_fd("rrb\n", 2);
+		write(1, "rrb\n", 4);
 }
 
 void	swap(t_ht_list *ht_list, char list)
@@ -51,9 +51,9 @@ void	swap(t_ht_list *ht_list, char list)
 	head->next->nbr = head_nbr;
 	update_headtail(ht_list, head, tail, list);
 	if (list == 'a')
-		ft_putstr_fd("sa\n", 2);
+		write(1, "sa\n", 3);
 	else if (list == 'b')
-		ft_putstr_fd("sb\n", 2);
+		write(1, "sb\n", 3);
 }
 
 void	rotate(t_ht_list *ht_list, char list)
@@ -75,9 +75,9 @@ void	rotate(t_ht_list *ht_list, char list)
 	tail = temp_head;
 	update_headtail(ht_list, head, tail, list);
 	if (list == 'a')
-		ft_putstr_fd("ra\n", 2);
+		write(1, "ra\n", 3);
 	else if (list == 'b')
-		ft_putstr_fd("rb\n", 2);
+		write(1, "rb\n", 3);
 }
 
 void	pa(t_ht_list *ht_list)
@@ -106,7 +106,7 @@ void	pa(t_ht_list *ht_list)
 	update_highest_lowest(ht_list);
 	ht_list->length_a++;
 	ht_list->length_b--;
-	ft_putstr_fd("pa\n", 2);
+	write(1, "pa\n", 3);
 }
 
 void	pb(t_ht_list *ht_list)
@@ -135,5 +135,5 @@ void	pb(t_ht_list *ht_list)
 	update_highest_lowest(ht_list);
 	ht_list->length_b++;
 	ht_list->length_a--;
-	ft_putstr_fd("pb\n", 2);
+	write(1, "pb\n", 3);
 }
