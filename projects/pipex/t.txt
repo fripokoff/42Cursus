@@ -1,0 +1,5 @@
+env -i ./pipex doc/infile /bin/cat "/bin/ls" /dev/stdout
+
+env -i ./pipex doc/infile /bin/cat "/bin/wc -l" /dev/stdout
+
+valgrind --leak-check=full --track-fds=yes --track-origins=yes --trace-children=yes --show-leak-kinds=all ./pipex infi cat lsss outfile

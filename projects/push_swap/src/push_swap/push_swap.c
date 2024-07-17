@@ -15,6 +15,8 @@
 static t_ht_list	*init_list(t_ht_list *ht_list)
 {
 	ht_list = malloc(sizeof(t_ht_list));
+	if (!ht_list)
+		return (NULL);
 	ht_list->higher_a = NULL;
 	ht_list->head_a = NULL;
 	ht_list->tail_a = NULL;
@@ -33,9 +35,11 @@ int	main(int ac, char **av)
 
 	if (ac == 1)
 		return (1);
+	arg_processed = process_arg(ac, av);
 	ht_list = NULL;
 	ht_list = init_list(ht_list);
-	arg_processed = process_arg(ac, av);
+	if (!ht_list)
+		return (1);
 	init_node(arg_processed, ht_list);
 	if (!check_is_sort(ht_list->head_a))
 		sort(ht_list);

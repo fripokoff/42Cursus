@@ -45,7 +45,7 @@ void	is_reversed(t_ht_list *ht_list)
 bool	check_is_sort(t_node *a)
 {
 	if (!a)
-		return (1);
+		return (false);
 	while (a->next)
 	{
 		if (a->nbr > a->next->nbr)

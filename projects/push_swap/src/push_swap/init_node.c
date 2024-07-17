@@ -65,7 +65,7 @@ static char	*_check_duplicates(int nbr, t_ht_list *ht_list, char	**arg_split)
 		next = current->next;
 		if (nbr == current->nbr)
 		{
-			free_double_char(arg_split);
+			ft_free(arg_split);
 			error(ht_list);
 		}
 		current = next;
@@ -87,7 +87,7 @@ static void	_check_limits(t_ht_list *ht_list, char	**arg_split)
 			j++;
 		if (ft_strlen(&arg_split[i][j]) > 11)
 		{
-			free_double_char(arg_split);
+			ft_free(arg_split);
 			error(ht_list);
 		}
 		i++;
@@ -112,7 +112,10 @@ void	init_node(char *arg_processed, t_ht_list *ht_list)
 		_check_duplicates(nbr, ht_list, arg_split);
 		append_node(nbr, ht_list);
 		if (err)
+		{
+			ft_free(arg_split);
 			error(ht_list);
+		}
 	}
-	free_double_char(arg_split);
+	ft_free(arg_split);
 }

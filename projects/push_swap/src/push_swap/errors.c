@@ -12,34 +12,27 @@
 
 #include "push_swap.h"
 
-void	free_double_char(char **str)
-{
-	int	j;
-
-	j = 0;
-	while (str[j])
-	{
-		free(str[j]);
-		j++;
-	}
-	free(str);
-}
-
-void	free_list(t_ht_list *ht_list)
+static void	free_target_list(t_ht_list *ht_list, char list)
 {
 	t_node	*current;
 	t_node	*next;
 
-	current = ht_list->head_a;
+	if (list == 'a')
+		current = ht_list->head_a;
+	else if (list == 'b')
+		current = ht_list->head_b;
 	while (current != NULL)
 	{
 		next = current->next;
 		free(current);
 		current = next;
 	}
-	ht_list->head_a = NULL;
-	ht_list->tail_a = NULL;
-	ht_list->length_a = 0;
+}
+
+void	free_list(t_ht_list *ht_list)
+{
+	free_target_list(ht_list, 'a');
+	free_target_list(ht_list, 'b');
 	free(ht_list);
 }
 

@@ -15,6 +15,7 @@
 
 # include <stdbool.h>
 # include "libft.h"
+# include <stdio.h>
 
 typedef struct ht_list
 {
@@ -41,7 +42,6 @@ typedef struct s_node
 /* errors.c */
 void	error(t_ht_list *ht_list);
 void	free_list(t_ht_list *ht_list);
-void	free_double_char(char **str);
 
 /* process_arg.c */
 char	*process_arg(int ac, char **arg);
