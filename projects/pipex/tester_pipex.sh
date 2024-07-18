@@ -470,7 +470,17 @@ main_proc=$(cat vlg.txt | grep -m3 -A 1 "HEAP SUMMARY" | tail -n1 | egrep -o "[0
 fd=$(cat vlg.txt | grep -o  "Open file descriptor [0-9]*:" | sort | uniq | wc -l | tr -d "[:blank:]")
 main_fd_open=$(cat vlg.txt | grep -m3 "FILE DESCRIPTORS:" | tail -n1 | egrep -o "[0-9]* open" | egrep -o "[0-9]*")
 main_fd_std=$(cat vlg.txt | grep -m3 "FILE DESCRIPTORS:" | tail -n1 | egrep -o "[0-9]* std" | egrep -o "[0-9]*")
-main_fd=$(( $main_fd_open - $main_fd_std ))
+main_fd_open=${main_fd_open:-0}
+main_fd_std=${main_fd_std:-0}
+
+# Vérification supplémentaire pour s'assurer que les valeurs sont numériques
+if ! [[ $main_fd_open =~ ^-?[0-9]+$ ]] || ! [[ $main_fd_std =~ ^-?[0-9]+$ ]]; then
+    echo "Erreur: Les variables main_fd_open et main_fd_std doivent être des nombres."
+    exit 1
+fi
+
+# Effectuez la soustraction
+main_fd=$((main_fd_open - main_fd_std))
 [[ $first_proc -eq 0 ]] && echo -ne "${GREEN}no leak cat${END}" || echo -ne "${RED}$first_proc leaks first cat${END}"
 [[ $second_proc -eq 0 ]] && echo -ne "${GREEN} - no leak cat${END}" || echo -ne "${RED} - $second_proc leaks second cat${END}"
 [[ $main_proc -eq 0 ]] && echo -ne "${GREEN} - no leak main${END}" || echo -ne "${RED} - $main_proc leaks main${END}"
