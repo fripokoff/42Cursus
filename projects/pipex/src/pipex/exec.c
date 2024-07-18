@@ -68,8 +68,14 @@ static void	do_exec(char *cmd, char **split_cmds, t_pipex *pipex)
 		ft_free(split_cmds);
 		return ;
 	}
+	if (errno == EACCES)
+	{
+		ft_putstr_fd("Error: Permission denied\n", 2);
+		free(pipex->pid);
+		ft_free(split_cmds);
+		exit(126);
+	}
 	perror("Error");
-	strerror(errno);
 	free(pipex->pid);
 	ft_free(split_cmds);
 	exit(errno);
