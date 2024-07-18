@@ -3,7 +3,7 @@ AR = $(NAME).a
 CC = gcc
 RM = rm -f
 
-CFLAGS	= -Wall -Werror -Wextra -I./inc
+CFLAGS	= -Wall -Werror -Wextra -I./inc -g
 MLIB = ar -rcs
 
 SRCS = src/pipex/pipex.c src/pipex/process.c src/pipex/exec.c
