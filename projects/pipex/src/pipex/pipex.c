@@ -17,7 +17,7 @@ void	handle_error(int errnum, t_pipex *pipex, int code)
 	if (errnum == EACCES)
 		ft_putstr_fd("Error: Permission denied\n", 2);
 	else if (errnum == ENOENT)
-		ft_putstr_fd("Error: no such file or directory\n", 2);
+		ft_putstr_fd("Error: No such file or directory\n", 2);
 	if (pipex && pipex->pid)
 		free(pipex->pid);
 	exit(code);
@@ -52,7 +52,7 @@ static void	init_pipex(t_pipex *pipex, int ac, char **av, char **env)
 	pipex->pid = malloc(sizeof(int) * (pipex->cmds_count));
 	if (!pipex->pid)
 	{
-		ft_putstr_fd("Error: malloc failed\n", 2);
+		ft_putstr_fd("Error: Malloc failed\n", 2);
 		exit(1);
 	}
 }
@@ -64,7 +64,7 @@ int	main(int ac, char **av, char **env)
 
 	if (ac != 5)
 	{
-		ft_putstr_fd("Usage: ./pipex filein cmd1 cmd2 fileout\n", 2);
+		ft_putstr_fd("Usage: ./pipex infile cmd1 cmd2 outfile\n", 2);
 		exit(1);
 	}
 	init_pipex(&pipex, ac, av, env);
