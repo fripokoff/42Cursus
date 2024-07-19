@@ -35,11 +35,7 @@ static void	ft_open_file(t_pipex	*pipex, int i)
 	{
 		pipex->in_fd = open(pipex->in, RD);
 		if (pipex->in_fd == -1)
-		{
-			ft_putstr_fd("Error: no such file or directory\n", 2);
-			free(pipex->pid);
-			exit(1);
-		}
+			handle_error(errno, pipex, 1);
 		dup2(pipex->in_fd, 0);
 		close(pipex->in_fd);
 	}
@@ -47,11 +43,7 @@ static void	ft_open_file(t_pipex	*pipex, int i)
 	{
 		pipex->out_fd = open(pipex->out, WR | CR | TR, 0644);
 		if (pipex->out_fd == -1)
-		{
-			ft_putstr_fd("Error: no such file or directory\n", 2);
-			free(pipex->pid);
-			exit(1);
-		}
+			handle_error(errno, pipex, 1);
 		dup2(pipex->out_fd, 1);
 		close(pipex->out_fd);
 	}

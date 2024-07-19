@@ -50,4 +50,5 @@ typedef struct s_pipex
 int		ft_pipex(t_pipex *pipex);
 int		ft_waitpid(t_pipex *pipex);
 void	ft_execve(char *cmd, t_pipex *pipex);
+void	handle_error(int errnum, t_pipex *pipex, int code);
 #endif

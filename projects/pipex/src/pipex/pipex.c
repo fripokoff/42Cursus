@@ -12,6 +12,17 @@
 
 #include "pipex.h"
 
+void	handle_error(int errnum, t_pipex *pipex, int code)
+{
+	if (errnum == EACCES)
+		ft_putstr_fd("Error: Permission denied\n", 2);
+	else if (errnum == ENOENT)
+		ft_putstr_fd("Error: no such file or directory\n", 2);
+	if (pipex && pipex->pid)
+		free(pipex->pid);
+	exit(code);
+}
+
 int	ft_waitpid(t_pipex *pipex)
 {
 	int	i;

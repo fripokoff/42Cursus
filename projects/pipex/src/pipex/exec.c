@@ -48,7 +48,7 @@ static char	*ft_get_path(char *cmd, char **env_vars)
 	if (!env_vars[i])
 	{
 		ft_putstr_fd("Error: Path not found\n", 2);
-		exit(1);
+		exit(127);
 	}
 	split_path = ft_split(env_vars[i] + 5, ':');
 	if (!split_path)
@@ -68,13 +68,12 @@ static void	do_exec(char *cmd, char **split_cmds, t_pipex *pipex)
 		ft_free(split_cmds);
 		return ;
 	}
-	if (errno == EACCES)
-	{
-		ft_putstr_fd("Error: Permission denied\n", 2);
-		free(pipex->pid);
+	if (errno == ENOENT || errno == EACCES)
 		ft_free(split_cmds);
-		exit(126);
-	}
+	if (errno == EACCES)
+		handle_error(errno, pipex, 126);
+	if (errno == ENOENT)
+		handle_error(errno, pipex, 127);
 	perror("Error");
 	free(pipex->pid);
 	ft_free(split_cmds);
