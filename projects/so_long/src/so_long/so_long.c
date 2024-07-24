@@ -64,7 +64,7 @@ int	main(int ac, char **av)
 	{
 		settings.map = get_map_by_file(av[1]);
 		settings.map_size = get_map_size(settings.map);
-		settings.screen_size = get_pos(SCREEN_HEIGHT, SCREEN_WIDTH);
+		settings.screen_size = get_pos(SCREEN_WIDTH, SCREEN_HEIGHT);
 		check_screen(&settings);
 		init_game_stats(settings.map, &(settings.moves),
 			&(settings.potions), &(settings.player));

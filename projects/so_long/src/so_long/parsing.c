@@ -34,7 +34,7 @@ static void	check_map_size(char *file_content)
 		if (file_content[i] == '\n' && (i != (size.y * (size.x + 1)) - 1))
 		{
 			free(file_content);
-			exit_error("Map isn't a rectangle 2");
+			exit_error("Map isn't a rectangle");
 		}
 		size.y += file_content[i] == '\n';
 		i++;

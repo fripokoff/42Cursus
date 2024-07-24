@@ -36,7 +36,7 @@
 #  define SCREEN_HEIGHT 500
 # endif
 
-# define GAME_NAME "Ridouuf"
+# define GAME_NAME "Wizard Adventure"
 # define SPRITES_SIZE 32
 
 # define EOT 3
