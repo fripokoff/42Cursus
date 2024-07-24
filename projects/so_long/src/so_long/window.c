@@ -1,44 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   window.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/21 13:10:35 by kpires            #+#    #+#             */
-/*   Updated: 2024/07/21 13:10:35 by kpires           ###   ########.fr       */
+/*   Created: 2024/07/23 17:54:42 by kpires            #+#    #+#             */
+/*   Updated: 2024/07/23 17:54:42 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	exit_error(char *msg)
+void	init_window(t_settings *settings)
 {
-	printf("Error \n%s\n", msg);
-	exit(EXIT_FAILURE);
-}
-
-void	free_game(t_settings *settings, bool f_mlx, bool f_imgs, bool f_map)
-{
-	int	i;
-
-	if (f_map)
+	settings->mlx_var = mlx_init();
+	if (settings->mlx_var == NULL)
+	{
 		ft_free(settings->map);
-	if (f_imgs)
-	{
-		i = 0;
-		while (i < settings->imgs_count)
-		{
-			free(settings->imgs[i].name);
-			mlx_destroy_image(settings->mlx_var, settings->imgs[i].obj);
-			i++;
-		}
-		free(settings->imgs);
+		exit_error("Mlx init issue");
 	}
-	if (f_mlx)
+	settings->window = mlx_new_window(settings->mlx_var,
+			settings->map_size.x * SPRITES_SIZE,
+			settings->map_size.y * SPRITES_SIZE, GAME_NAME);
+	if (settings->window == NULL)
 	{
-		mlx_destroy_window(settings->mlx_var, settings->window);
 		mlx_destroy_display(settings->mlx_var);
 		free(settings->mlx_var);
+		ft_free(settings->map);
+		exit_error("Window issue");
 	}
 }

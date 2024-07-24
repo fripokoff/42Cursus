@@ -8,7 +8,8 @@ MLX_FLAGS = -L mlx -l mlx -I mlx -lXext -lX11 -lm -lz
 SRC_PATH=src/so_long/
 MLIB = ar -rcs
 
-SRCS = so_long.c utils.c parsing.c
+SRCS = so_long.c utils.c parsing.c pos.c check_map.c\
+		window.c hooks.c moves.c build_map.c images.c\
 
 OBJS = $(addprefix $(SRC_PATH),$(SRCS:.c=.o))
 
@@ -28,46 +29,69 @@ GNL = src/get_next_line
 GNL_MAKE = make -s -C $(GNL)
 GNL_PATH = $(GNL)/get_next_line.a
 
-all : copy_mlx $(NAME) $(LIBFT_PATH) $(MLX_PATH) $(PRINTF_PATH) $(GNL_PATH)
+WIDTH	:= $(shell xdpyinfo | grep dim | awk '{print $$2}' | awk -Fx '{print $$1}')
+HEIGHT	:= $(shell xdpyinfo | grep dim | awk '{print $$2}' | awk -Fx '{print $$2}')
+IMGS	:= "$(shell find * | grep .xpm | grep sprites)"
+MACROS	:= -DSCREEN_WIDTH=$(WIDTH) -DSCREEN_HEIGHT=$(HEIGHT) -DIMGS="\$(IMGS)\"
+
+all : setup_mlx $(NAME)
+		@echo "So_long has been successfully compiled!"
 
 $(NAME) : $(AR) $(LIBFT_PATH) $(MLX_PATH) $(PRINTF_PATH) $(GNL_PATH)
-	$(CC) $(AR) $(LIBFT_PATH) $(MLX_PATH) $(PRINTF_PATH) $(GNL_PATH) -o $(NAME) $(MLX_FLAGS)
+	@echo "Linking..."
+	@$(CC) $(AR) $(LIBFT_PATH) $(MLX_PATH) $(PRINTF_PATH) $(GNL_PATH) -o $(NAME) $(MLX_FLAGS) $(MACROS)
 	
-copy_mlx:
-	cp mlx/mlx.h inc
-	cp mlx/mlx_int.h inc
 
 $(AR) : $(OBJS)
-	$(MLIB) $(AR) $(OBJS)
+	@echo "Creating archive..."
+	@$(MLIB) $(AR) $(OBJS)
 
 %.o : %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@ $(MACROS)
 
 $(LIBFT_PATH) :
-	$(LIBFT_MAKE)
+	@echo "Compiling libft..."
+	@$(LIBFT_MAKE)
 
 $(MLX_PATH) :
-	$(MLX_MAKE)
+	@echo "Compiling MLX..."
+	@$(MLX_MAKE) > /dev/null 2>&1
 
 $(PRINTF_PATH) :
-	$(PRINTF_MAKE)
+	@echo "Compiling ft_printf..."
+	@$(PRINTF_MAKE)
 
 $(GNL_PATH) :
-	$(GNL_MAKE)
+	@echo "Compiling get_next_line..."
+	@$(GNL_MAKE)
 
 clean :
-	$(RM) $(OBJS) $(AR)
-	$(LIBFT_MAKE) clean
-	$(MLX_MAKE) clean
-	$(PRINTF_MAKE) clean
-	$(GNL_MAKE) clean
+	@echo "Cleaning..."
+	@$(RM) $(OBJS) $(AR)
+	@echo "So_long Cleaned"
+	@$(LIBFT_MAKE) clean
+	@echo "Libft Cleaned"
+	@if [ -d "mlx" ]; then $(MLX_MAKE) clean > /dev/null 2>&1; fi
+	@echo "Mlx Cleaned"
+	@$(PRINTF_MAKE) clean
+	@echo "Printf Cleaned"
+	@$(GNL_MAKE) clean
+	@echo "Gnl Cleaned"
 
 fclean : clean
-	$(RM) $(NAME)
-	$(LIBFT_MAKE) fclean
-	$(PRINTF_MAKE) fclean
-	$(GNL_MAKE) fclean
-	rm -rf $(MLX_PATH)
+	@echo "Full cleaning..."
+	@$(RM) $(NAME)
+	@$(LIBFT_MAKE) fclean
+	@$(PRINTF_MAKE) fclean
+	@$(GNL_MAKE) fclean
+	@if [ -d "mlx" ]; then rm -rf mlx; fi
+
+setup_mlx:
+	@echo "Extracting MLX files..."
+	@mkdir -p mlx
+	@tar -zxf mlx.tgz -C mlx > /dev/null
+	@rsync -av mlx/minilibx-linux/ mlx/ > /dev/null
+	@rm -rf mlx/minilibx-linux
 
 re : fclean all
 
