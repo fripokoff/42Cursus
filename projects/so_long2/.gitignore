@@ -1,8 +1,0 @@
-libft/.git
-*.o
-*.a
-so_long
-obj/*.o
-.vscode
-mlx
-*.swp
