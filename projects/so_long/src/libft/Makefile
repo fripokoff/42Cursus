@@ -27,7 +27,7 @@ OBJ	=	$(SRC:.c=.o)
 
 BONUS_O	= $(B_SRC:.c=.o)
 
-CC			= gcc
+CC			= cc
 RM			= rm -rf
 AR			= ar rc
 RN			= ranlib

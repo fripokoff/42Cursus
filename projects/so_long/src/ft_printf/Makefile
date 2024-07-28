@@ -18,7 +18,7 @@ NAME	=	ft_printf.a
 
 OBJ	=	$(SRC:.c=.o)
 
-CC			= gcc
+CC			= cc
 RM			= rm -rf
 AR			= ar rc
 RN			= ranlib

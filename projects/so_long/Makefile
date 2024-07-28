@@ -1,6 +1,6 @@
 NAME = so_long
 AR = $(NAME).a
-CC = gcc
+CC = cc
 RM = rm -f
 
 CFLAGS = -Wall -Wextra -Werror -I./inc
@@ -84,14 +84,11 @@ fclean : clean
 	@$(LIBFT_MAKE) fclean
 	@$(PRINTF_MAKE) fclean
 	@$(GNL_MAKE) fclean
-	@if [ -d "mlx" ]; then rm -rf mlx; fi
+	@if [ -d "mlx" ]; then rm -rf mlx && echo "Mlx deleted"; fi
 
 setup_mlx:
-	@echo "Extracting MLX files..."
-	@mkdir -p mlx
-	@tar -zxf mlx.tgz -C mlx > /dev/null
-	@rsync -av mlx/minilibx-linux/ mlx/ > /dev/null
-	@rm -rf mlx/minilibx-linux
+	@echo "Cloning mlx... https://github.com/42Paris/minilibx-linux.git"
+	@if [ -d "mlx" ]; then echo "Mlx already imported in the project.";else git clone --quiet https://github.com/42Paris/minilibx-linux.git mlx; fi
 
 re : fclean all
 

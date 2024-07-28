@@ -18,7 +18,7 @@ NAME	=	get_next_line.a
 
 OBJ	=	$(SRC:.c=.o)
 
-CC			= gcc
+CC			= cc
 RM			= rm -rf
 AR			= ar rc
 RN			= ranlib

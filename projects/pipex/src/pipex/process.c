@@ -68,7 +68,7 @@ static void	ft_parent_process(t_pipex *pipex, int i)
 		pipex->prev_fd = -1;
 	}
 	pipex->prev_fd = pipex->fd[0];
-	if (i == pipex->cmds_count - 1)
+	if (i == pipex->cmds_count - 1 && pipex->fd[0] != -1)
 	{
 		close(pipex->fd[0]);
 		pipex->fd[0] = -1;

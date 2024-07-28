@@ -91,18 +91,23 @@ static char	**get_map(char *file_content)
 	return (map);
 }
 
-static void	check_file(char *map_file)
+static char	*check_file(char *map_file)
 {
-	int	len;
-	int	fd;
+	int		len;
+	int		fd;
+	char	*file_content;
 
 	len = ft_strlen(map_file);
-	if (!ft_strnstr(map_file, ".ber", len) || len < 4)
+	if (len < 4 || ft_strncmp(map_file + (len - 4), ".ber", len) != 0)
 		exit_error("The extension of the mapfile has to be '.ber'");
 	fd = open(map_file, O_RDONLY);
 	if (fd == -1)
 		exit_error("Access or rights issue with the mapfile");
 	close(fd);
+	file_content = get_file_content(map_file);
+	if (file_content == NULL)
+		exit_error("Reading the mapfile");
+	return (file_content);
 }
 
 char	**get_map_by_file(char *file_name)
@@ -112,10 +117,7 @@ char	**get_map_by_file(char *file_name)
 	t_pos	size;
 	t_pos	i;
 
-	check_file(file_name);
-	file_content = get_file_content(file_name);
-	if (file_content == NULL)
-		exit_error("Reading the mapfile");
+	file_content = check_file(file_name);
 	map = get_map(file_content);
 	size = get_map_size(map);
 	i = get_pos(0, 0);
@@ -124,6 +126,7 @@ char	**get_map_by_file(char *file_name)
 		if ((map[0][i.x] != '1' && map[0][i.x] != 0)
 			|| (map[size.y - 1][i.x] != '1' && map[size.y - 1][i.x] != 0)
 			|| (map[i.y][0] != '1' && map[i.y][0] != 0)
+			|| (map[size.y - 1][size.x - 1] != '1')
 			|| (map[i.y][size.x - 1] != '1' && map[i.y][size.x -1] != 0))
 		{
 			ft_free(map);
