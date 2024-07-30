@@ -12,8 +12,15 @@
 
 #include "so_long.h"
 
-void	exit_error(char *msg)
+void	exit_error(char *msg, bool do_free, char *s_char, char **d_char)
 {
+	if (do_free)
+	{
+		if (s_char)
+			free(s_char);
+		if (d_char)
+			ft_free(d_char);
+	}
 	printf("Error \n%s\n", msg);
 	exit(EXIT_FAILURE);
 }

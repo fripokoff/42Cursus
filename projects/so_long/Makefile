@@ -71,7 +71,7 @@ clean :
 	@echo "So_long Cleaned"
 	@$(LIBFT_MAKE) clean
 	@echo "Libft Cleaned"
-	@if [ -d "mlx" ]; then $(MLX_MAKE) clean > /dev/null 2>&1; fi
+	@if [ -d "mlx/obj" ]; then $(MLX_MAKE) clean > /dev/null 2>&1; fi
 	@echo "Mlx Cleaned"
 	@$(PRINTF_MAKE) clean
 	@echo "Printf Cleaned"

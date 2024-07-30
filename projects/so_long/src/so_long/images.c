@@ -40,7 +40,7 @@ static void	set_img_name(t_settings *settings, char **imgs_name, int i)
 		free_imgs_objs(settings, i);
 		free(settings->imgs);
 		free_game(settings, true, false, true);
-		exit_error("Opening or read-right issue with a .xpm image");
+		exit_error("Opening/read-right issue with a .xpm", true, NULL, NULL);
 	}
 }
 
@@ -56,7 +56,7 @@ static void	set_img_obj(t_settings *settings, char **imgs_name, int i)
 		free_imgs_objs(settings, i);
 		free(settings->imgs);
 		free_game(settings, true, false, true);
-		exit_error("Malloc issue during an img creation from an .xpm file");
+		exit_error("Malloc issue (img creation from .xpm)", false, NULL, NULL);
 	}
 }
 
@@ -75,7 +75,7 @@ static void	set_imgs(t_settings *settings, char **imgs_name)
 			free_imgs_objs(settings, i);
 			free(settings->imgs);
 			free_game(settings, true, false, true);
-			exit_error("A sprites's img does't end up with .xpm extention");
+			exit_error("A img does't end up with .xpm", false, NULL, NULL);
 		}
 		set_img_name(settings, imgs_name, i);
 		set_img_obj(settings, imgs_name, i);
@@ -90,7 +90,7 @@ void	init_images(t_settings *settings)
 	if (imgs_name == NULL)
 	{
 		free_game(settings, true, false, true);
-		exit_error("Malloc issue during set_images from env var IMGS");
+		exit_error("Malloc issue (env var IMGS)", false, NULL, NULL);
 	}
 	settings->imgs_count = 0;
 	while (imgs_name[settings->imgs_count])
@@ -101,7 +101,7 @@ void	init_images(t_settings *settings)
 	{
 		ft_free(imgs_name);
 		free_game(settings, true, false, true);
-		exit_error("Malloc issue");
+		exit_error("Malloc issue", false, NULL, NULL);
 	}
 	set_imgs(settings, imgs_name);
 	free(imgs_name);

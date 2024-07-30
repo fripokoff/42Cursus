@@ -101,10 +101,7 @@ static char	**duplicate_map(char **map)
 	size = get_map_size(map);
 	map_duplicated = malloc(sizeof(char *) * (size.y + 1));
 	if (map_duplicated == NULL)
-	{
-		ft_free(map);
-		exit_error("Malloc issue");
-	}
+		exit_error("Malloc issue", true, NULL, map);
 	i = -1;
 	while (map[++i])
 	{
@@ -112,8 +109,7 @@ static char	**duplicate_map(char **map)
 		if (map_duplicated == NULL)
 		{
 			ft_free(map);
-			ft_free(map_duplicated);
-			exit_error("Malloc issue");
+			exit_error("Malloc issue", true, NULL, map_duplicated);
 		}
 	}
 	map_duplicated[i] = NULL;

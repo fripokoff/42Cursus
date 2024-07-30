@@ -77,7 +77,7 @@ typedef struct s_settings
 }	t_settings;
 
 char	**get_map_by_file(char *file_name);
-void	exit_error(char *msg);
+void	exit_error(char *msg, bool free, char *s_char, char **d_char);
 t_pos	get_pos(int x, int y);
 t_pos	get_map_size(char **map);
 void	check_map(char **map);

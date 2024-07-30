@@ -16,10 +16,7 @@ void	init_window(t_settings *settings)
 {
 	settings->mlx_var = mlx_init();
 	if (settings->mlx_var == NULL)
-	{
-		ft_free(settings->map);
-		exit_error("Mlx init issue");
-	}
+		exit_error("Mlx init issue", true, NULL, settings->map);
 	settings->window = mlx_new_window(settings->mlx_var,
 			settings->map_size.x * SPRITES_SIZE,
 			settings->map_size.y * SPRITES_SIZE, GAME_NAME);
@@ -27,7 +24,6 @@ void	init_window(t_settings *settings)
 	{
 		mlx_destroy_display(settings->mlx_var);
 		free(settings->mlx_var);
-		ft_free(settings->map);
-		exit_error("Window issue");
+		exit_error("Window issue", true, NULL, settings->map);
 	}
 }
