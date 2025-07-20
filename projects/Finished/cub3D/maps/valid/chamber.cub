@@ -1,0 +1,13 @@
+NO ./textures/cardinal/NO.xpm
+SO ./textures/cardinal/SO.xpm
+WE ./textures/cardinal/WE.xpm
+EA ./textures/cardinal/EA.xpm
+
+F 220,100,0
+C 225,30,0
+
+1111111
+1000001
+100N001
+1000001
+1111111

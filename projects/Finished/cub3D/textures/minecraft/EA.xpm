@@ -1,0 +1,32 @@
+/* XPM */
+static char *tile4[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 10 1 ",
+"  c #181425",
+". c #221928",
+"X c #23243B",
+"o c #3E2731",
+"O c #262B44",
+"+ c #2D3350",
+"@ c #BE4A2F",
+"# c #F77622",
+"$ c #FEAE34",
+"% c #FEE761",
+/* pixels */
+"..O#@oX. @#oO O ",
+"#$@$#@OX@#$+X O$",
+"+o++$#@@#%+o +#@",
+"X  Xo$##$@+XX @ ",
+"+X  O%%$#$@X+@O ",
+"O+Xoo#oOX#$@@#XO",
+" OOo%oX  X ##$# ",
+"%$$%$oX XOX$%$$%",
+"  #$#@oOOX@#$## ",
+" +oo$#@@##$%## o",
+"+XX+#%#Xo   #%X+",
+"o  X#$ o    o$ X",
+"..O#@OX     .@$#",
+"#@@$#oO +  #$#@$",
+"+o+@$ oo  #@+o++",
+"X   @o   #@ X   "
+};

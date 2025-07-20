@@ -1,0 +1,7 @@
+/obj/
+/obj/*
+/includes/mlx/
+/includes/mlx/*
+cub3D
+*.o
+*.a

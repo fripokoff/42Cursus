@@ -1,0 +1,14 @@
+NO textures/cardinal/NO.xpm
+SO textures/cardinal/SO.xpm
+WE textures/cardinal/WE.xpm
+EA textures/cardinal/EA.xpm
+
+F 220,100,100
+C 225,30,0
+
+111111111111111111
+1000000000--*00001
+100111111111111111
+1010111
+1001001
+11111111111111111
