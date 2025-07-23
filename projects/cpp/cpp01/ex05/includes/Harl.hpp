@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/20 16:12:12 by kpires            #+#    #+#             */
-/*   Updated: 2025/07/23 10:21:13 by kpires           ###   ########.fr       */
+/*   Created: 2025/07/21 15:40:01 by kpires            #+#    #+#             */
+/*   Updated: 2025/07/23 18:42:42 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_CLASS_H
-#define WEAPON_CLASS_H
+#pragma once
 
 #include <iostream>
 
-class	Weapon {
+class Harl{
 
-	private:
-		std::string	type;
-	
-	public:
-		Weapon(const std::string& type);
-		~Weapon();
-
-		const std::string& getType() const;
-		void setType(const std::string& newType);
+    public:
+        Harl();
+        void complain(std::string level);
+        ~Harl();
+    
+    private:
+        void debug ( void );
+        void info ( void );
+        void warning ( void );
+        void error( void );
+        std::string levels[4];
+        void (Harl::*complaints[4])(void);
 };
-
-
-#endif

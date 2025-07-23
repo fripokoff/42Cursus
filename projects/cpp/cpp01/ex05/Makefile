@@ -6,11 +6,11 @@
 #    By: kpires <kpires@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/06 18:43:08 by kpires            #+#    #+#              #
-#    Updated: 2025/07/23 11:54:23 by kpires           ###   ########.fr        #
+#    Updated: 2025/07/23 18:38:38 by kpires           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	zombie
+NAME		=	harl2
 
 CC			=	c++
 
@@ -19,7 +19,7 @@ CFLAGS		=	-Wall -Werror -Wextra -std=c++98
 # directories
 SRC_DIR		=	src/
 OBJ_DIR		=	obj/
-INC_DIR		=	include/
+INC_DIR		=	includes/
 
 # controll codes
 RESET		=	\033[0m
@@ -30,8 +30,7 @@ RED			=	\033[31m
 UP			=	\033[A
 CUT			=	\033[K
 
-SRC_FILES	=	main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
-
+SRC_FILES	=	main.cpp Harl.cpp
 OBJ_FILES	=	$(SRC_FILES:.cpp=.o)
 
 SRC			=	$(addprefix $(SRC_DIR), $(SRC_FILES))
@@ -55,15 +54,15 @@ $(OBJ_DIR)%.o:$(SRC_DIR)%.cpp
 clean:
 	@if [ -d "$(OBJ_DIR)" ]; then \
 	rm -rf $(OBJ_DIR); \
-	echo "$(BLUE)Deleting all objects from /ex00...$(RESET)"; else \
-	echo "No objects to remove from /ex00."; \
+	echo "$(BLUE)Deleting all objects from /ex05...$(RESET)"; else \
+	echo "No objects to remove from /ex05."; \
 	fi;
 
 fclean: clean
 	@if [ -f "$(NAME)" ]; then \
 	rm -f $(NAME); \
-	echo "$(BLUE)Deleting $(NAME) from ex00...$(RESET)"; else \
-	echo "No Executable to remove from ex00."; \
+	echo "$(BLUE)Deleting $(NAME) from ex05...$(RESET)"; else \
+	echo "No Executable to remove from ex05."; \
 	fi;
 
 re: fclean all
