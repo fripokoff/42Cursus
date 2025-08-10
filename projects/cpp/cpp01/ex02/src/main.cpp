@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 15:40:01 by kpires            #+#    #+#             */
-/*   Updated: 2025/07/21 16:34:16 by kpires           ###   ########.fr       */
+/*   Updated: 2025/08/10 20:35:29 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,12 @@ int main(){
     std::cout << "str : " << str << std::endl;
     std::cout <<  "stringPTR : " << *stringPTR << std::endl;
     std::cout << "stringREF : " << stringREF << std::endl;
+
+    std::cout << "---------------" << std::endl;
+    std::cout << "REF MODIFIED :" << std::endl;
+    stringREF = "Modified";
+    std::cout << "stringREF : " << stringREF << std::endl;
+    std::cout <<  "stringPTR : " << *stringPTR << std::endl;
+    std::cout << "str : " << str << std::endl;
     return (0);
 }
