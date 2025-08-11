@@ -6,11 +6,11 @@
 #    By: kpires <kpires@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/06 18:43:08 by kpires            #+#    #+#              #
-#    Updated: 2025/07/24 12:09:18 by kpires           ###   ########.fr        #
+#    Updated: 2025/08/11 20:25:48 by kpires           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	HarlFilter
+NAME		=	harlFilter
 
 CC			=	c++
 

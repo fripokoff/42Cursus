@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 11:23:14 by kpires            #+#    #+#             */
-/*   Updated: 2025/07/24 12:29:30 by kpires           ###   ########.fr       */
+/*   Updated: 2025/08/11 20:28:32 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,15 @@ Harl::~Harl() {}
 
 void Harl::switchCase(int id){
     switch (id) {
-        case 1:
+        case 0:
             Harl::debug();
-        case 2:
+        case 1:
             Harl::info();
-        case 3:
+        case 2:
             Harl::warning();
-        case 4:
+        case 3:
             Harl::error();
+            break;
         default:
             std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
     }
@@ -39,15 +40,13 @@ void Harl::switchCase(int id){
 
 void Harl::complain(std::string level){
 
-    bool found = false;
     for(int i = 0; i < 4; i++){
-        if (level == this->levels[i] || found){
-            switchCase(i + 1);
-            found = true;
+        if (level == this->levels[i]){
+            switchCase(i);
             return ;
         }
     }
-    switchCase(0);
+    switchCase(-1);
     return ;
 }
 

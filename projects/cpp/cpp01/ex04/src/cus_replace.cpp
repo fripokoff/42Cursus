@@ -6,11 +6,11 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 11:23:14 by kpires            #+#    #+#             */
-/*   Updated: 2025/07/23 18:03:11 by kpires           ###   ########.fr       */
+/*   Updated: 2025/08/11 20:18:53 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.hpp"
+#include "sed.hpp"
 
 std::string cus_replace(const std::string str, const std::string &to_replace, const std::string &replace_by){
 
