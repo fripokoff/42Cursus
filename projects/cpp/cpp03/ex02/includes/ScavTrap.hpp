@@ -6,11 +6,12 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 11:38:29 by kpires            #+#    #+#             */
-/*   Updated: 2025/08/08 18:01:35 by kpires           ###   ########.fr       */
+/*   Updated: 2025/08/12 10:06:38 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
 
 #include <iostream>
 #include "ClapTrap.hpp"
@@ -27,3 +28,5 @@ class ScavTrap : public ClapTrap {
         void attack(const std::string &target);
         void	guardGate();
 };
+
+#endif
