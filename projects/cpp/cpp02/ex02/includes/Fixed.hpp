@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 11:38:29 by kpires            #+#    #+#             */
-/*   Updated: 2025/08/12 10:05:36 by kpires           ###   ########.fr       */
+/*   Updated: 2025/08/13 13:39:11 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ class Fixed{
         int toInt( void ) const;
 };
 
+/*insert operator for object*/
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
 
 #endif

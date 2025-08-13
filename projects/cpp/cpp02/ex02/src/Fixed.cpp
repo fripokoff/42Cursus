@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 11:38:39 by kpires            #+#    #+#             */
-/*   Updated: 2025/08/11 20:31:04 by kpires           ###   ########.fr       */
+/*   Updated: 2025/08/13 13:42:43 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,13 +90,17 @@ Fixed Fixed::operator-(const Fixed& o) const{
 
     Fixed result;
 
-    long long temp = static_cast<long long>(_val) * o._val;
-    result.setRawBits(static_cast<int>(temp >> _fractBits));
-    return result;
+    result.setRawBits(this->_val - o._val);
+    return (result);
 }
 
 Fixed Fixed::operator/(const Fixed& o) const{
     Fixed result;
+
+    if (o._val == 0) {
+        std::cerr << "Error: division by zero" << std::endl;
+        return 0;
+    }
 
     long long temp = (static_cast<long long>(_val) << _fractBits) / o._val;
     result.setRawBits(static_cast<int>(temp));

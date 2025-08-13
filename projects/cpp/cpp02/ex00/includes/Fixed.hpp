@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 11:38:29 by kpires            #+#    #+#             */
-/*   Updated: 2025/08/12 10:05:05 by kpires           ###   ########.fr       */
+/*   Updated: 2025/08/13 12:09:22 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,13 @@ class Fixed{
         static const int _fractBits = 8;
 
     public:
+        /*Canonical*/
         Fixed();
         Fixed( const Fixed & o );
         Fixed & operator=(const Fixed & o);
         ~Fixed();
+
+        /*Accessors*/
         int getRawBits( void ) const;
         void setRawBits (int const raw);
 };

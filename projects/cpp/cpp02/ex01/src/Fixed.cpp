@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 11:38:39 by kpires            #+#    #+#             */
-/*   Updated: 2025/07/30 12:31:24 by kpires           ###   ########.fr       */
+/*   Updated: 2025/08/13 13:39:05 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ int Fixed::toInt( void ) const{
     return _val >> _fractBits;
 }
 
+/*insert operator for object*/
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed) {
     os << fixed.toFloat();
     return os;
