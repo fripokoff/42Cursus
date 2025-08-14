@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 13:09:41 by kpires            #+#    #+#             */
-/*   Updated: 2025/08/12 13:11:26 by kpires           ###   ########.fr       */
+/*   Updated: 2025/08/14 20:55:27 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class WrongCat : public WrongAnimal{
         WrongCat &operator=(const WrongCat &o);
         ~WrongCat();
 
-        void makeSound() const;
+        void makeSound( void ) const;
 };
 
 #endif

@@ -6,50 +6,52 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 10:12:34 by kpires            #+#    #+#             */
-/*   Updated: 2025/08/12 10:43:47 by kpires           ###   ########.fr       */
+/*   Updated: 2025/08/14 20:52:36 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal() : type("Animal"){
-    announce("Constructor animal called");
+Animal::Animal() : _type("Animal"){
+    announce("Animal Constructor called");
 }
 
-Animal::Animal(std::string type) : type(type){
-    announce("Constructor name animal called");
+Animal::Animal(std::string type) : _type(type){
+    announce("Animal Constructor type called");
 }
 
 Animal::~Animal(){
-     announce("Destructor animal called");
+     announce("Animal Destructor called");
 }
 
-Animal::Animal(const Animal &o) : type(o.getType()){
-    *this = o;
-    announce("Animal copied.");
+Animal::Animal(const Animal &o) : _type(o._type){
+    announce("Animal copy constructor called.");
 }
 
 Animal &Animal::operator=(const Animal &o){
     if (this != & o){
-        type = o.getType();
+        _type = o._type;
     }
     announce("Animal Copy assignment operator called");
     return *this;
 }
 
-void Animal::makeSound() const{
-    announce("Grr");
+void Animal::makeSound( void ) const{
+    announce("ZZzzzZZZzzz");
 }
 
-std::string Animal::getType() const{
-    return this->type;
-}
-
-void Animal::setType(std::string newType)
-{
-    type = newType;
+const std::string &Animal::getType( void ) const{
+    return this->_type;
 }
 
 void Animal::announce(std::string msg) const{
-    std::cout << type << ": " << msg << std::endl;
+    std::string emoji;
+
+    if (_type == "Dog")
+        emoji = "🐶";
+    else if (_type == "Cat")
+        emoji = "🐱";
+    else
+        emoji = "🐾";
+    std::cout << emoji << " " << _type << ": " << msg << std::endl;
 }

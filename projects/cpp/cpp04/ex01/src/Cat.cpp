@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 10:12:34 by kpires            #+#    #+#             */
-/*   Updated: 2025/08/12 11:26:22 by kpires           ###   ########.fr       */
+/*   Updated: 2025/08/14 21:51:12 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,35 @@
 
 Cat::Cat() : Animal("Cat"){
     announce("Constructor Cat called");
+    this->_brain = new Brain();
 }
 
 Cat::~Cat(){
      announce("Destructor Cat called");
+     delete _brain;
 }
 
-Cat::Cat(const Cat &o) : Animal("Cat"){
-    type = o.getType();
+Cat::Cat(const Cat &o) : Animal(o._type){
+    _type = o.getType();
+    _brain = new Brain(*o.getBrain()); 
     announce("Cat copied.");
 }
 
-Cat &Cat::operator=(const Cat &o){
-    if (this != & o){
-        type = o.getType();
+Cat &Cat::operator=(Cat const &o)
+{
+    announce("Cat Assignation operator called");
+    if (this != &o)
+    {
+        this->_type = o._type;
+        if (_brain)
+            delete _brain;
+        _brain = new Brain(*o.getBrain());
     }
-    announce("Cat Copy assignment operator called");
-    return *this;
+    return (*this);
 }
 
 void Cat::makeSound() const{
     announce("Miaou Miaou");
 }
+
+Brain *Cat::getBrain() const { return this->_brain; }

@@ -6,14 +6,12 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 10:10:34 by kpires            #+#    #+#             */
-/*   Updated: 2025/08/12 14:31:26 by kpires           ###   ########.fr       */
+/*   Updated: 2025/08/14 18:43:44 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DOG_HPP
 #define DOG_HPP
-
-#include <iostream>
 
 #include "Animal.hpp"
 
@@ -25,7 +23,7 @@ class Dog : public Animal{
         Dog &operator=(const Dog &o);
         ~Dog();
 
-        void makeSound() const;
+        void makeSound( void ) const;
 };
 
 #endif

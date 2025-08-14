@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   AAnimal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,41 +10,41 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 
-Animal::Animal() : _type("Animal"){
-    announce("Animal Constructor called");
+AAnimal::AAnimal(){
+    announce("AAnimal Constructor called");
 }
 
-Animal::Animal(std::string type) : _type(type){
-    announce("Animal Constructor type called");
+AAnimal::AAnimal(std::string type) : _type(type){
+    announce("AAnimal Constructor type called");
 }
 
-Animal::~Animal(){
-     announce("Animal Destructor called");
+AAnimal::~AAnimal(){
+     announce("AAnimal Destructor called");
 }
 
-Animal::Animal(const Animal &o) : _type(o._type){
-    announce("Animal copy constructor called.");
+AAnimal::AAnimal(const AAnimal &o) : _type(o._type){
+    announce("AAnimal copy constructor called.");
 }
 
-Animal &Animal::operator=(const Animal &o){
+AAnimal &AAnimal::operator=(const AAnimal &o){
     if (this != & o){
         _type = o._type;
     }
-    announce("Animal Copy assignment operator called");
+    announce("AAnimal Copy assignment operator called");
     return *this;
 }
 
-void Animal::makeSound( void ) const{
+void AAnimal::makeSound( void ) const{
     announce("ZZzzzZZZzzz");
 }
 
-const std::string &Animal::getType( void ) const{
+const std::string &AAnimal::getType( void ) const{
     return this->_type;
 }
 
-void Animal::announce(std::string msg) const{
+void AAnimal::announce(std::string msg) const{
     std::string emoji;
 
     if (_type == "Dog")

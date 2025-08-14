@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 12:59:03 by kpires            #+#    #+#             */
-/*   Updated: 2025/08/12 13:08:09 by kpires           ###   ########.fr       */
+/*   Updated: 2025/08/14 21:42:31 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class WrongAnimal {
 
     protected:
-        std::string type;
+        std::string _type;
     
     public:
         WrongAnimal();
@@ -28,9 +28,8 @@ class WrongAnimal {
         virtual ~WrongAnimal();
 
         void announce(std::string msg) const;
-        virtual void makeSound() const;
-        std::string getType() const;
-        void setType(std::string newType);
+        void makeSound( void ) const;
+        const std::string &getType( void ) const;
 };
 
 #endif

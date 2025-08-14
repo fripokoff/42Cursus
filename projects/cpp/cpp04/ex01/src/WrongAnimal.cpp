@@ -6,51 +6,49 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 13:02:11 by kpires            #+#    #+#             */
-/*   Updated: 2025/08/12 13:07:26 by kpires           ###   ########.fr       */
+/*   Updated: 2025/08/14 20:53:53 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal() : type("WrongAnimal"){
-    announce("Constructor WrongAnimal called");
+WrongAnimal::WrongAnimal() : _type("WrongAnimal"){
+    announce("WrongAnimal Constructor  called");
 }
 
-WrongAnimal::WrongAnimal(std::string type) : type(type){
-    announce("Constructor name WrongAnimal called");
+WrongAnimal::WrongAnimal(std::string type) : _type(type){
+    announce("WrongAnimal Constructor name called");
 }
 
 WrongAnimal::~WrongAnimal(){
-    announce("Destructor WrongAnimal called");
+    announce("WrongAnimal Destructor called");
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal &o) : type(o.getType()){
-    *this = o;
+WrongAnimal::WrongAnimal(const WrongAnimal &o) : _type(o._type){
     announce("WrongAnimal copied.");
 }
 
 WrongAnimal &WrongAnimal::operator=(const WrongAnimal &o){
-    if(this != & o){
-        type = o.getType();
-    }
+    if (this != &o)
+		_type = o._type;
     announce("WrongAnimal Copy assignment operator called");
     return *this;
 }
 
-void WrongAnimal::makeSound() const{
-    announce("Wrong Grr");
+void WrongAnimal::makeSound( void ) const{
+    announce("ZZzzzZZZzzz");
     return ;
 }
 
-std::string WrongAnimal::getType() const{
-    return this->type;
+const std::string &WrongAnimal::getType( void ) const{
+    return this->_type;
 }
 
-void WrongAnimal::setType(std::string newType){
-    type = newType;
-    return ;
-}
-
-void WrongAnimal::announce(std::string msg) const{
-    std::cout << type << ": " << msg << std::endl;
+void WrongAnimal::announce(std::string msg) const {
+    std::string emoji;
+    if (_type == "WrongCat")
+        emoji = "❌🐱";
+    else
+        emoji = "❌🐾";
+    std::cout << emoji << " " << _type << ": " << msg << std::endl;
 }

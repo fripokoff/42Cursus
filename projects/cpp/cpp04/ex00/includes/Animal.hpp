@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 10:10:34 by kpires            #+#    #+#             */
-/*   Updated: 2025/08/12 13:10:45 by kpires           ###   ########.fr       */
+/*   Updated: 2025/08/14 18:46:30 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class Animal{
 
     protected:
-        std::string type;
+        std::string _type;
 
     public:
         Animal();
@@ -28,9 +28,8 @@ class Animal{
         virtual ~Animal();
 
         void announce(std::string msg) const;
-        virtual void makeSound()const;
-        std::string getType() const;
-        void setType(std::string newType);
+        virtual void makeSound( void )const;
+        const std::string &getType( void ) const;
 };
 
 #endif
