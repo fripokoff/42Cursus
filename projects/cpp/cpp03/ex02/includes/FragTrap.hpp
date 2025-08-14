@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 11:38:29 by kpires            #+#    #+#             */
-/*   Updated: 2025/08/12 10:06:30 by kpires           ###   ########.fr       */
+/*   Updated: 2025/08/14 14:09:20 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class FragTrap : public ClapTrap {
         FragTrap &operator=(const FragTrap &o);
         ~FragTrap();
 
-        void	highFivesGuys(void);
+        void	highFivesGuys( void );
 };
 
 #endif

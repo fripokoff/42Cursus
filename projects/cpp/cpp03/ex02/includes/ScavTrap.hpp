@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 11:38:29 by kpires            #+#    #+#             */
-/*   Updated: 2025/08/12 10:06:38 by kpires           ###   ########.fr       */
+/*   Updated: 2025/08/14 14:09:08 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class ScavTrap : public ClapTrap {
         ~ScavTrap();
 
         void attack(const std::string &target);
-        void	guardGate();
+        void	guardGate( void );
 };
 
 #endif

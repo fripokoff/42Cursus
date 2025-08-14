@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 08:41:54 by kpires            #+#    #+#             */
-/*   Updated: 2025/08/14 07:18:37 by kpires           ###   ########.fr       */
+/*   Updated: 2025/08/14 12:38:28 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap &other){
 	return (*this);
 }
 
-void ScavTrap::guardGate() const{
+void ScavTrap::guardGate( void ) const{
 	if (getHit() <= 0)
 		std::cout << "ScavTrap " << getName() << " is dead and can't be in Gate keeper mode" << std::endl;
 	else

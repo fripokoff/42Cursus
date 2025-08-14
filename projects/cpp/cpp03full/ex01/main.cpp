@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 11:36:49 by kpires            #+#    #+#             */
-/*   Updated: 2025/08/14 07:18:37 by kpires           ###   ########.fr       */
+/*   Updated: 2025/08/14 13:36:30 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ int main(void)
 	ScavTrap a("fabien");
 	ClapTrap c("optimus prime");
 	ScavTrap b("maria");
-	ScavTrap g("lolilol");
+	ScavTrap g(a);
+
+
 
 	std::cout << std::endl;
 	g = a;

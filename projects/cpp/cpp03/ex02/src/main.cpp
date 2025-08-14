@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 11:34:10 by kpires            #+#    #+#             */
-/*   Updated: 2025/08/09 15:42:05 by kpires           ###   ########.fr       */
+/*   Updated: 2025/08/14 14:21:45 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int main(void) {
 
 	character3.attack("Cat");
 	character4.takeDamage(0);
+	character4.attack("Cat");
 
 	character3.takeDamage(2);
 	character3.takeDamage(20);

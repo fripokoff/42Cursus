@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 11:34:10 by kpires            #+#    #+#             */
-/*   Updated: 2025/08/09 15:37:35 by kpires           ###   ########.fr       */
+/*   Updated: 2025/08/14 14:24:00 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,20 @@ int main(void) {
 	ScavTrap character1;
 	ScavTrap character2("Nyan");
 
+	ClapTrap character4("Hylo");
+
+	character4.attack("Nyan");
 	character1.attack("Nyan");
+
+	character1.attack("Hylo");
+	character4.takeDamage(20);
 	character2.takeDamage(0);
 
 	character1.takeDamage(2);
 	character1.takeDamage(20);
 	character1.beRepaired(1);
-	character1.beRepaired(2);
+	character4.beRepaired(2);
+	character2.attack("Hylo");
 
 	character1.guardGate();
 	character1.guardGate();
