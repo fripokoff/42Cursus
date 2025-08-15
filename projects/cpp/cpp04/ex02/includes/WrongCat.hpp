@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 13:09:41 by kpires            #+#    #+#             */
-/*   Updated: 2025/08/14 20:55:27 by kpires           ###   ########.fr       */
+/*   Updated: 2025/08/15 13:06:51 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class WrongCat : public WrongAnimal{
         std::string type;
     
     public:
-        WrongCat();
+        WrongCat( void );
         WrongCat(const WrongCat &o);
         WrongCat &operator=(const WrongCat &o);
         ~WrongCat();

@@ -6,19 +6,25 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 10:12:34 by kpires            #+#    #+#             */
-/*   Updated: 2025/08/14 21:14:33 by kpires           ###   ########.fr       */
+/*   Updated: 2025/08/15 13:13:23 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat() : Animal("Cat"){
+/*============ CONSTRUCTOR ============*/
+
+Cat::Cat( void ) : Animal("Cat"){
     announce("Constructor Cat called");
 }
+
+/*============ DESTRUCTOR ============*/
 
 Cat::~Cat(){
      announce("Destructor Cat called");
 }
+
+/*============ COPY ASSIGN ============*/
 
 Cat::Cat(const Cat &o) : Animal(o._type){
     _type = o.getType();
@@ -32,6 +38,8 @@ Cat &Cat::operator=(const Cat &o){
     return *this;
 }
 
-void Cat::makeSound() const{
+/*============ METHODS ============*/
+
+void Cat::makeSound( void ) const{
     announce("Miaou Miaou");
 }

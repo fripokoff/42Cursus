@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 10:19:28 by kpires            #+#    #+#             */
-/*   Updated: 2025/08/14 22:35:46 by kpires           ###   ########.fr       */
+/*   Updated: 2025/08/15 11:21:50 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main(void)
 {
     AAnimal *animals[10];
     
-    // Animal test;
+    // AAnimal test;
 
     std::cout << "------➕ CREATING PROCESS ➕-----" << std::endl << std::endl;
 

@@ -12,7 +12,9 @@
 
 #include "AAnimal.hpp"
 
-AAnimal::AAnimal(){
+/*============ CONSTRUCTOR ============*/
+
+AAnimal::AAnimal( void ): _type("AAnimal") {
     announce("AAnimal Constructor called");
 }
 
@@ -20,9 +22,13 @@ AAnimal::AAnimal(std::string type) : _type(type){
     announce("AAnimal Constructor type called");
 }
 
+/*============ DESTRUCTOR ============*/
+
 AAnimal::~AAnimal(){
      announce("AAnimal Destructor called");
 }
+
+/*============ COPY ASSIGN ============*/
 
 AAnimal::AAnimal(const AAnimal &o) : _type(o._type){
     announce("AAnimal copy constructor called.");
@@ -36,9 +42,7 @@ AAnimal &AAnimal::operator=(const AAnimal &o){
     return *this;
 }
 
-void AAnimal::makeSound( void ) const{
-    announce("ZZzzzZZZzzz");
-}
+/*============ METHODS ============*/
 
 const std::string &AAnimal::getType( void ) const{
     return this->_type;

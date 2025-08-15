@@ -6,19 +6,25 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 10:12:34 by kpires            #+#    #+#             */
-/*   Updated: 2025/08/14 21:14:20 by kpires           ###   ########.fr       */
+/*   Updated: 2025/08/15 13:13:28 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog() : Animal("Dog"){
+/*============ CONSTRUCTOR ============*/
+
+Dog::Dog( void ) : Animal("Dog"){
     announce("Dog Constructor called");
 }
+
+/*============ DESTRUCTOR ============*/
 
 Dog::~Dog(){
      announce("Dog Destructor called");
 }
+
+/*============ COPY ASSIGN ============*/
 
 Dog::Dog(const Dog &o) : Animal(o._type){
     _type = o._type;
@@ -31,6 +37,8 @@ Dog &Dog::operator=(const Dog &o){
     announce("Dog Copy assignment operator called");
     return *this;
 }
+
+/*============ METHODS ============*/
 
 void Dog::makeSound( void ) const{
     announce("Waf Waf");

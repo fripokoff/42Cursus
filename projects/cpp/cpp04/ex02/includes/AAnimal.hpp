@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 10:10:34 by kpires            #+#    #+#             */
-/*   Updated: 2025/08/14 22:16:27 by kpires           ###   ########.fr       */
+/*   Updated: 2025/08/15 13:05:50 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class AAnimal{
         std::string _type;
 
     public:
-        AAnimal();
+        AAnimal( void );
         AAnimal(std::string type);
         AAnimal(const AAnimal &o);
         AAnimal &operator=(const AAnimal &o);

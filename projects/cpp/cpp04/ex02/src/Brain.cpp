@@ -6,19 +6,25 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 10:12:34 by kpires            #+#    #+#             */
-/*   Updated: 2025/08/14 21:22:16 by kpires           ###   ########.fr       */
+/*   Updated: 2025/08/15 13:06:04 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Brain.hpp"
 
-Brain::Brain() {
+/*============ CONSTRUCTOR ============*/
+
+Brain::Brain( void ) {
     std::cout <<  "🧠 Brain Constructor called" << std::endl;
 }
+
+/*============ DESTRUCTOR ============*/
 
 Brain::~Brain(){
     std::cout <<  "🧠 Brain Destructor called" << std::endl;
 }
+
+/*============ COPY ASSIGN ============*/
 
 Brain::Brain(const Brain &o) {
     *this = o;
@@ -33,6 +39,8 @@ Brain &Brain::operator=(const Brain &o){
     std::cout << "🧠 Brain Copy assignment operator called" << std::endl;
     return *this;
 }
+
+/*============ METHODS ============*/
 
 void Brain::setIdea(int index, std::string idea)
 {

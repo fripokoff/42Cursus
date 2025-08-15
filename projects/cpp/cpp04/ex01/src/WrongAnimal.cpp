@@ -6,13 +6,15 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 13:02:11 by kpires            #+#    #+#             */
-/*   Updated: 2025/08/14 20:53:53 by kpires           ###   ########.fr       */
+/*   Updated: 2025/08/15 13:12:22 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal() : _type("WrongAnimal"){
+/*============ CONSTRUCTOR ============*/
+
+WrongAnimal::WrongAnimal( void ) : _type("WrongAnimal"){
     announce("WrongAnimal Constructor  called");
 }
 
@@ -20,9 +22,13 @@ WrongAnimal::WrongAnimal(std::string type) : _type(type){
     announce("WrongAnimal Constructor name called");
 }
 
+/*============ DESTRUCTOR ============*/
+
 WrongAnimal::~WrongAnimal(){
     announce("WrongAnimal Destructor called");
 }
+
+/*============ COPY ASSIGN ============*/
 
 WrongAnimal::WrongAnimal(const WrongAnimal &o) : _type(o._type){
     announce("WrongAnimal copied.");
@@ -34,6 +40,8 @@ WrongAnimal &WrongAnimal::operator=(const WrongAnimal &o){
     announce("WrongAnimal Copy assignment operator called");
     return *this;
 }
+
+/*============ METHODS ============*/
 
 void WrongAnimal::makeSound( void ) const{
     announce("ZZzzzZZZzzz");

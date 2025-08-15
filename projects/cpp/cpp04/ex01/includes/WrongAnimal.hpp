@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 12:59:03 by kpires            #+#    #+#             */
-/*   Updated: 2025/08/14 21:42:25 by kpires           ###   ########.fr       */
+/*   Updated: 2025/08/15 13:14:02 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class WrongAnimal {
         std::string _type;
     
     public:
-        WrongAnimal();
+        WrongAnimal( void );
         WrongAnimal(std::string type);
         WrongAnimal(const WrongAnimal &o);
         WrongAnimal &operator=(const WrongAnimal &o);

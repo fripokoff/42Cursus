@@ -1,4 +1,4 @@
-NAME		=	poly
+NAME		=	abstract
 
 CC			=	c++
 

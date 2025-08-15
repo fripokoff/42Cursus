@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 10:19:28 by kpires            #+#    #+#             */
-/*   Updated: 2025/08/14 21:48:29 by kpires           ###   ########.fr       */
+/*   Updated: 2025/08/15 12:48:39 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int main(void)
 
 	WrongAnimal*  WrongCat1 = new WrongCat();
 	const WrongAnimal*  WrongCat2 = new WrongCat();
-	WrongCat wc;
 
     const WrongAnimal* WrongAnimal1 = new WrongAnimal();
 
@@ -38,10 +37,10 @@ int main(void)
 	Animal1->makeSound();
 	Dog2->makeSound();
 	Cat2->makeSound();
+	std::cout << std::endl << "-----WRONG PART WITHOUT VIRTUAL ------" << std::endl;
 	WrongCat1->makeSound();
 	WrongCat2->makeSound();
     WrongAnimal1->makeSound();
-	wc.makeSound();
 	std::cout << std::endl;
 
     std::cout << "-----DECONSTRUCTOR PART------" << std::endl;
@@ -53,6 +52,4 @@ int main(void)
 	delete WrongCat2;
 	delete WrongCat1;
     delete WrongAnimal1;
-	std::cout << std::endl;
-	std::cout << std::endl;
 }

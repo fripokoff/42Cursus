@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 10:19:28 by kpires            #+#    #+#             */
-/*   Updated: 2025/08/14 22:19:57 by kpires           ###   ########.fr       */
+/*   Updated: 2025/08/15 10:44:18 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,24 +80,23 @@ int main(void)
     dog1.announce(dogBrain->getIdea(0));
     cat1.announce(dogBrain->getIdea(0));
 
-    dog1.announce(dogBrain->getIdea(100));
-    cat1.announce(dogBrain->getIdea(100));
+    dog1.announce(dogBrain->getIdea(99));
+    cat1.announce(dogBrain->getIdea(99));
 
     dog1.announce(dogBrain->getIdea(-105));
-    dog1.announce(dogBrain->getIdea(2147483647));
+    cat1.announce(dogBrain->getIdea(2147483647));
 
 
     std::cout << std::endl << "------🧠 DEEP COPY TEST 🧠-----" << std::endl << std::endl;
 
     Dog basic;
-    {
-        Dog tmp = basic;
-        tmp.getBrain()->setIdea(0, "I am a temporary dog");
-        basic.getBrain()->setIdea(0, "I am the basic dog");
 
-        std::cout << "tmp idea: " << tmp.getBrain()->getIdea(0) << std::endl;
-        std::cout << "basic idea: " << basic.getBrain()->getIdea(0) << std::endl;
-    }
+    Dog tmp = basic;
+    tmp.getBrain()->setIdea(0, "I am a temporary dog");
+    basic.getBrain()->setIdea(0, "I am the basic dog");
+
+    std::cout << "tmp idea: " << tmp.getBrain()->getIdea(0) << std::endl;
+    std::cout << "basic idea: " << basic.getBrain()->getIdea(0) << std::endl;
 
     std::cout << "basic idea after tmp destruction: " << basic.getBrain()->getIdea(0) << std::endl;
 

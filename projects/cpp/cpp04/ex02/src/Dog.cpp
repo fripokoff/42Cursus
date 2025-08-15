@@ -6,21 +6,27 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 10:12:34 by kpires            #+#    #+#             */
-/*   Updated: 2025/08/14 22:15:35 by kpires           ###   ########.fr       */
+/*   Updated: 2025/08/15 13:06:22 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog() : AAnimal("Dog"){
+/*============ CONSTRUCTOR ============*/
+
+Dog::Dog( void ) : AAnimal("Dog"){
     announce("Dog Constructor called");
     this->_brain = new Brain();
 }
+
+/*============ DESTRUCTOR ============*/
 
 Dog::~Dog(){
      announce("Dog Destructor called");
      delete _brain;
 }
+
+/*============ COPY ASSIGN ============*/
 
 Dog::Dog(const Dog &o) : AAnimal(o._type){
     _type = o._type;
@@ -41,8 +47,10 @@ Dog &Dog::operator=(Dog const &o)
     return (*this);
 }
 
+/*============ METHODS ============*/
+
 void Dog::makeSound( void ) const{
     announce("Waf Waf");
 }
 
-Brain *Dog::getBrain() const { return this->_brain; }
+Brain *Dog::getBrain( void ) const { return this->_brain; }
