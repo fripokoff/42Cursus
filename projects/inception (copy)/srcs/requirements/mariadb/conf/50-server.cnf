@@ -1,0 +1,7 @@
+[mysqld]
+
+bind-address = 0.0.0.0
+
+skip-name-resolve
+
+datadir = /var/lib/mysql

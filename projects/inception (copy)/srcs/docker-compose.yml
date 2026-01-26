@@ -1,0 +1,96 @@
+services:
+  # -----------------
+  # Service MariaDB
+  # -----------------
+  mariadb:
+    build:
+      context: ./requirements/mariadb
+      dockerfile: Dockerfile
+    image: mariadb:inception # Utilise le tag spécifique de l'utilisateur
+    container_name: mariadb
+    env_file:
+      - .env
+    secrets:
+      - mysql_root_password
+      - mysql_password
+    volumes:
+      - mariadb_volume:/var/lib/mysql
+    restart: unless-stopped # Nouvelle politique de redémarrage
+    networks:
+      - inception_network
+    
+  # -----------------
+  # Service WordPress (PHP-FPM)
+  # -----------------
+  wordpress:
+    build:
+      context: ./requirements/wordpress
+      dockerfile: Dockerfile
+    image: wordpress:inception # Tag spécifique
+    container_name: wordpress
+    env_file:
+      - .env
+    secrets:
+      - mysql_password
+      - wp_admin_password
+      - wp_password
+    volumes:
+      - wordpress_volume:/var/www/html
+    restart: unless-stopped
+    # Démarre APRÈS MariaDB (connexion à la DB)
+    depends_on:
+      - mariadb
+    networks:
+      - inception_network
+    
+  # -----------------
+  # Service NGINX (Reverse Proxy / TLS)
+  # -----------------
+  nginx:
+    build:
+      context: ./requirements/nginx
+      dockerfile: Dockerfile
+    image: nginx:inception # Tag spécifique
+    container_name: nginx
+    env_file:
+      - .env
+    volumes:
+      # Partage le même volume que WordPress pour servir les fichiers
+      - wordpress_volume:/var/www/html
+    restart: unless-stopped
+    # Démarre APRÈS WordPress (redirection vers PHP-FPM)
+    depends_on:
+      - wordpress
+    networks:
+      - inception_network
+    # SEUL port exposé à l'extérieur (port 443 pour HTTPS)
+    ports:
+      - "443:443"
+
+# Définition du réseau et des volumes
+networks:
+  inception_network:
+    name: inception_network 
+    driver: bridge
+
+volumes:
+  # Volumes définis explicitement avec le driver local et l'option bind (méthode robuste)
+  mariadb_volume:
+    driver: local
+  wordpress_volume:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/fripok/data/wordpress
+
+# Définition des secrets Docker
+secrets:
+  mysql_root_password:
+    file: ../secrets/mysql_root_password.txt
+  mysql_password:
+    file: ../secrets/mysql_password.txt
+  wp_admin_password:
+    file: ../secrets/wp_admin_password.txt
+  wp_password:
+    file: ../secrets/wp_password.txt

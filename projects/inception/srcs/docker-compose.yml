@@ -1,0 +1,77 @@
+services:
+  # -----------------
+  # Service MariaDB
+  # -----------------
+  mariadb:
+    build:
+      context: ./requirements/mariadb
+      dockerfile: Dockerfile
+    image: mariadb:inception
+    container_name: mariadb
+    env_file:
+      - .env
+    expose: 
+    - "3306"
+    volumes:
+      - mariadb_volume:/var/lib/mysql
+    restart: unless-stopped
+    networks:
+      - inception_network
+    
+  # -----------------
+  # Service WordPress (PHP-FPM)
+  # -----------------
+  wordpress:
+    build:
+      context: ./requirements/wordpress
+      dockerfile: Dockerfile
+    image: wordpress:inception
+    container_name: wordpress
+    env_file:
+      - .env
+    expose:
+      - "9000"
+    volumes:
+      - wordpress_volume:/var/www/html
+    restart: unless-stopped
+    depends_on:
+      - mariadb
+    networks:
+      - inception_network
+    
+  # -----------------
+  # Service NGINX (Reverse Proxy / TLS)
+  # -----------------
+  nginx:
+    build:
+      context: ./requirements/nginx
+      dockerfile: Dockerfile
+    image: nginx:inception
+    container_name: nginx
+    env_file:
+      - .env
+    volumes:
+      - wordpress_volume:/var/www/html
+    restart: unless-stopped
+    depends_on:
+      - wordpress
+    networks:
+      - inception_network
+    ports:
+      - "443:443"
+
+# Définition du réseau et des volumes
+networks:
+  inception_network:
+    name: inception_network 
+    driver: bridge
+
+volumes:
+  mariadb_volume:
+    driver: local
+  wordpress_volume:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/fripok/data/wordpress
