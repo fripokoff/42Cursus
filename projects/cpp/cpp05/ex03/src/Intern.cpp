@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 14:50:57 by kpires            #+#    #+#             */
-/*   Updated: 2026/01/20 17:56:30 by kpires           ###   ########.fr       */
+/*   Updated: 2026/01/27 11:44:05 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static AForm* createPresidential(std::string const &target) {
 
 const char* Intern::FormUnknownException::what() const throw()
 {
-    return "Form name unknown";
+    return "this form is unknown.";
 }
 
 
@@ -64,6 +64,7 @@ AForm* Intern::makeForm(std::string const &form, std::string const &target)
             return creators[i](target);
         }
     }
-    
+
+    std::cout << "Form name '" << form << "' ";
     throw FormUnknownException();
 }

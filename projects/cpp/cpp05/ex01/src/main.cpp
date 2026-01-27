@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 12:31:43 by kpires            #+#    #+#             */
-/*   Updated: 2026/01/20 17:28:08 by kpires           ###   ########.fr       */
+/*   Updated: 2026/01/27 12:01:41 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,7 @@ int main()
     Form        form1("Form1", 30, 1);
     Form        form2("Form2", 10, 1);
 
-    std::cout << std::endl;
-	std::cout << form1;
-	std::cout << form2;
-    std::cout << std::endl;
+	std::cout << std::endl << form1 << std::endl << form2 << std::endl;
 
     try
     {
@@ -68,7 +65,6 @@ int main()
     try
     {
         b2.signForm(form1);
-        b2.signForm(form2);
     }
     catch (std::exception& e)
     {
@@ -87,22 +83,20 @@ int main()
         std::cout << "Unable to sign form because " << e.what() << std::endl;
     }
 
-    std::cout << std::endl << "=== Test: Signature d'un formulaire déjà signé ===" << std::endl;
+    std::cout << std::endl;
+    
     try
     {
-        b2.signForm(form1);
+        b2.signForm(form2);
     }
     catch (std::exception& e)
     {
         std::cout << "Exception: " << e.what() << std::endl;
     }
 
-    std::cout << std::endl;
+   
 
-	std::cout << std::endl;
-	std::cout << form1;
-	std::cout << form2;
-    std::cout << std::endl;
+	std::cout << std::endl << form1 << std::endl << form2 << std::endl;
 
 	return 0;
 }

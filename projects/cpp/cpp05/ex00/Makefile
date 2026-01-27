@@ -6,7 +6,7 @@
 #    By: kpires <kpires@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/20 12:30:30 by kpires            #+#    #+#              #
-#    Updated: 2025/08/20 12:31:24 by kpires           ###   ########.fr        #
+#    Updated: 2026/01/27 10:23:55 by kpires           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME		=	bureaucrat
 
 CC			=	c++
 
-CFLAGS		=	-Wall -Werror -Wextra -std=c++98
+CFLAGS		=	-Wall -Werror -Wextra -std=c++98 -MMD -MP
 
 # directories
 SRC_DIR		=	src/

@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 12:31:43 by kpires            #+#    #+#             */
-/*   Updated: 2026/01/20 17:47:58 by kpires           ###   ########.fr       */
+/*   Updated: 2026/01/27 11:54:28 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int main()
     }
     catch (std::exception& e)
     {
-        std::cout << "❌[MAIN]❌ Exception: " << e.what() << std::endl;
+        std::cout << "Exception: " << e.what() << std::endl;
     }
     
     try
@@ -37,7 +37,7 @@ int main()
     }
     catch (std::exception& e)
     {
-        std::cout << "❌[MAIN]❌ Exception: " << e.what() << std::endl;
+        std::cout << "Exception: " << e.what() << std::endl;
     }
     std::cout << std::endl;
 
@@ -55,23 +55,23 @@ int main()
     Bureaucrat  grade_150("Grade 150", 150);
     std::cout << grade_150 << std::endl << std::endl;
 
-    std::cout << "=== TEST 3: Forms Creation ===" << std::endl;
+
     PresidentialPardonForm    pardonForm("Bob");
     RobotomyRequestForm       robotomyForm("Snow");
     ShrubberyCreationForm     shrubberyForm("Angel");
-    std::cout << std::endl;
 
-    std::cout << "=== TEST 4: Execute UNSIGNED form ===" << std::endl;
+
+    std::cout << "=== TEST 3: Execute UNSIGNED form ===" << std::endl;
     try
     {
         grade_1.executeForm(pardonForm);
     } catch (std::exception& e)
     {
-        std::cout << "❌[MAIN]❌ Exception: " << e.what() << std::endl;
+        std::cout << "Exception: " << e.what() << std::endl;
     }
     std::cout << std::endl;
 
-    std::cout << "=== TEST 5: Signing Forms ===" << std::endl;
+    std::cout << "=== TEST 4: Signing Forms ===" << std::endl;
     try
     {
         grade_150.signForm(pardonForm);
@@ -80,28 +80,40 @@ int main()
     }
     catch (std::exception& e)
     {
-        std::cout << "❌[MAIN]❌ Exception: " << e.what() << std::endl;
+        std::cout << "Exception: " << e.what() << std::endl;
     }
     std::cout << std::endl;
 
     try{
+        grade_150.signForm(shrubberyForm);
         grade_80.signForm(shrubberyForm);
+        grade_20.signForm(shrubberyForm);
+    }
+    catch (std::exception& e)
+    {
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
+    std::cout << std::endl;
+
+    try{
+        grade_150.signForm(robotomyForm);
+        grade_80.signForm(robotomyForm);
         grade_20.signForm(robotomyForm);
     }
     catch (std::exception& e)
     {
-        std::cout << "❌[MAIN]❌ Exception: " << e.what() << std::endl;
+        std::cout << "Exception: " << e.what() << std::endl;
     }
     std::cout << std::endl;
 
-    std::cout << "=== TEST 6: Execute with insufficient grade ===" << std::endl;
+    std::cout << "=== TEST 5: Execute with insufficient grade ===" << std::endl;
     try
     {
         grade_150.executeForm(pardonForm);
     }
     catch (std::exception& e)
     {
-        std::cout << "❌[MAIN]❌ Exception: " << e.what() << std::endl;
+        std::cout << "Exception: " << e.what() << std::endl;
     }
     
     try
@@ -110,11 +122,11 @@ int main()
     }
     catch (std::exception& e)
     {
-        std::cout << "❌[MAIN]❌ Exception: " << e.what() << std::endl;
+        std::cout << "Exception: " << e.what() << std::endl;
     }
     std::cout << std::endl;
 
-    std::cout << "=== TEST 7: Successful Executions ===" << std::endl;
+    std::cout << "=== TEST 6: Successful Executions ===" << std::endl;
     try
     {
         grade_1.executeForm(pardonForm);
@@ -123,11 +135,11 @@ int main()
     }
     catch (std::exception& e)
     {
-        std::cout << "❌[MAIN]❌ Exception: " << e.what() << std::endl;
+        std::cout << "Exception: " << e.what() << std::endl;
     }
     std::cout << std::endl;
 
-    std::cout << "=== TEST 8: Multiple robotomyForm attempts ===" << std::endl;
+    std::cout << "=== TEST 7: Multiple robotomyForm attempts ===" << std::endl;
     for (int i = 0; i < 5; i++)
     {
         try
@@ -136,13 +148,13 @@ int main()
         }
         catch (std::exception& e)
         {
-            std::cout << "❌[MAIN]❌ Exception: " << e.what() << std::endl;
+            std::cout << "Exception: " << e.what() << std::endl;
         }
         usleep(500000);
     }
     std::cout << std::endl;
 
-    std::cout << "=== TEST 9: Execute UNSIGNED form (REAL EXCEPTION) ===" << std::endl;
+    std::cout << "=== TEST 8: Execute UNSIGNED form (REAL EXCEPTION) ===" << std::endl;
     try
     {
         PresidentialPardonForm unsignedForm("Alice");
@@ -150,7 +162,7 @@ int main()
     }
     catch (std::exception& e)
     {
-        std::cout << "❌[MAIN]❌ Exception: " << e.what() << std::endl;
+        std::cout << "Exception: " << e.what() << std::endl;
     }
     std::cout << std::endl;
     

@@ -6,13 +6,15 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 12:31:37 by kpires            #+#    #+#             */
-/*   Updated: 2026/01/20 17:18:42 by kpires           ###   ########.fr       */
+/*   Updated: 2026/01/27 10:25:18 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
+#include <string>
+#include <exception>
 
 class Bureaucrat {
 
