@@ -6,19 +6,13 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 12:31:39 by kpires            #+#    #+#             */
-/*   Updated: 2026/01/20 17:57:33 by kpires           ###   ########.fr       */
+/*   Updated: 2026/01/28 12:58:22 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
-
-AForm::AForm() 
-    :   _name("Default"),
-        _signed(false),
-        _gradeToSign(150),
-        _gradeToExec(150){
-    return ;
-}
+#include <iostream>
+#include <string>
 
 AForm::AForm(std::string const name, int _gradeToSign, int _gradeToExec)
     :   _name(name),

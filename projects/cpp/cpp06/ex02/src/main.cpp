@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 12:52:24 by kpires            #+#    #+#             */
-/*   Updated: 2026/01/21 15:08:04 by kpires           ###   ########.fr       */
+/*   Updated: 2026/02/02 16:52:55 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,28 @@
 # include "A.hpp"
 # include "B.hpp"
 # include "C.hpp"
+# include <ctime>
 # include <cstdlib>
 # include <exception>
+# include <iostream>
 
 Base* generate(void){
 
-    Base* base = NULL;
-    int rdmInt = rand() % 3;
+    int rdmInt = std::rand() % 3;
 
-    if (rdmInt == 0)
-        return (new A);
-    if (rdmInt == 1)
-        return (new B);
-    if (rdmInt == 2)
-        return (new C);
-
-    return base;
+    try {
+        if (rdmInt == 0)
+            return (new A);
+        if (rdmInt == 1)
+            return (new B);
+        if (rdmInt == 2)
+            return (new C);
+    } catch (std::bad_alloc& e)
+    {
+        std::cerr << "Memory allocation failed: " << e.what() << std::endl;
+        return NULL;
+    }
+    return NULL;
 }
 
 void identify(Base* p){
@@ -47,19 +53,19 @@ void identify(Base* p){
 void identify(Base& p){
 
     try {
-        (void)dynamic_cast<A&>(p);
+        dynamic_cast<A&>(p);
         std::cout << "A" << std::endl;
         return ;
     } catch (std::exception&) {}
 
     try {
-        (void)dynamic_cast<B&>(p);
+        dynamic_cast<B&>(p);
         std::cout << "B" << std::endl;
         return ;
     } catch (std::exception&) {}
 
     try {
-        (void)dynamic_cast<C&>(p);
+        dynamic_cast<C&>(p);
         std::cout << "C" << std::endl;
         return ;
     } catch (std::exception&) {}

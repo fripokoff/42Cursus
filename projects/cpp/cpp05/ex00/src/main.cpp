@@ -6,12 +6,13 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 12:31:43 by kpires            #+#    #+#             */
-/*   Updated: 2026/01/12 15:27:06 by kpires           ###   ########.fr       */
+/*   Updated: 2026/01/28 12:09:53 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-
+#include <iostream>
+#include <exception>
 
 int main()
 {

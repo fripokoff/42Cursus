@@ -6,7 +6,7 @@
 #    By: kpires <kpires@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/20 12:30:30 by kpires            #+#    #+#              #
-#    Updated: 2026/01/21 14:19:12 by kpires           ###   ########.fr        #
+#    Updated: 2026/02/02 15:28:30 by kpires           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME		=	base
 
 CC			=	c++
 
-CFLAGS		=	-Wall -Werror -Wextra -std=c++98
+CFLAGS		=	-Wall -Werror -Wextra -Wunused-value -std=c++98
 
 # directories
 SRC_DIR		=	src/

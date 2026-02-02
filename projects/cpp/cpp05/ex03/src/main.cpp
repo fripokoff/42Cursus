@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 12:31:43 by kpires            #+#    #+#             */
-/*   Updated: 2026/01/27 11:43:50 by kpires           ###   ########.fr       */
+/*   Updated: 2026/01/28 14:36:44 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "Intern.hpp"
+#include <ctime>
+#include <cstdlib>
+#include <iostream>
+#include <exception>
 
 int main()
 {
@@ -69,18 +73,19 @@ int main()
         std::cout << "Exception throw " << e.what() << std::endl;
     }
 
-    std::cout << std::endl << "=== TEST 3: Use created forms ===" << std::endl;
+    std::cout << std::endl << "=== TEST 3: Use created forms ===" << std::endl << std::endl;
 
-    AForm* forms[4] = {form1, form2, form3, form4};
+    AForm* forms[4] = {form1, form2, form4, form3};
 
     for(int i =0; i < 4; i++)
     {
         if(forms[i])
         {
-            std::cout << "Form " << i + 1 << std::endl;
+            std::cout << "Form " << *forms[i] << std::endl;
             bigBoss.signForm(*forms[i]);
             bigBoss.executeForm(*forms[i]);
-            std::cout << std::endl;
+            std::cout << std::endl << "Form " << *forms[i] << std::endl;
+            std::cout << "========================" << std::endl << std::endl;
         }
     }
 

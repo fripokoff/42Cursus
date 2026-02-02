@@ -11,12 +11,9 @@
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
-
-RobotomyRequestForm::RobotomyRequestForm()
-    :   AForm("RobotomyRequestForm", 72 , 45), _target("default")
-{
-    return ;
-}
+#include <iostream>
+#include <string>
+#include <cstdlib>
 
 RobotomyRequestForm::RobotomyRequestForm(std::string const target)
     :   AForm("RobotomyRequestForm", 72 , 45), _target(target)
@@ -55,7 +52,7 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor) const{
 
     std::cout << "✅ " << executor.getName() << ": executed " << this->getName() << std::endl;
 
-	if (rand() % 2 == 0)
+	if (std::rand() % 2 == 0)
 		std::cout << "✅ " << executor.getName() << ": " << "Drilling noises... " << this->getTarget() << " has been robotomized successfully. 🤖 ✅" << std::endl;
 	else
 		std::cout << "⛔ " << executor.getName() << ": " << "Drilling noises... " << this->getTarget() << " has failed to be robotomized. 🤖 ⛔" << std::endl; 

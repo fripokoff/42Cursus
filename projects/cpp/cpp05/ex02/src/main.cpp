@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 12:31:43 by kpires            #+#    #+#             */
-/*   Updated: 2026/01/27 11:54:28 by kpires           ###   ########.fr       */
+/*   Updated: 2026/01/28 12:33:53 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include <unistd.h>
+#include <cstdlib>
+#include <exception>
+#include <iostream>
+#include <ctime>
 
 int main()
 {

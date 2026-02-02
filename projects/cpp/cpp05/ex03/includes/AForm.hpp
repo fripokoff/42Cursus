@@ -6,13 +6,16 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 12:31:37 by kpires            #+#    #+#             */
-/*   Updated: 2026/01/20 17:55:13 by kpires           ###   ########.fr       */
+/*   Updated: 2026/01/28 14:03:19 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include "Bureaucrat.hpp"
+#include <iostream>
+#include <string>
+#include <exception>
 
 class Bureaucrat;
 
@@ -25,7 +28,6 @@ class AForm {
         int const           _gradeToExec;
     
     public:
-        AForm();
         AForm(std::string const name, int _gradeToSign, int _gradeToExec);
         AForm(AForm const &other);
         virtual ~AForm();

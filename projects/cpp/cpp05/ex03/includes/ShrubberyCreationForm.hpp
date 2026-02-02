@@ -6,14 +6,15 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 17:01:29 by kpires            #+#    #+#             */
-/*   Updated: 2026/01/20 17:55:13 by kpires           ###   ########.fr       */
+/*   Updated: 2026/01/28 14:03:26 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include "AForm.hpp"
-#include <fstream>
+#include <string>
+
 
 class ShrubberyCreationForm : public AForm{
 
@@ -21,7 +22,6 @@ class ShrubberyCreationForm : public AForm{
         std::string     _target;
 
     public:
-        ShrubberyCreationForm();
         ShrubberyCreationForm(std::string const target);
         ShrubberyCreationForm(ShrubberyCreationForm const &other);
         ~ShrubberyCreationForm();

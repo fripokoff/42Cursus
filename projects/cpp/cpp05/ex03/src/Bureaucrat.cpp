@@ -6,16 +6,15 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 12:31:39 by kpires            #+#    #+#             */
-/*   Updated: 2026/01/24 16:41:55 by kpires           ###   ########.fr       */
+/*   Updated: 2026/01/28 14:04:05 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
-
-Bureaucrat::Bureaucrat() : _name("Default"), _grade(150) {
-    return ;
-}
+#include <iostream>
+#include <string>
+#include <exception>
 
 Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name), _grade(grade){
     

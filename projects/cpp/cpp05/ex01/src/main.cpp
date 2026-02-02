@@ -6,12 +6,14 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 12:31:43 by kpires            #+#    #+#             */
-/*   Updated: 2026/01/27 12:01:41 by kpires           ###   ########.fr       */
+/*   Updated: 2026/01/28 12:40:38 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include <iostream>
+#include <exception>
 
 int main()
 {
@@ -24,6 +26,7 @@ int main()
 
 	std::cout << std::endl << form1 << std::endl << form2 << std::endl;
 
+    //invalid high grade
     try
     {
         Bureaucrat  invalidGrade("Jack", 0);
@@ -33,6 +36,7 @@ int main()
         std::cout << "Unable to create bureaucrat because " << e.what() << std::endl;
     }
 
+    //invalid low grade
     try
     {
         Bureaucrat  invalidGrade("Jack", 151);
@@ -42,6 +46,7 @@ int main()
         std::cout << "Unable to create bureaucrat because " << e.what() << std::endl << std::endl;
     }
 
+    //invalid high exec grade
     try
     {
         Form        invalid1("Form3", 149, 0);
@@ -50,9 +55,10 @@ int main()
     {
         std::cout << "Unable to create Form3 because " << e.what() << std::endl;
 
+        //invalid low exec grade
         try
         {
-            Form        invalid2("Form4", 151, 1);
+            Form        invalid2("Form4", 149, 151);
         }
         catch (std::exception& e)
         {

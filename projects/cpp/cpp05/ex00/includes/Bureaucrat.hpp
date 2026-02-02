@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 12:31:37 by kpires            #+#    #+#             */
-/*   Updated: 2026/01/27 10:25:18 by kpires           ###   ########.fr       */
+/*   Updated: 2026/01/28 14:01:23 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ class Bureaucrat {
         int         _grade;
     
     public:
-        Bureaucrat();
         Bureaucrat(std::string const name, int grade);
         Bureaucrat(Bureaucrat const &other);
         ~Bureaucrat();

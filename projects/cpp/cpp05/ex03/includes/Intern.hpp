@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 14:32:06 by kpires            #+#    #+#             */
-/*   Updated: 2026/01/27 11:28:00 by kpires           ###   ########.fr       */
+/*   Updated: 2026/01/28 12:11:49 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
-
+#include <string>
+#include <exception>
 
 class Intern
 {

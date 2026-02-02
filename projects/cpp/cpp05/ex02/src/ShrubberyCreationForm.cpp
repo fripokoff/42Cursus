@@ -6,16 +6,14 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 17:00:00 by kpires            #+#    #+#             */
-/*   Updated: 2026/01/27 10:25:57 by kpires           ###   ########.fr       */
+/*   Updated: 2026/01/28 12:56:50 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
-
-ShrubberyCreationForm::ShrubberyCreationForm()
-    :AForm("ShrubberyCreationForm", 145, 137), _target("default"){
-        return;
-}
+#include <iostream>
+#include <fstream>
+#include <string>
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string const target)
     :AForm("ShrubberyCreationForm", 145, 137), _target(target){
@@ -50,7 +48,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
     if(executor.getGrade() > this->getGradeToExec())
         throw AForm::GradeTooLowExcept();
 
-    std::ofstream out((executor.getName() + "_shrubbery").c_str());
+    std::ofstream out((this->getTarget() + "_shrubbery").c_str());
 	if (!out.is_open())
 		throw AForm::CantOpenFileExcept();
 

@@ -13,8 +13,7 @@
 #pragma once
 
 #include "AForm.hpp"
-#include <cstdlib>
-#include <ctime>
+#include <string>
 
 class RobotomyRequestForm : public AForm {
 
@@ -22,7 +21,6 @@ class RobotomyRequestForm : public AForm {
         std::string   _target;
     
     public:
-        RobotomyRequestForm();
         RobotomyRequestForm(std::string const target);
         RobotomyRequestForm(RobotomyRequestForm const &other);
         ~RobotomyRequestForm();

@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 11:14:46 by kpires            #+#    #+#             */
-/*   Updated: 2026/01/21 11:55:15 by kpires           ###   ########.fr       */
+/*   Updated: 2026/02/02 15:02:30 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ static bool isValidFormat(std::string const &str){
     if (str[i] == '0' && i + 1 < str.length() && str[i + 1] != '.' && str[i + 1] != 'f')
         return false;
     
-    for (i = i; i < str.length(); i++){
+    for (; i < str.length(); i++){
 
         if (isdigit(str[i])){
             hasDigit = true;
@@ -172,16 +172,8 @@ void ScalarConverter::convert(std::string const &str){
     }
 
     // convert string to double
-    errno = 0;
     char* endptr;
     double value = strtod(str.c_str(), &endptr);
 
-    if (errno == ERANGE || isinf(value)) {
-        std::cout << "char: impossible" << std::endl;
-        std::cout << "int: impossible" << std::endl;
-        std::cout << "float: impossible" << std::endl;
-        std::cout << "double: impossible" << std::endl;
-        return;
-    }
     displayAll(value);
 }

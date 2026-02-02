@@ -6,11 +6,13 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 14:50:57 by kpires            #+#    #+#             */
-/*   Updated: 2026/01/27 11:44:05 by kpires           ###   ########.fr       */
+/*   Updated: 2026/01/28 12:12:51 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
+#include <iostream>
+#include <string>
 
 Intern::Intern()
 {
