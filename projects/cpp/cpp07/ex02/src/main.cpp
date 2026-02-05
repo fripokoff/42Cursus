@@ -8,8 +8,8 @@
 int main(int, char**)
 {
     Array<int> empty;
+
     std::cout << "Empty array: Size: " << empty.size() << std::endl;
-    
     try {
         empty[0] = 0;
     }
@@ -19,31 +19,36 @@ int main(int, char**)
     }
 
 
-    std::cout << "\nArray with size [10]:" << std::endl;
-    Array<int> intArray(10);
-    std::cout << "Before: " << intArray << std::endl;
-    
-    for (unsigned int i = 0; i < intArray.size(); i++)
-        intArray[i] = i * 2;
-    
-    std::cout << "After:  " << intArray << std::endl;
 
-    
+    std::cout << "\nArray with size [10]:" << std::endl;
+
+    Array<int> intArray1(10);
+    std::cout << "Array1 Before: " << intArray1 << std::endl;
+    for (unsigned int i = 0; i < intArray1.size(); i++)
+        intArray1[i] = i * 2;
+    std::cout << "Array1 After:  " << intArray1 << std::endl;
+
+
+
     std::cout << "\nAssignment operator:" << std::endl;
+
     Array<int> intArray2(5);
     std::cout << "Array2 before: " << intArray2 << std::endl;
-    
-    intArray2 = intArray;
-    std::cout << "Array2 after:  " << intArray2 << std::endl;
+    intArray2 = intArray1;
+    std::cout << "Array2=Array1 :" << intArray2 << std::endl;
+
 
 
     std::cout << "\nDeep copy:" << std::endl;
+
     intArray2[0] = 999;
-    std::cout << "Array1[0]: " << intArray[0] << std::endl;
+    std::cout << "Array1[0]: " << intArray1[0] << std::endl;
     std::cout << "Array2[0]: " << intArray2[0] << std::endl;
 
 
+
     std::cout << "\nCopy constructor + destructor:" << std::endl;
+
     Array<int> numbers(MAX_VAL);
     int* mirror = new int[MAX_VAL];
     
@@ -69,9 +74,12 @@ int main(int, char**)
     std::cout << "Deep copy test passed!" << std::endl;
 
 
+
     std::cout << "\nOut of bounds exceptions:" << std::endl;
+
     try {
-        std::cout << "Valid access: " << numbers[5] << std::endl;
+        std::cout << "Valid access numbers[5]: " << numbers[5] << std::endl;
+        std::cout << "Valid access mirror[5]: " << mirror[5] << std::endl << std::endl;
     }
     catch(const std::exception& e) {
         std::cerr << "Out of bounds exception : " << e.what() << std::endl;

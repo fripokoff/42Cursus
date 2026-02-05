@@ -6,7 +6,7 @@
 /*   By: kpires <kpires@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 12:52:33 by kpires            #+#    #+#             */
-/*   Updated: 2026/02/04 11:16:29 by kpires           ###   ########.fr       */
+/*   Updated: 2026/02/05 14:06:17 by kpires           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int main( void ) {
 
     ::swap(c, d);
     std::cout << "c = " << c << ", d = " << d << std::endl;
+
     std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
     std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
 
